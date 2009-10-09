@@ -1,0 +1,8 @@
+# lines beginning with a '#' will be treated as comments
+3 91
+3 96
+3 91
+3 85
+3 93
+3 90
+3 99
