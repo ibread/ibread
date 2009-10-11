@@ -1,0 +1,51 @@
+#!/bin/bash
+#
+# @Description:
+#   
+#   check_lcc v0.2
+#
+#   Check Load_Cycle_Count from S.M.A.R.T info of your hard drive 
+#   when power on and off and Save them to $FILE in following format:
+#
+#          LCC         TIME
+#   ON   110044   18:05:00 2008-09-08
+#   OFF  110044   18:10:03 2008-09-08
+#
+#   "ON" indicates POWER ON while "OFF" indicates POWER OFF, LCC is
+#   exactly Load_Cycle_Count of your hard drive at TIME.
+#
+# @Usages:
+#   
+#   1. sudo vi /etc/init.d/check_lcc
+#   2. copy all the contents of this script to it
+#      *** Note that u need to modify "FILE" as what u want.
+#      save and quit.
+#   3. sudo chmod +x /etc/init.d/check_lcc
+#   4. sudo update-rc.d check_lcc start 1 2 . stop 99 0 6 .
+#   5. Have fun.
+#   
+#   This script was tested under Ubuntu 8.04.1.
+# 
+# @Author:
+#
+#   breaddawson@gmail.com
+#   2008/09/07
+
+FILE="/home/xugang/lcc_report.txt"
+STAT=`smartctl -a /dev/sda | grep 193 | sed -nr "s/.*[[:space:]]([[:digit:]]{1,})$/\1/p"`"\t "`date +'%T  %F'`
+
+case "$1" in
+start)
+    STAT="ON \t"$STAT
+    ;;
+stop)
+    STAT="OFF\t"$STAT
+    ;;
+*)
+    echo "Usages: $0 {start|stop}" >&2
+    exit 2
+    ;;
+esac
+
+echo -e $STAT >> $FILE
+
