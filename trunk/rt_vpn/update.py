@@ -10,7 +10,7 @@ def is_updated():
         sys.exit(1)
 
     # check if it is new
-    status = os.system("md5 cn_ipv4.lst > new_md5_sig && diff new_md5_sig md5_sig &> /dev/null")
+    status = os.system("md5 cn_ipv4.lst mac_cn_ip &> new_md5_sig && diff new_md5_sig md5_sig &> /dev/null")
     if status == 0:
         return 0
     else:
@@ -64,7 +64,7 @@ if __name__ == "__main__":
         update_ip_seg()
 
         print "* Updating md5 signature..."
-        os.system("md5 cn_ipv4.lst > md5_sig")
+        os.system("md5 cn_ipv4.lst mac_cn_ip.lst > md5_sig")
 
         print "* Done. New mac_cn_ipv4.lst is ready for route tables"
     else:
