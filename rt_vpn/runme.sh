@@ -54,20 +54,36 @@ cn_gateway ()
 
 }
 
+
+# print the help info
+print_help()
+{
+    echo "Route table config script"
+    echo "Usages: ./runme.sh [-u | -c | -h]"
+    echo " no params: set route table according to chinese ip and extra ip"
+    echo " -u: update chinese ip database before changing route table"
+    echo " -c: do nothing but clear previous added entires"
+    echo " -h: display this info"
+}
+
+# must be root to execute this script
 if [ $EUID -ne 0 ]; then
     echo "You must be root to run this script!"
     echo "Please try again."
     exit 1
 fi
 
+# this is flag to indicate if we'll do nothing except clearing route table
 only_clear=0
 
 # process arguments
 while [ $# -gt 0 ]
 do
     case $1 in
-        "up") ./update.py;;
-        "clear") only_clear=1;;
+        "-u") ./update.py;;
+        "-c") only_clear=1;;
+        "-h") print_help
+                    exit 0;;
         *) ;;
     esac
     shift
