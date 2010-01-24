@@ -23,7 +23,6 @@ def is_updated(out_file):
 
     # check if update is available or not
     status = os.system("md5 pre_cn_db.lst %s &> new_md5_sig && diff new_md5_sig md5_sig &> /dev/null" % (out_file) )
-    print "status=%d" % (status)
     return status
 
 def CIDR_2_dot_decimal(origin):
