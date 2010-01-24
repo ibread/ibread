@@ -95,6 +95,10 @@ log=route_log # Put your log filename here
 # clear the log
 > $log
 
+if [ ! -f cn_net_addr.lst ]; then
+   ./update.py
+fi 
+
 cn_gateway $cn_gw cn_net_addr.lst
 cn_gateway $cn_gw extra_ip.lst
 
