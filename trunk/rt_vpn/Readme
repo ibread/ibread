@@ -42,4 +42,4 @@
     Say we want to delete all route entires with gateway "192.168.0.1"
     
     1. Open runme.sh and find "Put your cn gateway here". Do it.
-    2. trigger "$ sudo ./runme.sh clear" 
+    2. trigger "sudo ./runme.sh clear" 

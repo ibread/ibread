@@ -61,7 +61,7 @@ print_help()
     echo "Route table config script"
     echo "Usages: ./runme.sh [-u | -c | -h]"
     echo " no params: set route table according to chinese ip and extra ip"
-    echo " -u: update chinese ip database before changing route table"
+    echo " -u: force to update chinese ip database before changing route table"
     echo " -c: do nothing but clear previous added entires"
     echo " -h: display this info"
 }
