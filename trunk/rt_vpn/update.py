@@ -10,6 +10,7 @@
 #           -d: Dot Deciaml format, 1.2.0.0 255.255.0.0
 #       3. cutomized output formats, such as the following format used for openvpn:
 #               push "route 1.2.0.0 255.255.0.0 net_gateway 5"
+
 import os,sys
 from optparse import OptionParser
 
@@ -27,13 +28,13 @@ def is_updated(out_file):
 
 def CIDR_2_dot_decimal(origin):
     '''
-    @desciption: given bit num of routing prefix, 
-                 such as "8" in "1.2.3.4/8",
-                 return its netmask as "255.0.0.0"
+    @desciption: given original net address in CIDR format 
+                 such as "1.2.3.4/8",
+                 return "1.2.3.4 255.0.0.0"
     @param:
-        len - length of routing prefix, which is the number after "/"
+        origin: original net address in CIDR format
     @return:
-        netmask as a string
+        net address and netmask as a string
     '''
     slash_pos = origin.find('/')
     if slash_pos == -1:
@@ -62,7 +63,7 @@ def update_ip_seg(out_file, CIDR=0, format="%s"):
         result = line[:line.find('/')]
         for i in range(zeroes):
             result += ".0" 
-        result += line[line.find('/'):]
+        result += line[line.find('/'):].strip()
 
         # which format?
         # 1.2.0.0/8 (CIDR) or 1.2.0.0 255.0.0.0 (dot decimal)?
@@ -75,7 +76,7 @@ def update_ip_seg(out_file, CIDR=0, format="%s"):
 if __name__ == "__main__":
     # add option parser
     parser = OptionParser()
-    parser.add_option("-c", dest="CIDR", action="store_true", default=False,
+    parser.add_option("-c", dest="CIDR", action="store_true", default=True,
                         help="use CIDR format: 1.2.0.0/16")
     parser.add_option("-d", dest="CIDR", action="store_true",
                         help="use Dot Decimal: 1.2.0.0 255.255.0.0")
@@ -109,7 +110,7 @@ if __name__ == "__main__":
     
     print "* Checking ip database..."
 
-    if force or is_updated(out_file):
+    if is_updated(out_file) or force:
         print "* Update available: ip database from apnic"
         print "* Preprocessing..."
         update_ip_seg(out_file, CIDR, out_format)
