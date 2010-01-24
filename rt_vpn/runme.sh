@@ -95,7 +95,7 @@ log=route_log # Put your log filename here
 # clear the log
 > $log
 
-cn_gateway $cn_gw mac_cn_ip.lst
+cn_gateway $cn_gw cn_net_addr.lst
 cn_gateway $cn_gw extra_ip.lst
 
 #change_def_route
