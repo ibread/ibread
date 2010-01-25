@@ -2,6 +2,7 @@
 # @file: update.py
 # @author: Zhiqiu Kong <breaddawson@gmail.com>
 # @date: Jan 24, 2010
+# @usage: Try ./update.py -h
 # @brief: This script is used to check retrieve the latest chinese ip database
 #       Here're several features:        
 #       1. Check if update is available (via md5_sum) 
