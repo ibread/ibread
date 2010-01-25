@@ -89,16 +89,16 @@ do
     shift
 done
 
-cn_gw=192.168.0.1 # Put your cn gateway here
-log=route_log # Put your log filename here
-
-# clear the log
-> $log
-
+# check if cn ip database exists
 if [ ! -f cn_net_addr.lst ]; then
    ./update.py
 fi 
 
+log=route_log # Put your log filename here
+# clear the log
+> $log
+
+cn_gw=$(head -n1 gateway.txt)
 cn_gateway $cn_gw cn_net_addr.lst
 cn_gateway $cn_gw extra_ip.lst
 

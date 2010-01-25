@@ -1,33 +1,24 @@
-* What is this script for?
-    This script is used for save throughput of vpn sever.
-    This is done by automatically change route table for you. Briefly speaking, after several moves, traffic related to Chinese ips will go through the original gateway before vpn connection is made. And only traffic related to websites abroad will be guided to use vpn connection.
+* What's this script for:
+    Set route table for vpn users. After this, traffic related to chinese ip will be guided to use your former gateway, such that throughput of vpn sever will be saved. :)
+
+* Files:
 
 * How to use?
-    All you need to do is 
-
-    1. open runme.sh and find "Put your cn gateway here", do it. Just like this:
-      cn_gw=192.168.0.1 
-
-    2. trigger the command below, then have fun.
-    
-    $ sudo ./runme.sh
-
-    sudo is necessary because we need to change route table. And don't be afraid of the messages poped up after the command above, yes, lots of entries are added into the route table. Take it easy, it won't blow up.
+    1. Put your former gateway at the *1st* line of gateway.txt, such as 192.168.0.1
+       Or trigger the following command *BEFORE* vpn connection is made.
+            route get 0.0.0.0 | grep "gateway" | grep -oE "([0-9]+\.){3}[0-9]+" > gateway.txt 
+    2. Trigger the following command:
+          sudo ./runme.sh
+    3. Have fun. 
 
 * Then why so many files?
-    cn_ip4.lst: ip database of China
-    mac_cn_ip.lst: ip database in Mac's route formate
-    md5_check: md5 sum of cn_ip4.lst
-    update.py: update ip database
+    cn_net_addr.lst: chinese ip database
+    extra_ip.lst: other ips you want to use your former gateway
+    gateway.txt: former gateway
+    runme.sh: main script, set gateway according to cn_net_addr.lst 
+    update.py: update cn_net_addr.lst 
+    md5_sig: md5 signature of cn_net_addr.lst
     
-    Here's the reason: We need to maintain the latest Chinese ip database which is downloaded from APNIC. Since it takes really a long time to download ip database under poor network enviroment, update operations are deactiavated in runme.sh by default.
-
-    $ ./update.py
-
-    And if you want to automatically update ip database before change route table, just trigger
-
-    $ sudo ./runme.sh up
-
 * I want to add route entries other than the list provided by APNIC.
     Put the hosts or nets in extra_ip.lst. Be careful of the format, the entries should look like this:
         64.233.189.0/24
@@ -35,11 +26,11 @@
         64.233.189.99
     DO NOT use abbreviate version like 64.233.189/24, MAC OS X tends to treat it as 64.233.0.189/24 and you will get screwed.
 
-* Quit a lot route entries are added. How should I do if I want to delete them?
+* How to clean route table 
 
     It is neccessary to clear your route table somtimes, for example, you forget to change the gateway before trigger runme.sh, or sth else stupid. "$ sudo route flush" is invented to do so but I found it did not work for me. So I just add another functionallity to runme.sh and you can use it by this: 
     
     Say we want to delete all route entires with gateway "192.168.0.1"
     
-    1. Open runme.sh and find "Put your cn gateway here". Do it.
-    2. trigger "sudo ./runme.sh clear" 
+    1. put the gateway you want to delete at the *1st* line of gateway.txt
+    2. trigger "sudo ./runme.sh -c" 
