@@ -17,7 +17,7 @@
     gateway.txt: former gateway
     runme.sh: main script, set gateway according to cn_net_addr.lst 
     update.py: update cn_net_addr.lst 
-    md5_sig: md5 signature of cn_net_addr.lst
+    last-modified: last-modified time to ip database
     
 * I want to add route entries other than the list provided by APNIC.
     Put the hosts or nets in extra_ip.lst. Be careful of the format, the entries should look like this:
