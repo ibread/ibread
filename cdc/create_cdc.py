@@ -99,11 +99,11 @@ def main():
         # these are not primary inputs
         if pi[i] in ["CK", "GND", "VDD"]:
             continue
-        dffs.append("I_DFF(CK, %s, %s)" % (pi[i], "H"+pi[i]))
+        dffs.append("I_DFF%d(CK, %s, %s)" % (i, pi[i], "H"+pi[i]))
         pi[i] = "G" + pi[i]
         
     for i in xrange(len(po)):
-        dffs.append("O_DFF(CK, %s, %s)" % ("H"+pi[i], pi[i]))
+        dffs.append("O_DFF%d(CK, %s, %s)" % (i, "H"+pi[i], pi[i]))
         po[i] = "G" + po[i]
             
     # output module
