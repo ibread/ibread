@@ -129,7 +129,7 @@ def main():
     for d in dffs:
         (instance, pins) = d.split('(')
         pins = map(lambda x: x.strip(), pins.rstrip(');').split(','))
-        fout.write("SDFFNSR %s (.CK(%s), .D(%s), .Q(%s), .SI(%s), .SE(%s));\n" %  
+        fout.write("SDFFNSR SEND_%s (.CK(%s), .D(%s), .Q(%s), .SI(%s), .SE(%s));\n" %  
                             (instance, "send_"+pins[0], "send_"+pins[2], "send_"+pins[1], 
                             last_input, "scan_enable"))
         last_input = pins[1]
@@ -137,7 +137,7 @@ def main():
     for d in dffs:
         (instance, pins) = d.split('(')
         pins = map(lambda x: x.strip(), pins.rstrip(');').split(','))
-        fout.write("SDFFNSR %s (.CK(%s), .D(%s), .Q(%s), .SI(%s), .SE(%s));\n" %  
+        fout.write("SDFFNSR RECV_%s (.CK(%s), .D(%s), .Q(%s), .SI(%s), .SE(%s));\n" %  
                             (instance, "recv_"+pins[0], "recv_"+pins[2], "recv_"+pins[1], 
                             last_input, "scan_enable"))
         
