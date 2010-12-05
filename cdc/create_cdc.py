@@ -207,7 +207,7 @@ def main():
 
     fout.write("endmodule\n")
     
-    fout.write("//# %d DFFs" % (len(mid_dffs) + len(dffs)))
+    fout.write("//# %d DFFs" % (len(mid_dffs) + 2*len(dffs)))
     
 if __name__ == '__main__':
     main()
