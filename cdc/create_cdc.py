@@ -162,7 +162,7 @@ def main():
     # output DFF and connect the scan chain
     fout.write("\n// scan chain begins here\n\n")
 
-    last_input = "scan_input"
+    last_input = "scan_data_in"
     for md in mid_dffs:
         (instance, pins) = md.split('(')
         pins = map(lambda x: x.strip(), pins.rstrip(');').split(','))
@@ -191,6 +191,8 @@ def main():
 
     
     fout.write("// scan chain ends here\n\n")
+    fout.write("buf1 BUF(scan_data_out, %s)\n\n" % last_input)
+    
     
     # output all other statement
     for state in all_statements:
@@ -206,7 +208,14 @@ def main():
 
 
     fout.write("endmodule\n")
-    
+
+    fout.write('''
+    module buf1 (out, in);
+    output out;
+    input in;
+    buf (out, in);
+    endmodule
+    \n\n''')
     fout.write("//# %d DFFs" % (len(mid_dffs) + 2*len(dffs)))
     
 if __name__ == '__main__':
