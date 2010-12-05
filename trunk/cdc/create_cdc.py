@@ -52,7 +52,7 @@ def main():
     all_statements = []
     
     for line in fin:
-        if line.count("module s27") > 0:
+        if line.count("module s") > 0:
             indicator = True
     
         # Do nothing if we're outside of module or encountering comments
@@ -83,7 +83,6 @@ def main():
         elif elements[0] == "wire":
             wire.extend(elements[1].strip(';').split(','))
         elif elements[0] == "dff":
-            print elements[1]
             dffs.append(elements[1].strip(';'))
         else:
             all_statements.append(statement)
@@ -143,8 +142,8 @@ def main():
     #
     # inputs include 3 parts: send_ + pi, recv_ + pi, added_pi
     # so do outputs
-    inputs = "send_CK, send_GND, send_VDD, recv_CK, recv_GND, recv_VDD, " + ', '.join(added_pi)
-    outputs = ', '.join(added_po)
+    inputs = "scan_enable, scan_data_in, send_CK, send_GND, send_VDD, recv_CK, recv_GND, recv_VDD, " + ', '.join(added_pi)
+    outputs = 'scan_data_out, ' + ', '.join(added_po)
     wires = "%s, %s, %s, %s, %s, %s" % (gen_pins(pi, "send"), gen_pins(pi, "recv"),
                                         gen_pins(po, 'send'), gen_pins(po, "recv"),
                                         gen_pins(wire, 'send'), gen_pins(wire, 'recv') )
@@ -156,9 +155,6 @@ def main():
     fout.write("wire %s;\n\n" % wires)
     fout.write("output %s;\n\n" % outputs)
     
-    fout.write("input scan_input;\n")
-    fout.write("input scan_enable;\n")
-
     # output DFF and connect the scan chain
     fout.write("\n// scan chain begins here\n\n")
 
@@ -191,7 +187,7 @@ def main():
 
     
     fout.write("// scan chain ends here\n\n")
-    fout.write("buf1 BUF(scan_data_out, %s)\n\n" % last_input)
+    fout.write("buf1 BUF(scan_data_out, %s);\n\n" % last_input)
     
     
     # output all other statement
@@ -200,7 +196,6 @@ def main():
         elements = state.split(' ', 1)
         module = elements[0] #dff 
         (instance, pins) = elements[1].split('(') #DFF_0
-        print instance, pins
         pins = map(lambda x:x.strip(), pins.rstrip(');').split(',')) # CK,G5,G10
         
         fout.write("%s SEND_%s(%s);\n" % (module, instance, gen_pins(pins, "send")))
@@ -210,11 +205,11 @@ def main():
     fout.write("endmodule\n")
 
     fout.write('''
-    module buf1 (out, in);
+module buf1 (out, in);
     output out;
     input in;
     buf (out, in);
-    endmodule
+endmodule
     \n\n''')
     fout.write("//# %d DFFs" % (len(mid_dffs) + 2*len(dffs)))
     
