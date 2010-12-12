@@ -20,10 +20,9 @@ def gen_pins(pins, prefix):
     return ', '.join(map(lambda x: "%s_%s" % (prefix, x), pins))
 
 
-def main():
-    """main function"""
-
-
+def generate():
+    """extend the 1 clock domain benchmark into 2 clock domains by duplicate it"""
+    
     try:
         fin = open(source)
     except IOError:
@@ -110,7 +109,11 @@ def main():
     so = len(po)
     added_pi = []
     added_po = []
-    
+
+    # Additional DFFs are added into inputs and outputs of Receiver Domain
+    # Additional DFFs are added only into inputs of Sender Domain
+    # This is because we need to connect outputs of Sender Domain into inputs of Receiver Domain
+    # This is done by DFFs added into outputs of Sender Domain, which is done later
     for i in xrange(len(pi)):
         # these are not primary inputs
         if pi[i] in ["CK", "GND", "VDD"]:
@@ -123,6 +126,7 @@ def main():
         mid_dffs.append("RECV_O_DFF%d(recv_CK, hrecv_%s, recv_%s)" % (i, po[i], po[i]))
         added_po.append("hrecv_%s" % po[i])
 
+    # Connect Sender Domain to Receiver Domain with DFFs at the output of Sender Domain
     # more inputs than outputs, which means inputs left to be primary inputs
     if si >= so:
         for i in xrange(si):
@@ -135,7 +139,10 @@ def main():
             if i < si:
                 mid_dffs.append("MID_DFF%d(send_CK, RECV_%s, SEND_%s)" % (i, "H"+pi[i], po[i]))
             else:
-                added_po.append("send_%s" % po[i])
+                # add additional DFFs at the output of Sender Domain because these outputs will be
+                # used as primary output
+                mid_dffs.append("SEND_O_DFF%d(send_CK, hsend_%s, send_%s)" % (i, po[i], po[i]))
+                added_po.append("hsend_%s" % po[i])
 
     # output module
     # module s27 (CK, GND, ...)
@@ -147,6 +154,7 @@ def main():
     wires = "%s, %s, %s, %s, %s, %s" % (gen_pins(pi, "send"), gen_pins(pi, "recv"),
                                         gen_pins(po, 'send'), gen_pins(po, "recv"),
                                         gen_pins(wire, 'send'), gen_pins(wire, 'recv') )
+    
 
     fout.write("module %s (%s, %s);\n\n" % (module, inputs, outputs))
 
@@ -159,6 +167,11 @@ def main():
     fout.write("\n// scan chain begins here\n\n")
 
     last_input = "scan_data_in"
+
+    print mid_dffs
+
+    mid_dffs = sorted(mid_dffs, key=lambda x:x[0]=='S' and 'O' or x[0])
+    
     for md in mid_dffs:
         (instance, pins) = md.split('(')
         pins = map(lambda x: x.strip(), pins.rstrip(');').split(','))
@@ -212,9 +225,22 @@ module buf1 (out, in);
 endmodule
     \n\n''')
     fout.write("//# %d DFFs" % (len(mid_dffs) + 2*len(dffs)))
+
+def gen_dofile():
+    '''
+    Generate dofile
+    '''
+
+    # 1. Find DFFs at clock boundaries, these in Sender Domain are denoted as MID_DFFk(.D(s), .Q(r)), where k is the index.
+    #      The ones connected to MID_DFFk could be found by checking .D(r), the DFF is denoted as REC( .D(r), .Q(t))
+    # 2. Generate test pattern for slow-to-rise transition fault @ t. And according to this pattern, we could get what r is.
+    # 3. Generate test pattern for stuck-at-0 fault @ s, with constraint that r is 0
+    pass
     
+#end of gen_dofile
+
 if __name__ == '__main__':
-    main()
+    generate()
 
 #        # if the statements startswith "input", "output", "wire"
 #        # we need to output them immediately
