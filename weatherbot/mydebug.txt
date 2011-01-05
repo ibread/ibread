@@ -1,0 +1,14 @@
+/Users/bread/.twitter_oauth
+16130086-OxVXjJWMzmb3mad41pos9y9tYgApViZaRNzERYlIv zOG2Cc1lVmkKRVLD0lcn1OLT4NXfQAJAPlqcYefuk
+====Debug====
+16130086-OxVXjJWMzmb3mad41pos9y9tYgApViZaRNzERYlIv
+zOG2Cc1lVmkKRVLD0lcn1OLT4NXfQAJAPlqcYefuk
+NXdiUFv7ZqhO5Ojr8GocA
+CMRgb7BHpHLlcZ0NqHF06pWbFtv1zPqV98KTaFxV2YQ
+====Debug====
+{'count': 10, 'oauth_nonce': '1242658351274268134', 'oauth_timestamp': '1293245614', 'oauth_consumer_key': 'NXdiUFv7ZqhO5Ojr8GocA', 'oauth_signature_method': 'HMAC-SHA1', 'oauth_version': '1.0', 'oauth_token': '16130086-OxVXjJWMzmb3mad41pos9y9tYgApViZaRNzERYlIv'}
+CMRgb7BHpHLlcZ0NqHF06pWbFtv1zPqV98KTaFxV2YQ&zOG2Cc1lVmkKRVLD0lcn1OLT4NXfQAJAPlqcYefuk
+GET&https%3A%2F%2Fapi.twitter.com%2F1%2Fstatuses%2Ffriends_timeline.json&count%3D10%26oauth_consumer_key%3DNXdiUFv7ZqhO5Ojr8GocA%26oauth_nonce%3D1242658351274268134%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1293245614%26oauth_token%3D16130086-OxVXjJWMzmb3mad41pos9y9tYgApViZaRNzERYlIv%26oauth_version%3D1.0
+{'status': '\xe6\x9c\xaa\xe6\x9d\xa5\xe4\xb8\xa4\xe5\xa4\xa9\xe7\x9a\x84\xe5\xa4\xa9\xe6\xb0\x94\xe7\x8a\xb6\xe5\x86\xb5:\n\xe6\x98\x8e\xe5\xa4\xa9 \xe6\x99\xb4 \xee\x81\x8a, \xe6\xb8\xa9\xe5\xba\xa6 3\xe2\x84\x83~-7\xe2\x84\x83,\n\xe5\x90\x8e\xe5\xa4\xa9 \xe6\x99\xb4 \xee\x81\x8a, \xe6\xb8\xa9\xe5\xba\xa6 3\xe2\x84\x83~-5\xe2\x84\x83', 'oauth_nonce': '14324644611721916422', 'oauth_timestamp': '1293245614', 'oauth_consumer_key': 'NXdiUFv7ZqhO5Ojr8GocA', 'oauth_signature_method': 'HMAC-SHA1', 'oauth_version': '1.0', 'oauth_token': '16130086-OxVXjJWMzmb3mad41pos9y9tYgApViZaRNzERYlIv'}
+CMRgb7BHpHLlcZ0NqHF06pWbFtv1zPqV98KTaFxV2YQ&zOG2Cc1lVmkKRVLD0lcn1OLT4NXfQAJAPlqcYefuk
+POST&https%3A%2F%2Fapi.twitter.com%2F1%2Fstatuses%2Fupdate.json&oauth_consumer_key%3DNXdiUFv7ZqhO5Ojr8GocA%26oauth_nonce%3D14324644611721916422%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1293245614%26oauth_token%3D16130086-OxVXjJWMzmb3mad41pos9y9tYgApViZaRNzERYlIv%26oauth_version%3D1.0%26status%3D%25E6%259C%25AA%25E6%259D%25A5%25E4%25B8%25A4%25E5%25A4%25A9%25E7%259A%2584%25E5%25A4%25A9%25E6%25B0%2594%25E7%258A%25B6%25E5%2586%25B5%253A%250A%25E6%2598%258E%25E5%25A4%25A9%2520%25E6%2599%25B4%2520%25EE%2581%258A%252C%2520%25E6%25B8%25A9%25E5%25BA%25A6%25203%25E2%2584%2583%257E-7%25E2%2584%2583%252C%250A%25E5%2590%258E%25E5%25A4%25A9%2520%25E6%2599%25B4%2520%25EE%2581%258A%252C%2520%25E6%25B8%25A9%25E5%25BA%25A6%25203%25E2%2584%2583%257E-5%25E2%2584%2583
