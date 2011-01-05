@@ -1,0 +1,17 @@
+====Debug====
+16130086-zUM85rUmYIB4Nd388KCJJmn3lDBY4MNKBzxdNSRU
+PoWw6hZTv2nBL0BtShp7MIm3abCS9hhWCjj1mGKUM
+uS6hO2sV6tDKIOeVjhnFnQ
+MEYTOS97VvlHX7K1rwHPEqVpTSqZ71HtvoK4sVuYk
+====Debug====
+{'status': 'Testing', 'oauth_nonce': '13326909337259308566', 'oauth_timestamp': '1293245710', 'oauth_consumer_key': 'uS6hO2sV6tDKIOeVjhnFnQ', 'oauth_signature_method': 'HMAC-SHA1', 'oauth_version': '1.0', 'oauth_token': '16130086-zUM85rUmYIB4Nd388KCJJmn3lDBY4MNKBzxdNSRU'}
+MEYTOS97VvlHX7K1rwHPEqVpTSqZ71HtvoK4sVuYk&PoWw6hZTv2nBL0BtShp7MIm3abCS9hhWCjj1mGKUM
+POST&https%3A%2F%2Fapi.twitter.com%2F1%2Fstatuses%2Fupdate.json&oauth_consumer_key%3DuS6hO2sV6tDKIOeVjhnFnQ%26oauth_nonce%3D13326909337259308566%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1293245710%26oauth_token%3D16130086-zUM85rUmYIB4Nd388KCJJmn3lDBY4MNKBzxdNSRU%26oauth_version%3D1.0%26status%3DTesting
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "cmdline.py", line 517, in main
+    twitter.statuses.update(status='Testing')
+  File "api.py", line 170, in __call__
+    raise TwitterHTTPError(e, uri, self.format, arg_data)
+api.TwitterHTTPError: Twitter sent status 403 for URL: 1/statuses/update.json using parameters: (oauth_consumer_key=uS6hO2sV6tDKIOeVjhnFnQ&oauth_nonce=13326909337259308566&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1293245710&oauth_token=16130086-zUM85rUmYIB4Nd388KCJJmn3lDBY4MNKBzxdNSRU&oauth_version=1.0&status=Testing&oauth_signature=9IxGNxNrwjRoq6oonYh%2Bxmh4Vf4%3D)
+details: {"request":"\/1\/statuses\/update.json","error":"Status is a duplicate."}

@@ -1,0 +1,16 @@
+[Debug] Getting weather
+Traceback (most recent call last):
+  File "./report.py", line 265, in <module>
+    update()
+  File "./report.py", line 209, in update
+    print u"Reply to %s @%s B %s".encode('utf8') % (target, datetime.now(), text.encode('utf8'))
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe5 in position 12: ordinal not in range(128)
+[Debug] Getting weather
+Traceback (most recent call last):
+  File "./report.py", line 265, in <module>
+    update()
+  File "./report.py", line 209, in update
+    print u"Reply to %s @%s B %s".encode('utf8') % (target, datetime.now(), text.decode('utf8'))
+  File "/System/Library/Frameworks/Python.framework/Versions/2.6/lib/python2.6/encodings/utf_8.py", line 16, in decode
+    return codecs.utf_8_decode(input, errors, True)
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 12-19: ordinal not in range(128)
