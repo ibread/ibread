@@ -9,6 +9,10 @@
 
 @history
 
+0.7: 11/01/06 Added reply according to city name in mention
+              For example, @itianqi beijing 
+0.6: 11/01/05 Support OAuth
+              Automatically reply mentions with latest weather report 
 0.5: 09/12/18 Added weather report for Guangzhou (weatehr_GZ)
 0.4: 09/07/08 Fixed a bug that emoji out of index
 0.3: 09/06/21 Added realtime details for today, such as current temperature, wind strength, etc.
@@ -56,12 +60,12 @@ class GMT8(tzinfo):
         return timedelta(0)
 
 
-def get_weather(debug=True):
+def get_weather(citycode="101010100", cityname=u'北京', debug=True):
     
     if debug:
         print "[Debug] Getting weather"
 
-    citycode = "101010100" # beijing
+    #citycode = "101010100" # beijing
     fore_url = "http://m.weather.com.cn/data/%s.html" % (citycode) # forecast in 3 days(including today)
     rt_url = "http://www.weather.com.cn/data/sk/%s.html" % (citycode) # today's realtime
 
@@ -103,9 +107,10 @@ def get_weather(debug=True):
 
     #print report
     emoji = {"0":u'\ue04a', "1":u'\ue049', "2":u'\ue04d', "3":u'\ue04b', "4":u'\ue04b', "5":u'\ue04b', "6":u'\ue04b', "7":u'\ue04b', "8":u'\ue04b', "14":u'\ue33a', "99":''}
-    report_today = u"今天是%s,%s,农历%s \n今日%s%s%s %s\n%s实况 %s℃ %s%s级 湿度%s" % \
+    report_today = u"今天是%s,%s,农历%s \n%s今日%s%s%s %s\n%s实况 %s℃ %s%s级 湿度%s" % \
             (forecast["date_y"], forecast["week"],  #forecast["date"], \
              lunar_today().decode("utf-8"), \
+             cityname, \
             forecast["weather1"], emoji[forecast["img1"]], emoji[forecast["img2"]], forecast["temp1"],\
             realtime["time"], realtime["temp"], realtime["WD"], realtime["WSE"], realtime["SD"])
     #print report_today
@@ -152,12 +157,38 @@ def get_twitter(debug=False):
     
     return tw
 
+
+def get_code_dict():
+    '''
+        Return hanzi dict and pinyin dict
+    '''
+    dict_file = sys.path[0] + os.sep + "city_code.dat" 
+    try:
+        f = open(dict_file)
+    except IOError:
+        print "Error openning %s" % dict_file
+        return None
+    
+    city_pinyin_dict= {} # beijing: 北京
+    code_dict = {}
+    
+    for line in f:
+        hanzi, pinyin, code = map(lambda x: x.strip(), line.split())
+        code_dict[hanzi.decode('utf8')] = code
+        code_dict[pinyin] = code  
+        city_pinyin_dict[pinyin] = hanzi.decode('utf8')
+
+    return code_dict, city_pinyin_dict
+
 def update(tweets="", debug=False):
     
     tw = get_twitter()
     
-    points = [534, 800, 1200, 1800]
+    points = [0000, 800, 1200, 1800]
     report_today, report_future = get_weather()
+
+    # get dictionary city => code
+    code_dict, city_pinyin_dict = get_code_dict()
     
     # set up log file
     logpath = sys.path[0] + os.sep
@@ -169,7 +200,7 @@ def update(tweets="", debug=False):
     except IOError, ValueError:
         last_id = 0L
         
-    count = 3 # check latest 10 mentions every time
+    count = 30 # check latest 10 mentions every time
     period = 0.5*60 # check mention every 1 minute
     
     while True:
@@ -182,18 +213,20 @@ def update(tweets="", debug=False):
             print "[Debug] Curtime: %s" % curtime
             print "[Debug] hourmin: %s" % hourmin
         
-        
         # update the report at certain time points
-        if hourmin in points:
+        if hourmin % 30 == 0:
             report_today, report_future = get_weather()
-        
 
         # check mentions and reply back
         if True:
-            mentions = tw.statuses.replies(count=count)
+            try:
+                mentions = tw.statuses.replies(count=count)
+            except:
+                print "Error when getting replies"
+                print sys.exc_info()
+                continue
             
             for m in mentions:
-                
                 # Already replied, do nothing                
                 if m['id'] == last_id:
                     if debug:
@@ -203,15 +236,40 @@ def update(tweets="", debug=False):
                 target = m['user']['screen_name']
                 text = m['text']
                 
-                try:
-                    #tw.statuses.update(status=u'@%s %s' % (target, random.randint(1,100)))
-                    now_time = curtime.strftime("%H:%M:%S")
-                    msg = "Reply to %s @%s B %s" % (target, datetime.now(), text)
-                    print msg.encode('utf8')
-                    tw.statuses.update(status=u'@%s %s (%s)' % (target, report_future, now_time))
-                    tw.statuses.update(status=u'@%s %s (%s)' % (target, report_today, now_time))
-                except TwitterHTTPError:
-                    print "[Debug] TwitterHTTPError"
+                if not text.startswith('@itianqi'):
+                    continue
+                
+                text = text.split()[1].strip()
+                
+                no_chinese = True
+                for t in text:
+                    if ord(t) > 255:
+                        no_chinese = False
+                        break
+                
+                if no_chinese:
+                    text = text.lower()
+                
+                if text in code_dict.keys():
+                    citycode = code_dict[text]
+                    cityname = no_chinese and city_pinyin_dict[text] or text
+                    report_today, report_future = get_weather(citycode=citycode, cityname = cityname)
+                    try:
+                        now_time = curtime.strftime("%H:%M:%S")
+                        msg = "Reply to %s @%s B %s" % (target, datetime.now(), text)
+                        print msg.encode('utf8')
+                        tw.statuses.update(status=u'@%s %s (%s)' % (target, report_future, now_time))
+                        tw.statuses.update(status=u'@%s %s (%s)' % (target, report_today, now_time))
+                    except:
+                        print "Error when getting replies"
+                        print sys.exc_info()
+                else:
+                   try:
+                        tw.statuses.update(status=u'@%s 很抱歉，未找到您输入的城市"%s"。请用中文或拼音。如 北京 或 beijing'\
+                         % (target, text))
+                    except:
+                        print "Error when getting replies"
+                        print sys.exc_info()
                     
                 
                 f.write("Reply to %s @%s" % (target, datetime.now()))
@@ -224,10 +282,14 @@ def update(tweets="", debug=False):
                 print "[Debug] Error updating last_id"
             
         if hourmin in points:
-            tw.statuses.update(status=report_future)
-            #tw.statuses.update(status=report_future.encode("utf-8"))
-            tw.statuses.update(status=report_today.encode("utf-8"))
-            print "Twitter %s" % "weather report"
+            try:
+                tw.statuses.update(status=report_future)
+                #tw.statuses.update(status=report_future.encode("utf-8"))
+                tw.statuses.update(status=report_today.encode("utf-8"))
+                print "Twitter %s" % "weather report"
+            except:
+                print "Error when posting weather report"
+                print sys.exc_info()
             
         time.sleep(period)
                 
@@ -259,7 +321,16 @@ def update(tweets="", debug=False):
 #        tw.statuses.update(status=report_today.encode("utf-8"))
 #        print "Twitter %s" % "weather report"
 
+def update_imm():
+    '''
+        Update immediatelly
+    '''
+    tw = get_twitter()
+    
+    report_today, report_future = get_weather()
 
+    tw.statuses.update(status=report_future)
+    tw.statuses.update(status=report_today.encode("utf-8"))
 
 if __name__ == "__main__":
     if len(sys.argv)==1:
