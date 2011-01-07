@@ -577,8 +577,8 @@ def process():
             try:
                 for i in dev_in[dff]:
                     assign_clk(i, clk)
-            except KeyError as e:
-                print e, dev_state[dff]
+            except KeyError:
+                print "KeyError", dev_state[dff]
     
     # when we split the circuits, we need to redefine the input and output
     inputs_by_clk = {}
@@ -615,13 +615,13 @@ def process():
                     if clk in outputs_by_clk.keys():
                         try:
                             outputs_by_clk[clk].append(dev_out[dev])
-                        except KeyError as e:
-                            print clk, dev, e
+                        except KeyError:
+                            print "KeyError", clk, dev
                     else:
                         try:
                             outputs_by_clk[clk]= [dev_out[dev]]
-                        except KeyError as e:
-                            print clk, dev, e
+                        except KeyError:
+                            print "KeyError", clk, dev
                 else:
                     if clk in wires_by_clk.keys():
                         wires_by_clk[clk].append(dev_out[dev])
