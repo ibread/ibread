@@ -596,7 +596,7 @@ def process():
     for clk in clk_dff:
         print "===================%s begins===================" % clk
         
-        f = open("%s_part.txt" % clk, "w+")
+        f = open("%s.v" % clk, "w+")
         
         
         for dev in dev_clk:
@@ -611,20 +611,23 @@ def process():
                         if dev_clk[next] == dev_clk[dev]: 
                             is_pri_out = False
                             break
+                temp_out = dev_out[dev]
                 if is_pri_out:
                     if clk in outputs_by_clk.keys():
-                        try:
-                            outputs_by_clk[clk].append(dev_out[dev])
-                        except KeyError:
-                            print "KeyError", clk, dev
+                        if temp_out not in outputs_by_clk[clk]:
+                            try:
+                                outputs_by_clk[clk].append(temp_out)
+                            except KeyError:
+                                print "KeyError", clk, dev
                     else:
                         try:
-                            outputs_by_clk[clk]= [dev_out[dev]]
+                            outputs_by_clk[clk]= []
                         except KeyError:
                             print "KeyError", clk, dev
                 else:
                     if clk in wires_by_clk.keys():
-                        wires_by_clk[clk].append(dev_out[dev])
+                        if temp_out not in wires_by_clk[clk]:                            
+                            wires_by_clk[clk].append(dev_out[dev])
                     else:
                         wires_by_clk[clk] = [dev_out[dev]]
                 # check if its inputs are primary
@@ -638,17 +641,18 @@ def process():
                     
                     if is_pri_in:
                         if clk in inputs_by_clk.keys():
-                            inputs_by_clk[clk].append(i)
+                            if i not in inputs_by_clk[clk]:
+                                inputs_by_clk[clk].append(i)
                         else:
                             inputs_by_clk[clk] = [i]
                     else:
                         if clk in wires_by_clk.keys():
-                            wires_by_clk[clk].append(dev_out[dev])
+                            if i not in wires_by_clk[clk]:
+                                wires_by_clk[clk].append(i)
                         else:
-                            wires_by_clk[clk] = [dev_out[dev]]
+                            wires_by_clk[clk] = [i]
                 
                 #f.write(dev_state[dev] + "\n")
-        
         
         # generate scan-chain
         #  model SDFF (D, SI, SE, ST, RT, CK, Q) 
@@ -713,6 +717,8 @@ def process():
         
         f.write("module %s_domain (" % clk)
         
+        f.write("scan_data_in, scan_data_out, %s, " % clk)
+        
         for i in inputs_by_clk[clk]:
             f.write(i + ", ")
             
@@ -723,7 +729,7 @@ def process():
         
         f.write(");\n\n")
         
-        f.write( "input scan_data_in, ") 
+        f.write( "input scan_data_in, %s, " % clk) 
         if clk in inputs_by_clk.keys():
             for i in xrange(len(inputs_by_clk[clk])):
                 if i != 0:
