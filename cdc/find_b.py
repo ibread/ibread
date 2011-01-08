@@ -686,7 +686,7 @@ def process():
             
             if dev_type == "DFFX1":
                 
-                new_dff = "SDFFNSR %s (.CK(%s), .D(%s), .Q(%s), .SE(scan_enable), .SI(%s))" % \
+                new_dff = "SDFFNSR %s (.CK(%s), .D(%s), .Q(%s), .SE(scan_enable), .SI(%s));" % \
                                   (dff, clk, input, output, last_output)
                 
                 
@@ -707,7 +707,7 @@ def process():
                 if str is not None:
                     SN = str
                     
-                new_dff = "SDFF %s (.CK(%s), .D(%s), .Q(%s), .RT(%s), .ST(%s), .SE(scan_enable), .SI(%s))" % \
+                new_dff = "SDFF %s (.CK(%s), .D(%s), .Q(%s), .RT(%s), .ST(%s), .SE(scan_enable), .SI(%s));" % \
                             (dff, clk, input, output, RN, SN, last_output)
                     
             last_output = output
