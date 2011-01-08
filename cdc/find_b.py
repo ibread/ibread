@@ -53,7 +53,7 @@ def pre_process():
         
         if line.startswith('//'):
             continue
-            
+
 
 def generate():
     
@@ -699,9 +699,17 @@ def process():
                     
             last_output = output
             scan_chain.append(new_dff)
-        
+            
     
-        
+        f.write('''
+    module buf1 (out, in);
+        output out;
+        input in;
+        buf (out, in);
+    endmodule
+    ''')
+    
+    
         
         f.write("module %s_domain (" % clk)
         
@@ -715,7 +723,7 @@ def process():
         
         f.write(");\n\n")
         
-        f.write( "input ") 
+        f.write( "input scan_data_in, ") 
         if clk in inputs_by_clk.keys():
             for i in xrange(len(inputs_by_clk[clk])):
                 if i != 0:
@@ -723,7 +731,7 @@ def process():
                 f.write(inputs_by_clk[clk][i])
         f.write(";\n")
         
-        f.write("output ")        
+        f.write("output scan_data_out, ")        
         if clk in outputs_by_clk.keys():
             for o in xrange(len(outputs_by_clk[clk])):
                 if o != 0:
@@ -738,6 +746,8 @@ def process():
                     f.write(", ")
                 f.write(wires_by_clk[clk][w])
         f.write(";\n")
+        
+        f.write("\n buf1 BUFbread(scan_data_out, %s);\n" % last_output)
         
         for dff in scan_chain:
             f.write(dff + "\n")        
