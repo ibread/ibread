@@ -361,10 +361,14 @@ def process():
             
             dev_type = state.split()[0]
             
+            # some pins are like ume[0], ume[1]
+            # change them into ume_0, ume_1
             all_array = re.findall(r'\[.*?\]', state)
             
             for a in all_array:
-                state = state.replace(a, a.strip('[]'))
+                state = state.replace(a, "_b%s_b" % a.strip('[]'))
+                
+            state = state.replace('\\', '')
             
             if device.has_key(dev_type):
                 device[dev_type] += 1
