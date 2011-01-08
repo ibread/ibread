@@ -750,14 +750,18 @@ def process():
                 f.write(outputs_by_clk[clk][o])
         f.write(";\n")
         
-        f.write("wire ")
         if clk in wires_by_clk.keys():
-            for w in range(len(wires_by_clk[clk])):
-                if w != 0:
-                    f.write(", ")
-                f.write(wires_by_clk[clk][w])
-        f.write(";\n")
+            for w in wires_by_clk[clk]:
+                f.write("wire %s;\n" % w)
         
+#        f.write("wire ")
+#        if clk in wires_by_clk.keys():
+#            for w in range(len(wires_by_clk[clk])):
+#                if w != 0:
+#                    f.write(", ")
+#                f.write(wires_by_clk[clk][w])
+#        f.write(";\n")
+#        
         f.write("\n buf1 BUFbread(scan_data_out, %s);\n" % last_output)
         
         for dff in scan_chain:
