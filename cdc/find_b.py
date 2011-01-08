@@ -361,6 +361,11 @@ def process():
             
             dev_type = state.split()[0]
             
+            all_array = re.findall(r'\[.*?\]', state)
+            
+            for a in all_array:
+                state = state.replace(a, a.strip('[]'))
+            
             if device.has_key(dev_type):
                 device[dev_type] += 1
             else:
@@ -672,7 +677,7 @@ def process():
             
             pattern_base = r"%s ?\((.*?)\)"
             
-            input = dev_in[dff]
+            input = dev_in[dff][0]
             output = dev_out[dff]            
             
             if dev_type == "DFFX1":
