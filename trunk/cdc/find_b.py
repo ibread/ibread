@@ -726,7 +726,7 @@ def process():
         
         f.write("module %s_domain (" % clk)
         
-        f.write("scan_data_in, scan_data_out, %s, " % clk)
+        f.write("scan_enable, scan_data_in, scan_data_out, %s, " % clk)
         
         for i in inputs_by_clk[clk]:
             f.write(i + ", ")
@@ -738,7 +738,7 @@ def process():
         
         f.write(");\n\n")
         
-        f.write( "input scan_data_in, %s, " % clk) 
+        f.write( "input scan_enable, scan_data_in, %s, " % clk) 
         if clk in inputs_by_clk.keys():
             for i in xrange(len(inputs_by_clk[clk])):
                 if i != 0:
