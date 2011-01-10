@@ -579,6 +579,7 @@ def process():
                         assign_clk(i, clk)                        
                 except KeyError:
                     print "Error!! dev %s is not in dev_in.keys()" % dev
+                    
     
     # reverse tracking from dff to determine clock domain of each gate
     for clk in clk_dff.keys():
@@ -684,10 +685,9 @@ def process():
             input = dev_in[dff][0]
             output = dev_out[dff]            
             
-            if dev_type == "DFFX1":
-                
-                new_dff = "SDFFNSR %s (.CK(%s), .D(%s), .Q(%s), .SE(scan_enable), .SI(%s));" % \
-                                  (dff, clk, input, output, last_output)
+            if dev_type == "DFFX1":                
+                new_dff = "SDFFNSRN %s (.CK(%s), .D(%s), .Q(%s), .QB(%s), .SE(scan_enable), .SI(%s));" % \
+                                  (dff, clk, input, output, output, last_output)
                 
                 
                 # get input
@@ -707,19 +707,19 @@ def process():
                 if str is not None:
                     SN = str
                     
-                new_dff = "SDFF %s (.CK(%s), .D(%s), .Q(%s), .RT(%s), .ST(%s), .SE(scan_enable), .SI(%s));" % \
-                            (dff, clk, input, output, RN, SN, last_output)
+                new_dff = "SDFFN %s (.CK(%s), .D(%s), .Q(%s), .QB(%s), .RT(1'b0), .ST(1'b0), .SE(scan_enable), .SI(%s));" % \
+                            (dff, clk, input, output, output, last_output)
                     
             last_output = output
             scan_chain.append(new_dff)
             
     
         f.write('''
-    module buf1 (out, in);
-        output out;
-        input in;
-        buf (out, in);
-    endmodule
+module buf1 (out, in);
+    output out;
+    input in;
+    buf (out, in);
+endmodule
     ''')
     
     
@@ -766,13 +766,17 @@ def process():
 #                f.write(wires_by_clk[clk][w])
 #        f.write(";\n")
 #        
-        f.write("\n buf1 BUFbread(scan_data_out, %s);\n" % last_output)
         
+        # output the scan chain
+        f.write("// scan chain begins here\n")
         for dff in scan_chain:
             f.write(dff + "\n")        
+        f.write("// scan chain ends here\n")
+        
+        f.write("\n buf1 BUFbread(scan_data_out, %s);\n" % last_output)
         
         for dev in dev_clk.keys():
-            if dev_clk[dev] == clk and dev not in clk_dff[clk]:                
+            if dev_clk[dev] == clk and dev not in clk_dff[clk]:
                 f.write(dev_state[dev] + "\n")
                 
         f.write("\nendmodule")
