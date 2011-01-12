@@ -522,21 +522,25 @@ def process():
     # traverse the DFF in every single clock domain 
     # to find DFFs at clock boundary
     
+    
     def get_recv_dff(out, clk, origin):        
         '''
-        get a list of DFFs which could be reached from out and with different clock from "clk"
+        get a list of DFFs which could be reached from out
         '''
         if out is None:
+            print "[Debug] out %s of %s is none" % (out, origin)
             return []
                 
         recv_dff = []
         
         if out not in in_dict.keys():
+            print "[Debug] out %s of %s connects nothing" % (out, origin)
             return []
         
         # traverse every dev which is attached to output of current device
         for next_dev in in_dict[out]:
             if next_dev in dffs_list:
+                #print "[in] %s => %s" % (origin, next_dev)
                 recv_dff.append(next_dev)
             else: # is a normal device
                 out = dev_out[next_dev]
@@ -545,27 +549,34 @@ def process():
                     dev_clk[next_dev] = clk
                     dev_origin[next_dev] = origin
                 elif dev_clk[next_dev] != clk:
+                    
+                    pass
                     #print "Error!! Inconsistent clk for device %s" % next_dev
                     #print "    %s (from %s) != %s (from %s)" % (dev_clk[next_dev], dev_origin[next_dev], clk, origin)
-                    continue
+                    
                     
                 if out not in in_dict.keys():
-                    return []
+                    continue
                 
                 recv_dff.extend(get_recv_dff(out, clk, origin))
                 
         return recv_dff
     
     for clk in clk_dff:
+        print "Processing DFFs in clock %s" % clk
         for dff in clk_dff[clk]:
+            
             out = dev_out[dff]        
+            
             recv_dff = get_recv_dff(out, clk, dff)
             #print "*%s*" % dff, recv_dff
-            
-            for r in recv_dff:
-                if dev_clk[r] != dev_clk[dff]:
+                                                                                              
+            for r in recv_dff:                                                                
+                if dev_clk[r] != dev_clk[dff]:                                                
                     #print "[CB] %s .CK(%s) => %s .CK(%s)" % (dff, dev_clk[dff], r, dev_clk[r])
-                    ck_bound.append((dev_clk[dff], dff, r))
+                    if dev_clk[r] == "clk_i":
+                        print r, in_dict[dev_out[r]][0]
+                    ck_bound.append((dev_clk[dff], dff, r))                                   
 
 
     def assign_clk(out, clk):
