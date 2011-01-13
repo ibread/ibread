@@ -315,6 +315,7 @@ def process():
     
     #input lookup table, input: device_name
     in_dict = {}
+    in_dict_port = {}
     
     # device_name:output
     dev_out = {}
@@ -468,22 +469,28 @@ def process():
                 dev_out[device_name] = tout
             
             # get all input pins using regex
+            tin_port = []
             input_pins = ['A', 'B', 'C', 'D', 'A0', 'A1', 'B0', 'B1', 'C0', 'S0']            
             for i in input_pins:
                 pattern = r"%s ?\((.*?)\)" % i
                 str = get_by_regex(pattern, state)
                 if str is not None and str.strip() != tout:
                     tin.append(str.strip())
+                    tin_port.append(i)
 
             
             if device_name != "no_name":
                 dev_in[device_name] = tin
             
+            j = 0
             for i in tin:
                 if not in_dict.has_key(i):
                     in_dict[i] = [device_name]
+                    in_dict_port[i] = [tin_port[j]]
                 else:
                     in_dict[i].append(device_name)                                
+                    in_dict_port[i].append(tin_port[j])                
+                j += 1
 
         state = ""
     
@@ -574,19 +581,26 @@ def process():
             for r in recv_dff:                                                                
                 if dev_clk[r] != dev_clk[dff]:                                                
                     #print "[CB] %s .CK(%s) => %s .CK(%s)" % (dff, dev_clk[dff], r, dev_clk[r])
-                    if dev_clk[r] == "clk_i":
-                        flag = True
-                        for i in in_dict[dev_out[r]]:
-                            if i not in dffs_list:
-                                flag = False
-                                break
+                    out = dev_out[r]
+                    
+                    if out in in_dict.keys():
+                        r_dev = in_dict[out][0]
+                        r_dev_port = in_dict_port[out][0]
+                        if dev_clk[r] == "clk_i":
+                            flag = True
+                            for i in xrange(len(in_dict[out])):
+                                if in_dict[out][i] not in dffs_list:
+                                    r_dev = in_dict[out][i]
+                                    r_dev_port = in_dict_port[out][i]
+                                    flag = False
+                                    break
 
-                        print r, in_dict[dev_out[r]][0],
-                        if flag:
-                            print "another"
-                        else:
-                            print
-                    ck_bound.append((dev_clk[dff], dff, r))                                   
+                            print r, r_dev, r_dev_port,
+                            if flag:
+                                print "another"
+                            else:
+                                print
+                        ck_bound.append((dev_clk[dff], dff, r))                                   
 
 
     def assign_clk(out, clk):
