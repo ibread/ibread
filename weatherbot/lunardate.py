@@ -84,6 +84,15 @@ See also
 '''
 
 import datetime
+from datetime import tzinfo, timedelta
+
+class GMT8(tzinfo):
+    def utcoffset(self, dt):
+        return timedelta(hours=8)
+    def tzname(self, dt):
+        return "GMT +800"
+    def dst(self, dt):
+        return timedelta(0)
 
 __version__ = "$Rev: 22 $"
 __all__ = ['LunarDate']
@@ -192,7 +201,8 @@ class LunarDate(object):
     
     @classmethod
     def today(cls):
-        res = datetime.date.today()
+        res = datetime.datetime.now(tz=GMT8())
+        #res = datetime.date.today()
         return cls.fromSolarDate(res.year, res.month, res.day)
     
     @staticmethod

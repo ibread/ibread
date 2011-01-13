@@ -117,7 +117,7 @@ def lunar_today():
     month[1] = u"正"
     month.extend([u"十", u"冬", u"腊"])
     return u"%s月%s%s" % (month[LunarDate.today().month],
-                       day1[LunarDate.today().day/10],
+                       day1[(LunarDate.today().day-1)/10],
                        day2[LunarDate.today().day%10])
 
 def lunar_date(date):
@@ -163,14 +163,15 @@ def get_weekday():
     weekdays = [u'一', u'二', u'三', u'四', u'五', u'六', u'日']
     nowdate =  datetime.now(tz=GMT8())
    
-    return u'星期'+weekdays[nowdate.weekday()]
+    return u'周'+weekdays[nowdate.weekday()]
 
 def get_date():
     '''
         Get today's date in Chinese
     '''
     nowdate =  datetime.now(tz=GMT8())
-    return u"%d年%d月%d日" % (nowdate.year, nowdate.month, nowdate.day)
+    #return u"%d年%d月%d日" % (nowdate.year, nowdate.month, nowdate.day)
+    return u"%d月%d日" % (nowdate.month, nowdate.day)
 
 class GMT8(tzinfo):
     def utcoffset(self, dt):
@@ -366,6 +367,8 @@ def get_weather(citycode="101010100", city_name=u'北京', debug=True):
     
     f.close()
     
+    if debug:
+        print "[Debug] Done getting weather"
     return report_today, report_future
 
 def get_twitter(debug=False):
@@ -501,11 +504,11 @@ def post_realtime(text, tw, target, mid, cd):
     post_msg(tw, u'@%s %s #tq #%s' % (target, report_future, pinyin), mid)
     post_msg(tw, u'@%s %s #tq #%s' % (target, report_today, pinyin), mid)
 
-def update(tweets="", debug=False):
+def update(tweets="", debug=True):
     
     tw = get_twitter()
     
-    points = [800, 1800]
+    points = [800, 1842]
     report_today, report_future = get_weather()
     if report_today is None:
         return
@@ -559,7 +562,6 @@ def update(tweets="", debug=False):
         # check mentions and reply back
         if True:
             try:
-                print "[Debug] Getting metions"
                 mentions = tw.statuses.replies(count=count)
             except Exception as e:
                 print "Error when getting all replies"
@@ -720,7 +722,7 @@ def update(tweets="", debug=False):
             for city in cities:
 
                 try:
-                    city_pinyi, city_hanzi, city_code = cd.get_city(city[0])
+                    city_pinyin, city_hanzi, city_code = cd.get_city(city[0])
                 except Exception:
                     print u"[Error] city %s in db is invalid" % city[0]
                     continue
@@ -729,10 +731,10 @@ def update(tweets="", debug=False):
                 if report_today is None:
                     print u"[Error] Can not retrieve weather report for %s" % city_hanzi
                 
-                c.execute('''select id from weather where city=?''', (city_name, ))
+                c.execute('''select id from weather where city=?''', (city_hanzi, ))
                 ids = c.fetchall()
                 for id in ids:
-                    print "pushing report: @%s %s" % (id[0], city_name)
+                    print "pushing report: @%s %s" % (id[0], city_hanzi)
                     post_msg(tw, u'@%s %s #tq #%s' % (id[0], report_future, city_pinyin))
                     post_msg(tw, u'@%s %s #tq #%s' % (id[0], report_today, city_pinyin))
 

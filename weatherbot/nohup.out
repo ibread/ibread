@@ -14,3 +14,26 @@ Traceback (most recent call last):
   File "/System/Library/Frameworks/Python.framework/Versions/2.6/lib/python2.6/encodings/utf_8.py", line 16, in decode
     return codecs.utf_8_decode(input, errors, True)
 UnicodeEncodeError: 'ascii' codec can't encode characters in position 12-19: ordinal not in range(128)
+[Debug] Getting weather
+Reply to ibread @2011-01-05 16:51:55.514741 B @weather_BJ 又出问题了。。。
+Reply to ibread @2011-01-05 16:52:58.765357 B @weather_BJ 这次应该正常了
+Traceback (most recent call last):
+  File "./report.py", line 266, in <module>
+    update()
+  File "./report.py", line 193, in update
+    mentions = tw.statuses.replies(count=count)
+  File "/Users/bread/Desktop/twitter_back/twitter/api.py", line 155, in __call__
+    handle = urllib2.urlopen(req)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.6/lib/python2.6/urllib2.py", line 124, in urlopen
+    return _opener.open(url, data, timeout)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.6/lib/python2.6/urllib2.py", line 383, in open
+    response = self._open(req, data)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.6/lib/python2.6/urllib2.py", line 401, in _open
+    '_open', req)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.6/lib/python2.6/urllib2.py", line 361, in _call_chain
+    result = func(*args)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.6/lib/python2.6/urllib2.py", line 1138, in https_open
+    return self.do_open(httplib.HTTPSConnection, req)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.6/lib/python2.6/urllib2.py", line 1105, in do_open
+    raise URLError(err)
+urllib2.URLError: <urlopen error [Errno 60] Operation timed out>
