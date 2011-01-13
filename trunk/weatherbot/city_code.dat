@@ -19,7 +19,7 @@
 马山 mashan 101300106
 芷江 zhijiang 101251210
 河卡 heka 101150405
-都安 douan 101301210
+都安 duan 101301210
 克东 kedong 101050209
 黟县 yixian 101221005
 恩施 enshi 101201001
@@ -65,7 +65,7 @@
 揭阳 jieyang 101281901
 河口 hekou 101121202
 安陆 anlu 101200402
-宁都 ningdou 101240707
+宁都 ningdu 101240707
 儋州 danzhou 101310205
 武山 wushan 101160906
 连南 liannan 101281302
@@ -208,7 +208,7 @@
 香港 xianggang 101320101
 通辽 tongliao 101080501
 焦作 jiaozuo 101181101
-商都 shangdou 101080404
+商都 shangdu 101080404
 灌南 guannan 101191005
 含山 hanshan 101221604
 松桃 songtao 101260611
@@ -222,8 +222,8 @@
 周至 zhouzhi 101110105
 孝感 xiaogan 101200401
 南安 nanan 101230506
-成都 chengdou 101270101
-于都 yudou 101240710
+成都 chengdu 101270101
+于都 yudu 101240710
 逊克 xunke 101050604
 竹山 zhushan 101201105
 保定 baoding 101090201
@@ -292,7 +292,7 @@
 翁源 wengyuan 101280204
 聊城 liaocheng 101121701
 福海 fuhai 101131407
-新都 xindou 101270103
+新都 xindu 101270103
 赵县 zhaoxian 101090113
 金沙 jinsha 101260703
 青阳 qingyang 101221703
@@ -437,7 +437,7 @@
 丽水 lishui 101210801
 驻马店 zhumadian 101181601
 海丰 haifeng 101282102
-信都 xindou 101300705
+信都 xindu 101300705
 商城 shangcheng 101180609
 松潘 songpan 101271905
 巴林右旗 balinyouqi 101080606
@@ -480,7 +480,7 @@
 潼关 tongguan 101110503
 天水 tianshui 101160901
 恩平 enping 101281105
-乐都 ledou 101150202
+乐都 ledu 101150202
 宁陕 ningshan 101110710
 汤阴 tangyin 101180202
 利津 lijin 101121204
@@ -633,7 +633,7 @@
 灌阳 guanyang 101300509
 怀柔 huairou 101010500
 清水 qingshui 101160903
-昌都 changdou 101140501
+昌都 changdu 101140501
 波密 bomi 101140402
 大柴旦 dachaidan 101150713
 沧州 cangzhou 101090701
@@ -701,7 +701,7 @@
 永清 yongqing 101090603
 老河口 laohekou 101200206
 龙游 longyou 101211004
-都匀 douyun 101260401
+都匀 duyun 101260401
 三门峡 sanmenxia 101181701
 陵川 lingchuan 101100604
 民丰 minfeng 101131306
@@ -767,7 +767,7 @@
 石台 dantai 101221705
 巴楚 bachu 101130908
 梓潼 zitong 101270405
-都江堰 doujiangyan 101270111
+都江堰 dujiangyan 101270111
 江城 jiangcheng 101290907
 南郑 nanzheng 101110810
 扬州 yangzhou 101190601
@@ -861,7 +861,7 @@
 宁冈 ninggang 101240613
 郯城 tancheng 101120906
 墨竹贡卡 mozhugongka 101140104
-都兰 doulan 101150710
+都兰 dulan 101150710
 邱北 qiubei 101290606
 五大连池 wudalianchi 101050605
 桓台 huantai 101120307
@@ -986,7 +986,7 @@
 米林 milin 101140403
 那坡 napo 101301002
 邯郸 handan 101091001
-武都 wudou 101161001
+武都 wudu 101161001
 莎车 shaju 101130905
 恒春 hengchun 101340204
 浮山 fushan 101100715
@@ -1135,7 +1135,7 @@
 建平 jianping 101071202
 神木 shenmu 101110403
 安顺 anshun 101260301
-三都 sandou 101260411
+三都 sandu 101260411
 紫荆关 zijingguan 101090208
 嫩江 nenjiang 101050602
 山丹 shandan 101160706
@@ -1157,7 +1157,7 @@
 犍为 qianwei 101271402
 漳县 zhangxian 101160206
 宜黄 yihuang 101240407
-丰都 fengdou 101043000
+丰都 fengdu 101043000
 乾安 qianan 101060802
 濮阳 puyang 101181301
 务川 wuchuan 101260212
@@ -1173,7 +1173,7 @@
 静乐 jingle 101101012
 新安 xinan 101180902
 丹巴 danba 101271804
-江都 jiangdou 101190605
+江都 jiangdu 101190605
 广东 guangdong None
 顺义 shunyi 101010400
 铁岭 tieling 101071101
@@ -1335,7 +1335,7 @@
 津南 jinnan 101031000
 景泰 jingtai 101161305
 茂名 maoming 101282001
-盐都 yandou 101190709
+盐都 yandu 101190709
 六库 luku 101291206
 玉门镇 yumenzhen 101160807
 阿坝 eba 101271901
@@ -1361,7 +1361,7 @@
 朝城 zhaocheng 101121708
 东安 dongan 101251403
 府谷 fugu 101110402
-满都拉 mandoula 101080203
+满都拉 mandula 101080203
 文水 wenshui 101101112
 林口 linkou 101050304
 麟游 linyou 101110904
@@ -1527,7 +1527,7 @@
 镇坪 zhenping 101110709
 武义 wuyi 101210906
 大冶 daye 101200602
-宜都 yidou 101200909
+宜都 yidu 101200909
 呼兰 hulan 101050103
 乐平 leping 101240802
 北安 beian 101050606
@@ -2184,7 +2184,7 @@
 玉田 yutian 101090508
 灵山 lingshan 101301103
 大姚 dayao 101290802
-望都 wangdou 101090210
+望都 wangdu 101090210
 新乡 xinxiang 101180301
 永州 yongzhou 101251401
 永川 yongchuan 101040200
@@ -2382,7 +2382,7 @@
 阿木尔 emuer 101050707
 宁远 ningyuan 101251406
 登封 dengfeng 101180104
-都昌 douchang 101240210
+都昌 duchang 101240210
 克什克腾旗 keshiketengqi 101080608
 河源 heyuan 101281201
 营口 yingkou 101070801
@@ -2482,7 +2482,7 @@
 砀山 dangshan 101220702
 永福 yongfu 101300504
 安西 anxi 101160805
-花都 huadou 101280105
+花都 huadu 101280105
 兴山 xingshan 101200904
 沂水 yishui 101120910
 通化县 tonghuaxian 101060506
