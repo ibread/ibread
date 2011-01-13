@@ -529,8 +529,9 @@ def process():
     # traverse the DFF in every single clock domain 
     # to find DFFs at clock boundary
     
+    paths = {}
     
-    def get_recv_dff(out, clk, origin):        
+    def get_recv_dff(out, clk, origin, paths, path=""):        
         '''
         get a list of DFFs which could be reached from out
         '''
@@ -546,9 +547,12 @@ def process():
         
         # traverse every dev which is attached to output of current device
         for next_dev in in_dict[out]:
+            path += ("-" + next_dev)
             if next_dev in dffs_list:
                 #print "[in] %s => %s" % (origin, next_dev)
                 recv_dff.append(next_dev)
+                
+                paths["%s-%s" % (origin, next_dev)] = path
             else: # is a normal device
                 out = dev_out[next_dev]
                 
@@ -556,16 +560,15 @@ def process():
                     dev_clk[next_dev] = clk
                     dev_origin[next_dev] = origin
                 elif dev_clk[next_dev] != clk:
-                    
                     pass
                     #print "Error!! Inconsistent clk for device %s" % next_dev
                     #print "    %s (from %s) != %s (from %s)" % (dev_clk[next_dev], dev_origin[next_dev], clk, origin)
                     
-                    
+                # out is primary output and connectes to nothing
                 if out not in in_dict.keys():
                     continue
                 
-                recv_dff.extend(get_recv_dff(out, clk, origin))
+                recv_dff.extend(get_recv_dff(out, clk, origin, paths, path))
                 
         return recv_dff
     
@@ -575,7 +578,7 @@ def process():
             
             out = dev_out[dff]        
             
-            recv_dff = get_recv_dff(out, clk, dff)
+            recv_dff = get_recv_dff(out, clk, dff, paths)
             #print "*%s*" % dff, recv_dff
                                                                                               
             for r in recv_dff:                                                                
@@ -595,12 +598,13 @@ def process():
                                     flag = False
                                     break
 
-                            print r, r_dev, r_dev_port,
+                            print r, r_dev, r_dev_port, paths['%s-%s' % (dff, r)]
                             if flag:
                                 print "another"
                             else:
                                 print
                         ck_bound.append((dev_clk[dff], dff, r))                                   
+
 
 
     def assign_clk(out, clk):
