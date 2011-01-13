@@ -575,7 +575,17 @@ def process():
                 if dev_clk[r] != dev_clk[dff]:                                                
                     #print "[CB] %s .CK(%s) => %s .CK(%s)" % (dff, dev_clk[dff], r, dev_clk[r])
                     if dev_clk[r] == "clk_i":
-                        print r, in_dict[dev_out[r]][0]
+                        flag = True
+                        for i in in_dict[dev_out[r]]:
+                            if i not in dffs_list:
+                                flag = False
+                                break
+
+                        print r, in_dict[dev_out[r]][0],
+                        if flag:
+                            print "another"
+                        else:
+                            print
                     ck_bound.append((dev_clk[dff], dff, r))                                   
 
 
