@@ -37,14 +37,16 @@
         今天是2011年1月8日, 农历腊月初五 (08:19:25)
 
 @to-do:
-    * Improve lunar date lookup
     1. world-wide time lookup
+    * Improve lunar date lookup
     2. calculation
     3. conversation (need to save every user's conversation)
     4. multiple reminder (weather_report subscription)
 
 @history
 
+1.7: 11/01/15 Fixed a bug thath metions forgets reply_id
+              Added the feature back that reply weather info to user even they do not use tq command 
 1.6: 11/01/10 Rewrite the main logic: intelligent answer is not the default behavior
                 realtime weather report need "tq" command
 1.5: 11/01/10 Added lunar date lookup (need to be improved later)
@@ -77,9 +79,9 @@
 '''
 
 import urllib, os, sys, time
-from oauth_dance import oauth_dance
-from api import Twitter, TwitterHTTPError
-from oauth import OAuth, read_token_file
+from twitter.oauth_dance import oauth_dance
+from twitter.api import Twitter, TwitterHTTPError
+from twitter.oauth import OAuth, read_token_file
 from datetime import datetime, tzinfo, timedelta
 from lunardate import LunarDate
 import sqlite3
@@ -269,9 +271,9 @@ def update_subscribe(move, id, city):
     if move=="add":
         try:
             c.execute('insert into weather values (?, ?)', (id, city))
-            print "user %s, city %s added" % (id, city)
+            print (u"user %s, city %s added" % (id, city)).encode('utf8')
         except sqlite3.IntegrityError:
-            print "error when inserting user %s, city %s" % (id, results[0][0])
+            print ("error when inserting user %s, city %s" % (id, results[0][0])).encode('utf8')
     elif move=="remove":
         c.execute('delete from weather where id=? and city=?', (id, city))
         print "user %s city %s is removed" % (id, city)
@@ -401,7 +403,7 @@ def get_twitter(debug=False):
 
 def post_msg(tw, msg, reply_id=0):
 
-    if reply_id == 0:
+    if reply_id != 0:
         try:
             tw.statuses.update(status=msg, in_reply_to_status_id=u'%d' % reply_id)
         except TwitterHTTPError as e:
@@ -589,6 +591,18 @@ def update(tweets="", debug=True):
                 
                 text = text.replace('@itianqi ', '')
                 print "[Debug] %d %s says: %s" % (m['id'], target, text)
+                
+                # check if the text is only the city
+                # if there is no ValueError, which means it is a city
+                # then return the weather report information for that city
+                # else to continue to check other rules
+                city = text.strip()
+                try:
+                    cd.get_city(city)
+                    post_realtime(city, tw, target, m['id'], cd)
+                    continue
+                except ValueError:
+                    pass
 
                 # check if user want to get status of subscription
                 if text.startswith('get'):
