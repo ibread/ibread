@@ -37,7 +37,7 @@
         今天是2011年1月8日, 农历腊月初五 (08:19:25)
 
 @to-do:
-    1. world-wide time lookup
+    1. world-wide time lookup ( using Google onebox result
     * Improve lunar date lookup
     2. calculation
     3. conversation (need to save every user's conversation)
@@ -45,6 +45,8 @@
 
 @history
 
+1.8: 11/01/15 Added help information
+              Fixed a bug that only mention with Chinese city name will reply with report
 1.7: 11/01/15 Fixed a bug thath metions forgets reply_id
               Added the feature back that reply weather info to user even they do not use tq command 
 1.6: 11/01/10 Rewrite the main logic: intelligent answer is not the default behavior
@@ -195,14 +197,14 @@ def format_date(date):
             [year, month, day] = map(lambda x: int(x.strip()), date)
             return datetime(year, month, day)
         except ValueError:
-            print "Error foramting date from %s" % date
+            print ("Error foramting date from %s" % date).encode('utf8')   
             return None
     elif len(date.split('/')) == 3:
         try:
             date = date.split('/')
             return datetime(date[0].strip(), date[1].strip(), date[2].strip())
         except ValueError:
-            print "Error foramting date from %s" % date
+            print ("Error foramting date from %s" % date).encode('utf8')
             return None
     else:
         return None
@@ -276,7 +278,7 @@ def update_subscribe(move, id, city):
             print ("error when inserting user %s, city %s" % (id, results[0][0])).encode('utf8')
     elif move=="remove":
         c.execute('delete from weather where id=? and city=?', (id, city))
-        print "user %s city %s is removed" % (id, city)
+        print ("user %s city %s is removed" % (id, city)).encode('utf8')
     
     conn.commit()
     c.close()
@@ -407,14 +409,14 @@ def post_msg(tw, msg, reply_id=0):
         try:
             tw.statuses.update(status=msg, in_reply_to_status_id=u'%d' % reply_id)
         except TwitterHTTPError as e:
-            print "[Error] %s" % msg
+            print ("[Error] %s" % msg).encode('utf8')
             print "Details: ", e
             return 1
     else:
         try:
             tw.statuses.update(status=msg)
         except TwitterHTTPError as e:
-            print "[Error] %s" % msg
+            print "[Error] %s" % msg.encode('utf8')
             print "Details: ", e
             return 1
 
@@ -487,9 +489,9 @@ def post_realtime(text, tw, target, mid, cd):
 
     try:
         pinyin, hanzi, code = cd.get_city(text)
-        print pinyin, hanzi, code
+        print pinyin.encode('utf8'), hanzi.encode('utf8'), code.encode('utf8')
     except ValueError as e: # Error occurs
-        msg = u"@%s %s" % (target, e.args[0])
+        msg = (u"@%s %s" % (target, e.args[0])).encode('utf8')
         
         return post_msg(tw, msg, mid)
         
@@ -537,8 +539,8 @@ def update(tweets="", debug=True):
         hourmin = hour*100+min
 
         if debug:
-            print "[Debug] Curtime: %s" % curtime
-            print "[Debug] hourmin: %s" % hourmin
+            print "[Debug] Curtime: %s"  % curtime
+            print "[Debug] hourmin: %s"  % hourmin
         
         # update the report at certain time points
         if hourmin % 100 == 0:
@@ -576,7 +578,7 @@ def update(tweets="", debug=True):
                 # Already replied, do nothing                
                 if m['id'] <= last_id:
                     if debug:
-                        print "Already checked this mention: %s" % m['text']
+                        print "Already checked this mention: %s" % m['text'].encode('utf8')
                     break
                 
                 target = m['user']['screen_name']
@@ -590,7 +592,7 @@ def update(tweets="", debug=True):
                     continue
                 
                 text = text.replace('@itianqi ', '')
-                print "[Debug] %d %s says: %s" % (m['id'], target, text)
+                print (u"[Debug] %d %s says: %s" % (m['id'], target, text)).encode('utf8')
                 
                 # check if the text is only the city
                 # if there is no ValueError, which means it is a city
@@ -601,11 +603,16 @@ def update(tweets="", debug=True):
                     cd.get_city(city)
                     post_realtime(city, tw, target, m['id'], cd)
                     continue
-                except ValueError:
+                except ValueError as e:
+                    if u"对应多个城市" in e[0]:
+                        post_msg(tw, u'@%s %s' % (target, e[0]), m['id'])
+                        continue
                     pass
 
+                if text.startswith(u'help') or text.startswith(u'帮助'):
+                    msg = u"@itianqi 直接输入城市获得实况天气信息。set 城市订阅天气预报，unset取消订阅。支持订阅多个城市以及城市拼音。nl 公历日期查询万年历。详情请查看http://goo.gl/Ffg47" 
                 # check if user want to get status of subscription
-                if text.startswith('get'):
+                elif text.startswith('get'):
                     conn = sqlite3.connect(sub_file)
                     c = conn.cursor()
                     c.execute('select city from weather where id=?', (target,))
@@ -639,12 +646,12 @@ def update(tweets="", debug=True):
                         post_msg(tw, u'@%s %s' % (target, msg), m['id'])
                         continue
 
-                    print "city=", city
+                    print "city=", city.encode('utf8')
 
                     try:
                         city_pinyin, city_hanzi, city_code = cd.get_city(city)
                     except ValueError as e:
-                        post_msg(tw, u"@%s %s" % (target, e[0]), m['id'])
+                        post_msg(tw, u"@%s %s" % (target, e[0].encode('utf8')), m['id'])
                         continue
                     
                     original_city = city # backup for notifying the user what he/she input
@@ -701,7 +708,7 @@ def update(tweets="", debug=True):
                 elif text in answers.keys() or text[:-1] in answers.keys():
                     msg = answers[text]
                 else:
-                    msg = u'感谢您的关注，我会继续努力的!'
+                    msg = u'感谢您的关注，我会继续努力的! 使用@itianqi help可以查看基本功能 :)'
                     
                     
                 post_msg(tw, u'@%s %s' % (target, msg), m['id'])
