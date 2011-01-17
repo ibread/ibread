@@ -137,17 +137,17 @@ def lunar_date(date):
     elif '/' in date:
         split_date = date.split('/')
     else:
-        raise ValueError, "%s Not as 1985-09-06 or 1985/09/06" % date
+        raise ValueError("%s Not as 1985-09-06 or 1985/09/06" % date)
 
     if len(split_date) != 3:
-        raise ValueError, "%s Not as 1985-09-06 or 1985/09/06" % date
+        raise ValueError("%s Not as 1985-09-06 or 1985/09/06" % date)
     
     year = int(split_date[0])
     month = int(split_date[1])
     day = int(split_date[2])
 
     if year < 1900 or year > 2049:
-        raise ValueError, "Year should in [1900, 2049]"
+        raise ValueError("Year should in [1900, 2049]")
 
     date = datetime(year, month, day)
 
@@ -338,6 +338,7 @@ def get_weather(citycode="101010100", city_name=u'北京', debug=True):
     # 阴天: \ue04d
     # 雨天: \ue04b
     # 小雪 (甜筒): \ue33a
+    # 中雪: \ue43F 15
     # 大雪, 阵雪, (雪人): \ue048
 
     # 0:晴天 1:多云 2:阴天 3~8: 雨 13:阵雪 14:小雪
@@ -349,7 +350,7 @@ def get_weather(citycode="101010100", city_name=u'北京', debug=True):
     #print report
     emoji = {"0":u'\ue04a', "1":u'\ue049', "2":u'\ue04d', "3":u'\ue04b', \
              "4":u'\ue04b', "5":u'\ue04b', "6":u'\ue04b', "7":u'\ue04b', \
-             "8":u'\ue04b', "13":u'\ue048', "14":u'\ue33a', "99":''}
+             "8":u'\ue04b', "13":u'\ue048', "14":u'\ue33a', "15":u'\ue43F', "99":''}
 
     report_today = u"今天是%s,%s,农历%s %s今日%s%s%s %s\n%s实况 %s℃ %s%s级 湿度%s" % \
             (get_date(), get_weekday(), #forecast["date_y"], forecast["week"],  #forecast["date"], \
@@ -526,7 +527,7 @@ def update(tweets="", debug=True):
     last_id_file = logpath+"last_id.dat"
     try:
         last_id = int(open(last_id_file).readline().strip())
-    except IOError, ValueError:
+    except (IOError, ValueError):
         last_id = 0L
         
     count = 10 # check latest 10 mentions every time
@@ -601,6 +602,7 @@ def update(tweets="", debug=True):
                 city = text.strip()
                 try:
                     cd.get_city(city)
+                    print (u"reply with city %s " % city).encode('utf8')
                     post_realtime(city, tw, target, m['id'], cd)
                     continue
                 except ValueError as e:
@@ -705,8 +707,10 @@ def update(tweets="", debug=True):
                     continue
                 
                 # Intelligent answers
-                elif text in answers.keys() or text[:-1] in answers.keys():
+                elif text in answers.keys():
                     msg = answers[text]
+                elif text[:-1] in answers.keys():
+                    msg = answers[text[:-1]]
                 else:
                     msg = u'感谢您的关注，我会继续努力的! 使用@itianqi help可以查看基本功能 :)'
                     
@@ -755,7 +759,7 @@ def update(tweets="", debug=True):
                 c.execute('''select id from weather where city=?''', (city_hanzi, ))
                 ids = c.fetchall()
                 for id in ids:
-                    print "pushing report: @%s %s" % (id[0], city_hanzi)
+                    print ("pushing report: @%s %s" % (id[0], city_hanzi)).encode('utf8')
                     post_msg(tw, u'@%s %s #tq #%s' % (id[0], report_future, city_pinyin))
                     post_msg(tw, u'@%s %s #tq #%s' % (id[0], report_today, city_pinyin))
 
