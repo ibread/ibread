@@ -37,7 +37,16 @@
         今天是2011年1月8日, 农历腊月初五 (08:19:25)
 
 @to-do:
+<<<<<<< .mine
+    经过老婆提醒，应该注意下定位，准备尽快加下面几个功能    
+
+    1. 穿衣指数等详细信息
+    2. 农历禁忌等
+    3. 世界时钟
+
+=======
     1. world-wide time lookup ( using Google onebox result
+>>>>>>> .r66
     * Improve lunar date lookup
     2. calculation
     3. conversation (need to save every user's conversation)
@@ -88,6 +97,7 @@ from twitter.oauth import OAuth, read_token_file
 from datetime import datetime, tzinfo, timedelta
 from lunardate import LunarDate
 import sqlite3
+from worldclock import worldclock
 
 base_path = sys.path[0] + os.sep
 sub_file = base_path + 'subscribe.db'
@@ -577,7 +587,7 @@ def update(tweets="", debug=True):
         if True:
             try:
                 mentions = tw.statuses.replies(count=count)
-            except Exception as e:
+            except ValueError as e:
                 print "Error when getting all replies"
                 #print e
                 #print sys.exc_info()
@@ -705,7 +715,14 @@ def update(tweets="", debug=True):
                         print e
                         msg = u"您所提供的日期%s格式不正确, 请参照1985-09-06或1985/09/06"
 
-                    continue
+                # World Clock
+                elif text.startswith("time") and len(text.split()) > 1:
+                    city = text.split()[1]
+                    t = worldclock(city)
+                    if t is None:
+                        msg = u"很抱歉，并未找到您提供的城市 %s 当前时间" % city
+                    else:
+                        msg = u"当前时间: %s" % (t)
                     
                 # Realtime weather report
                 elif text.startswith('tq'):
