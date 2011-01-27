@@ -45,6 +45,7 @@
 
 @history
 
+1.9: 11/01/17 Adde exception handling to get_weather(), no more crash due to this any more!
 1.8: 11/01/15 Added help information
               Fixed a bug that only mention with Chinese city name will reply with report
 1.7: 11/01/15 Fixed a bug thath metions forgets reply_id
@@ -335,9 +336,10 @@ def get_weather(citycode="101010100", city_name=u'北京', debug=True):
 
     # 晴天: \ue04a
     # 多云: \ue049
-    # 阴天: \ue04d
+    # 阴天: \ue04d  => \uE03B (Suggested by Amy)
     # 雨天: \ue04b
     # 小雪 (甜筒): \ue33a
+    # 小到中雪 : \ue33a 26
     # 中雪: \ue43F 15
     # 大雪, 阵雪, (雪人): \ue048
 
@@ -348,11 +350,13 @@ def get_weather(citycode="101010100", city_name=u'北京', debug=True):
     # http://obp.owind.com:801/emoji/emoji-E33A.png
 
     #print report
-    emoji = {"0":u'\ue04a', "1":u'\ue049', "2":u'\ue04d', "3":u'\ue04b', \
+    emoji = {"0":u'\ue04a', "1":u'\ue049', "2":u'\ue03b', "3":u'\ue04b', \
              "4":u'\ue04b', "5":u'\ue04b', "6":u'\ue04b', "7":u'\ue04b', \
-             "8":u'\ue04b', "13":u'\ue048', "14":u'\ue33a', "15":u'\ue43F', "99":''}
+             "8":u'\ue04b', "13":u'\ue048', "14":u'\ue33a', "15":u'\ue43F', \
+             "26":u'\ue33a', "99":''}
 
-    report_today = u"今天是%s,%s,农历%s %s今日%s%s%s %s\n%s实况 %s℃ %s%s级 湿度%s" % \
+    try:
+        report_today = u"今天是%s,%s,农历%s %s今日%s%s%s %s\n%s实况 %s℃ %s%s级 湿度%s" % \
             (get_date(), get_weekday(), #forecast["date_y"], forecast["week"],  #forecast["date"], \
              lunar_today(), \
              city_name, \
@@ -360,21 +364,26 @@ def get_weather(citycode="101010100", city_name=u'北京', debug=True):
             realtime["time"], realtime["temp"], realtime["WD"], realtime["WSE"], realtime["SD"])
     #print report_today
 
-    report_future = u"未来两天天气状况:\n明天 %s%s%s %s,\n后天 %s%s%s %s" % \
-            (forecast["weather2"], emoji[forecast["img3"]], emoji[forecast["img4"]], forecast["temp2"],\
-             forecast["weather3"], emoji[forecast["img5"]], emoji[forecast["img6"]], forecast["temp3"])
+        report_future = u"未来两天天气状况:\n明天 %s%s%s %s,\n后天 %s%s%s %s" % \
+                (forecast["weather2"], emoji[forecast["img3"]], emoji[forecast["img4"]], forecast["temp2"],\
+                 forecast["weather3"], emoji[forecast["img5"]], emoji[forecast["img6"]], forecast["temp3"])
     #print report_future
 
-    report_today = report_today.replace(u"\u2103", u"度")
-    report_today = report_today.replace(u"~", u"至")
-    report_future = report_future.replace(u"\u2103", u"度")
-    report_future = report_future.replace(u"~", u"至")
+        report_today = report_today.replace(u"\u2103", u"度")
+        report_today = report_today.replace(u"~", u"至")
+        report_future = report_future.replace(u"\u2103", u"度")
+        report_future = report_future.replace(u"~", u"至")
     
+    except KeyError as e:
+        f.write(u"%s\n" % e)
+        return None, None
+
     f.close()
-    
+
     if debug:
         print "[Debug] Done getting weather"
     return report_today, report_future
+   
 
 def get_twitter(debug=False):
     # This is secret and key of my app "ibread"
@@ -504,7 +513,7 @@ def post_realtime(text, tw, target, mid, cd):
 
     curtime = datetime.now(tz=GMT8())
     now_time = curtime.strftime("%H:%M:%S")
-    msg = "Reply to %s @%s B %s" % (target, datetime.now(), text)
+    msg = "Reply to %s @%s id %s B %s" % (target, datetime.now(), mid, text)
     print msg.encode('utf8')
     post_msg(tw, u'@%s %s #tq #%s' % (target, report_future, pinyin), mid)
     post_msg(tw, u'@%s %s #tq #%s' % (target, report_today, pinyin), mid)
@@ -513,7 +522,7 @@ def update(tweets="", debug=True):
     
     tw = get_twitter()
     
-    points = [800, 1842]
+    points = [810, 1800]
     report_today, report_future = get_weather()
     if report_today is None:
         return
@@ -570,8 +579,8 @@ def update(tweets="", debug=True):
                 mentions = tw.statuses.replies(count=count)
             except Exception as e:
                 print "Error when getting all replies"
-                print e
-                print sys.exc_info()
+                #print e
+                #print sys.exc_info()
                 time.sleep(period)
                 continue
 
@@ -653,7 +662,7 @@ def update(tweets="", debug=True):
                     try:
                         city_pinyin, city_hanzi, city_code = cd.get_city(city)
                     except ValueError as e:
-                        post_msg(tw, u"@%s %s" % (target, e[0].encode('utf8')), m['id'])
+                        post_msg(tw, u"@%s %s" % (target, e[0]), m['id'])
                         continue
                     
                     original_city = city # backup for notifying the user what he/she input
@@ -682,7 +691,7 @@ def update(tweets="", debug=True):
                         print "Entering jnr with %s" % m['text'].encode('utf8')
                     msg = get_jnr(text)
 
-                elif text==u"日期" or text==u"农历":
+                elif text==u"日期" or text==u"农历" or text==u"nl":
                     now_time = curtime.strftime("%H:%M:%S")
                     msg = u"今天是%s, 农历%s" % (get_date(), lunar_today())
 
@@ -714,7 +723,14 @@ def update(tweets="", debug=True):
                 else:
                     msg = u'感谢您的关注，我会继续努力的! 使用@itianqi help可以查看基本功能 :)'
                     
+                if target == "amy_guo":
+                    words = [u"谁最好看", u"谁最漂亮", u"谁最美"]
+                    results = map(lambda x:x in text, words)
+                    haokan = reduce(lambda x,y: x or y)
+                    if haokan:
+                        msg = u'当然是你啦。:) '
                     
+                print ("@%s %s" % (target, msg)).encode('utf8')
                 post_msg(tw, u'@%s %s' % (target, msg), m['id'])
                 
                 f.write("Reply to %s @%s" % (target, datetime.now()))
@@ -754,7 +770,12 @@ def update(tweets="", debug=True):
 
                 report_today, report_future = get_weather(citycode=city_code, city_name=city_hanzi)
                 if report_today is None:
-                    print u"[Error] Can not retrieve weather report for %s" % city_hanzi
+                    try:
+                        print u"[Error] Can not retrieve weather report for %s" % city_hanzi
+                    except UnicodeEncodeError as e:
+                        print repr(city_hanzi)
+
+                    continue
                 
                 c.execute('''select id from weather where city=?''', (city_hanzi, ))
                 ids = c.fetchall()
@@ -772,6 +793,9 @@ def update(tweets="", debug=True):
     
 
 if __name__ == "__main__":
+    #cd = CityDict()
+    #print cd.get_city('Nanjing')
+    #sys.exit(1)
     if len(sys.argv)==1:
         update()
     else:
