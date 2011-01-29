@@ -33,7 +33,7 @@ c = conn.cursor()
 c.execute('select * from weather')
 results = c.fetchall()
 for r in results:
-    print r[0], r[1]
+    print r[0].encode('utf8'), r[1].encode('utf8')
 
 conn.commit()
 c.close()

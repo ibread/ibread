@@ -10,8 +10,16 @@ def worldclock(city = "beijing", debug=False):
         Given a city, return the current time of it
     '''
 
+    city = '+'.join(city.split())
+
     query = 'http://www.google.com/search?q=time+'.encode('utf8') + city.encode('utf8')
-    query = urllib2.unquote(query)
+    try:
+        query = urllib2.unquote(query)
+    except urllib2.HTTPError:
+        return None
+
+    if debug:
+        print "query is ", query
     pattern = '<div class="s rbt">.*?</div>'
 
     opener = urllib2.build_opener()
