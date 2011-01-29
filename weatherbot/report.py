@@ -45,15 +45,14 @@
     3. 世界时钟
 
 =======
-    1. world-wide time lookup ( using Google onebox result
->>>>>>> .r66
+
     * Improve lunar date lookup
     2. calculation
     3. conversation (need to save every user's conversation)
-    4. multiple reminder (weather_report subscription)
 
 @history
 
+2.0: 11/01/27 Added wordclock support
 1.9: 11/01/17 Adde exception handling to get_weather(), no more crash due to this any more!
 1.8: 11/01/15 Added help information
               Fixed a bug that only mention with Chinese city name will reply with report
@@ -587,7 +586,7 @@ def update(tweets="", debug=True):
         if True:
             try:
                 mentions = tw.statuses.replies(count=count)
-            except ValueError as e:
+            except Exception as e:
                 print "Error when getting all replies"
                 #print e
                 #print sys.exc_info()
@@ -597,8 +596,8 @@ def update(tweets="", debug=True):
             for m in mentions:
                 # Already replied, do nothing                
                 if m['id'] <= last_id:
-                    if debug:
-                        print "Already checked this mention: %s" % m['text'].encode('utf8')
+                    #if debug:
+                        #print "Already checked this mention: %s" % m['text'].encode('utf8')
                     break
                 
                 target = m['user']['screen_name']
@@ -611,7 +610,7 @@ def update(tweets="", debug=True):
                 if not text.startswith('@itianqi'):
                     continue
                 
-                text = text.replace('@itianqi ', '')
+                text = text.replace('@itianqi ', '').strip()
                 print (u"[Debug] %d %s says: %s" % (m['id'], target, text)).encode('utf8')
                 
                 # check if the text is only the city
@@ -716,11 +715,11 @@ def update(tweets="", debug=True):
                         msg = u"您所提供的日期%s格式不正确, 请参照1985-09-06或1985/09/06"
 
                 # World Clock
-                elif text.startswith("time") and len(text.split()) > 1:
-                    city = text.split()[1]
+                elif text.startswith("time ") and len(text.split()) > 1:
+                    city = text.replace('time ', '').strip()
                     t = worldclock(city)
                     if t is None:
-                        msg = u"很抱歉，并未找到您提供的城市 %s 当前时间" % city
+                        msg = u"很抱歉，并未找到您提供的城市 %s 的时间信息。请确认后重试 :)" % city
                     else:
                         msg = u"当前时间: %s" % (t)
                     
