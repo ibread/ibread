@@ -52,7 +52,8 @@
 
 @history
 
-2.0: 11/01/27 Added wordclock support
+2.1: 11/01/29 Added realtime weather report for world cities (via Google weather API)
+2.0: 11/01/27 Added wordclock support (via Google Onebox)
 1.9: 11/01/17 Adde exception handling to get_weather(), no more crash due to this any more!
 1.8: 11/01/15 Added help information
               Fixed a bug that only mention with Chinese city name will reply with report
