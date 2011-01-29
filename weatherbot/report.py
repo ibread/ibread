@@ -97,10 +97,10 @@ from datetime import datetime, tzinfo, timedelta
 from lunardate import LunarDate
 import sqlite3
 from worldclock import worldclock
+from worldweather import worldweather
 
 base_path = sys.path[0] + os.sep
 sub_file = base_path + 'subscribe.db'
-
 
 def _py26OrGreater():
     import sys
@@ -295,7 +295,9 @@ def update_subscribe(move, id, city):
         
 
 def get_weather(citycode="101010100", city_name=u'北京', debug=True):
-    
+    '''
+        Return weather report information with given city
+    '''
     if debug:
         print "[Debug] Getting weather"
 
@@ -365,7 +367,8 @@ def get_weather(citycode="101010100", city_name=u'北京', debug=True):
              "26":u'\ue33a', "99":''}
 
     try:
-        report_today = u"今天是%s,%s,农历%s %s今日%s%s%s %s\n%s实况 %s℃ %s%s级 湿度%s" % \
+        # u'\xb0' is °
+        report_today = u"今天是%s,%s,农历%s %s今日%s%s%s %s\n%s实况 %s°C %s%s级 湿度%s" % \
             (get_date(), get_weekday(), #forecast["date_y"], forecast["week"],  #forecast["date"], \
              lunar_today(), \
              city_name, \
@@ -378,9 +381,9 @@ def get_weather(citycode="101010100", city_name=u'北京', debug=True):
                  forecast["weather3"], emoji[forecast["img5"]], emoji[forecast["img6"]], forecast["temp3"])
     #print report_future
 
-        report_today = report_today.replace(u"\u2103", u"度")
+        report_today = report_today.replace(u"\u2103", u"°C")
         report_today = report_today.replace(u"~", u"至")
-        report_future = report_future.replace(u"\u2103", u"度")
+        report_future = report_future.replace(u"\u2103", u"°C")
         report_future = report_future.replace(u"~", u"至")
     
     except KeyError as e:
@@ -510,10 +513,8 @@ def post_realtime(text, tw, target, mid, cd):
         pinyin, hanzi, code = cd.get_city(text)
         print pinyin.encode('utf8'), hanzi.encode('utf8'), code.encode('utf8')
     except ValueError as e: # Error occurs
-        msg = (u"@%s %s" % (target, e.args[0])).encode('utf8')
-        
-        return post_msg(tw, msg, mid)
-        
+        # msg = u"@%s %s" % (target, e.args[0])
+        raise ValueError(e.args[0])
 
     report_today, report_future = get_weather(citycode=code, city_name = hanzi)
     if report_today is None:
@@ -629,6 +630,20 @@ def update(tweets="", debug=True):
                         continue
                     pass
 
+                # check to see if it is a world city
+                # we do this by checking return value from worldweather
+                try:
+                    ww = worldweather(city)# , True)
+                    #print ww
+                except Exception as e:
+                    print e
+                if ww is not None:
+                    ww_today = u'@%s %s' % (target, ww[0])
+                    ww_future = u'@%s %s' % (target, ww[1])
+                    post_msg(tw, ww_future, m['id'])
+                    post_msg(tw, ww_today, m['id'])
+                    continue
+
                 if text.startswith(u'help') or text.startswith(u'帮助'):
                     msg = u"@itianqi 直接输入城市获得实况天气信息。set 城市订阅天气预报，unset取消订阅。支持订阅多个城市以及城市拼音。nl 公历日期查询万年历。详情请查看http://goo.gl/Ffg47" 
                 # check if user want to get status of subscription
@@ -724,11 +739,29 @@ def update(tweets="", debug=True):
                         msg = u"当前时间: %s" % (t)
                     
                 # Realtime weather report
+                # we could deal with both Chinese city and world cities
                 elif text.startswith('tq'):
-                    text = text.replace('tq', '').strip()
-                    if len(text) == 0:
-                        text = 'beijing'
-                    post_realtime(text, tw, target, m['id'], cd)
+                    city = text.replace('tq', '').strip()
+                    if len(city) == 0:
+                        city = 'beijing'
+                    try:
+                        post_realtime(city, tw, target, m['id'], cd)
+                    except ValueError as e:
+                        if u'对应多个城市' in e.args[0]:
+                            post_msg(tw, e.args[0], m['id'])
+                        else: # cannot find the city, try worldcities
+                            error_msg = e.args[0]
+                            try:
+                                ww = worldweather(city)
+                            except Exception as e:
+                                print e
+                            if ww  is not None: # found weather info for world cities
+                                ww_today = u'@%s %s' % (target, ww[0])
+                                ww_future = u'@%s %s' % (target, ww[1])
+                                post_msg(tw, ww_future, m['id'])
+                                post_msg(tw, ww_today, m['id'])
+                            else:
+                                post_msg(tw, error_msg, e.args[0])
                     continue
                 
                 # Intelligent answers
@@ -815,4 +848,5 @@ if __name__ == "__main__":
     if len(sys.argv)==1:
         update()
     else:
-        update(sys.argv[1])
+        tw = get_twitter()
+        post_msg(tw, u'8°C | 6°C')

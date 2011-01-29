@@ -5,7 +5,7 @@ import urllib2
 import re
 import sys
 
-def worldclock(city = "beijing", debug=False):
+def worldclock(city = u"北京", debug=False):
     '''
         Given a city, return the current time of it
     '''
@@ -46,4 +46,4 @@ if __name__ == "__main__":
         print "Usage: %s CITYNAME" % sys.argv[0]
         sys.exit(1)
 
-    print worldclock(sys.argv[1], debug=True)
+    print worldclock(u'北京', debug=True)
