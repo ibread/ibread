@@ -52,6 +52,7 @@
 
 @history
 
+2.2: 11/01/30 Fixed a bug that duplicate item will occur in database
 2.1: 11/01/29 Added realtime weather report for world cities (via Google weather API)
 2.0: 11/01/27 Added wordclock support (via Google Onebox)
 1.9: 11/01/17 Adde exception handling to get_weather(), no more crash due to this any more!
@@ -283,6 +284,12 @@ def update_subscribe(move, id, city):
     #c.execute('''create table weather (id text PRIMARY KEY, city text)''')
     if move=="add":
         try:
+            c.execute('select * from weather where id=? and city=?', (id, city))
+            results = c.fetchall()
+            if len(results) > 0:
+                print "[Error] Already in the database (%s, %s)" % (id, city)
+                c.close()
+                return
             c.execute('insert into weather values (?, ?)', (id, city))
             print (u"user %s, city %s added" % (id, city)).encode('utf8')
         except sqlite3.IntegrityError:
@@ -776,7 +783,7 @@ def update(tweets="", debug=True):
                 if target == "amy_guo":
                     words = [u"谁最好看", u"谁最漂亮", u"谁最美"]
                     results = map(lambda x:x in text, words)
-                    haokan = reduce(lambda x,y: x or y)
+                    haokan = reduce(lambda x,y: x or y, results)
                     if haokan:
                         msg = u'当然是你啦。:) '
                     
