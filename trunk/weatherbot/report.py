@@ -133,7 +133,7 @@ def lunar_today():
     month[1] = u"正"
     month.extend([u"十", u"冬", u"腊"])
     return u"%s月%s%s" % (month[LunarDate.today().month],
-                       day1[(LunarDate.today().day-1)/10],
+                       day1[(LunarDate.today().day)/10],
                        day2[LunarDate.today().day%10])
 
 def lunar_date(date):
@@ -593,6 +593,7 @@ def update(tweets="", debug=True):
 
         # check mentions and reply back
         if True:
+            sys.stdout.flush()
             try:
                 mentions = tw.statuses.replies(count=count)
             except Exception as e:
@@ -701,7 +702,7 @@ def update(tweets="", debug=True):
                     
                     if command == "add":
                             update_subscribe(command, target, city_hanzi)
-                            msg = u'操作已成功。您将会收到%s的天气预报提醒。' % city_hanzi
+                            msg = u'操作已成功。您将会收到%s的天气预报提醒。感谢您的使用。:)' % city_hanzi
                     else: # command == "remove"
 
                         conn = sqlite3.connect(sub_file)
