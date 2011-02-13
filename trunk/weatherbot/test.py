@@ -9,34 +9,58 @@ from pinyin import *
 from lunardate import LunarDate
 import sqlite3
 
-cur_path = sys.path[0] + os.sep
-conn = sqlite3.connect(cur_path + "subscribe.db")
 
-c = conn.cursor()
-#c.execute('''create table weather(id text, city text)''')
-# sqlite3.IntegrityError
-# will be invoked when insert multiple record with the same primary key
+def copy_data(t1, t2):
+    '''
+        Copy data from table 1 to table2
+    '''
 
-#c.execute('''insert into weather values ('bread', '123')''')
-#c.execute('''insert into weather values ('a1', '123')''')
-#c.execute('''insert into weather values ('a2', '123')''')
-#c.execute('''insert into weather values ('a3', '123')''')
+    cur_path = sys.path[0] + os.sep
+    conn1 = sqlite3.connect(cur_path+t1)
+    conn2 = sqlite3.connect(cur_path+t2)
+    c1 = conn1.cursor()
+    c2 = conn2.cursor()
+        
+    c1.execute('select * from weather')
+    results = c1.fetchall()
+    for r in results:
+        c2.execute('''insert into weather values (?, ?)''', (r[0], r[1]))
 
-#c.execute('''insert into weather values (?, ?)''', ('ibread', u'北京'))
-#c.execute('''insert into weather values (?, ?)''', ('amy_guo', u'北京'))
-#c.execute('''insert into weather values (?, ?)''',  ('Imrunningsnail', u'杭州'))
-#
-#c.execute('''update weather set city=? where id=?''', (u'北京', 'ibread'))
-#c.execute('''update weather set city=? where id=?''', (u'北京', 'amy_guo'))
-#c.execute('''update weather set city=? where id=?''', (u'杭州', 'Imrunningsnail'))
+    conn2.commit()
+    c1.close()
+    c2.close()
 
-c.execute('select * from weather')
-results = c.fetchall()
-for r in results:
-    print r[0].encode('utf8'), r[1].encode('utf8')
 
-conn.commit()
-c.close()
+def create_db(name):
+    cur_path = sys.path[0] + os.sep
+    conn = sqlite3.connect(cur_path + name)
+    c = conn.cursor()
+    c.execute('''create table weather(id text , city text, primary key(id, city))''')
+    conn.commit()
+    c.close()
+
+
+def print_db(name):
+    cur_path = sys.path[0] + os.sep
+    conn = sqlite3.connect(cur_path + name)
+    c = conn.cursor()
+    
+    print "==========%s==========" % name
+    c.execute('select * from weather')
+    #c.execute('delete from weather where id=? and city=?', ('amy_guo', u'桂东'))
+    results = c.fetchall()
+    print "%s items" % len(results)
+    for r in results:
+        print r[0].encode('utf8'), r[1].encode('utf8')
+
+    conn.commit()
+    c.close()
+
+
+#print_db('subscribe.db')
+#create_db('test.db')
+#copy_data('subscribe.db', 'test.db')
+print_db('subscribe.db')
 sys.exit(1)
 
 

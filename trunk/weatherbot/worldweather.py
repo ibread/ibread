@@ -72,6 +72,8 @@ def worldweather(city = u'Beijing', debug=False):
     API = 'http://www.google.com/ig/api?weather='
     city = '+'.join(city.split())
     query = urllib2.unquote(API.encode('utf8') + city.encode('utf8'))
+    if debug:
+        print query
 
     try:
         u = urllib2.urlopen(query)
@@ -159,7 +161,7 @@ def worldweather(city = u'Beijing', debug=False):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print worldweather('Beijing', True)
+        print worldweather(u'香港', True)
     else:
         print worldweather(' '.join(sys.argv[1:]), True)
     
