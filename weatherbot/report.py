@@ -52,6 +52,7 @@
 
 @history
 
+2.3: 11/02/13 Added support for all kinds of zhishu
 2.2: 11/01/30 Fixed a bug that duplicate item will occur in database
 2.1: 11/01/29 Added realtime weather report for world cities (via Google weather API)
 2.0: 11/01/27 Added wordclock support (via Google Onebox)
@@ -344,6 +345,15 @@ def get_weather(citycode="101010100", city_name=u'北京', debug=True):
     # emoji: \ue04a-晴 \ue049-多云 \ue04d-阴天 \ue04b-雨 \ue33a-雪(冰淇淋) 
     # 温度：     "temp1"
 
+    # 穿衣指数: index
+    # 穿衣建议: index_d
+    # 洗车指数: index_xc
+    # 舒适度指数: index_co
+    # 紫外线指数: index_uv
+    # 晨练指数: index_cl
+    # 晾晒指数: index_ls
+    # 旅游指数: index_tr
+
     # realtime:
     # 时间: "time" "12:00"
     # 温度: "temp" "28.1"
@@ -375,19 +385,22 @@ def get_weather(citycode="101010100", city_name=u'北京', debug=True):
              "26":u'\ue33a', "99":''}
 
     try:
-        # u'\xb0' is °
-        report_today = u"今天是%s,%s,农历%s %s今日%s%s%s %s\n%s实况 %s°C %s%s级 湿度%s" % \
-            (get_date(), get_weekday(), #forecast["date_y"], forecast["week"],  #forecast["date"], \
-             lunar_today(), \
+        #report_today = u"今天是%s,%s,农历%s %s今日%s%s%s %s\n%s实况 %s°C %s%s级 湿度%s" % \
+        report_today = u"%s今日%s%s%s %s 当前%s°C %s%s级" % \
+            (#get_date(), get_weekday(), #forecast["date_y"], forecast["week"],  #forecast["date"], \
+             #lunar_today(), \
              city_name, \
             forecast["weather1"], emoji[forecast["img1"]], emoji[forecast["img2"]], forecast["temp1"],\
-            realtime["time"], realtime["temp"], realtime["WD"], realtime["WSE"], realtime["SD"])
+            realtime["temp"], realtime["WD"], realtime["WSE"])
     #print report_today
 
-        report_future = u"未来两天天气状况:\n明天 %s%s%s %s,\n后天 %s%s%s %s" % \
+        report_future = u"明天 %s%s%s %s,\n后天 %s%s%s %s" % \
                 (forecast["weather2"], emoji[forecast["img3"]], emoji[forecast["img4"]], forecast["temp2"],\
                  forecast["weather3"], emoji[forecast["img5"]], emoji[forecast["img6"]], forecast["temp3"])
     #print report_future
+
+        report_zhishu = u"穿衣:%s 晨练:%s 舒适度:%s 紫外线:%s 洗车:%s" % \
+                        (forecast["index"], forecast["index_cl"], forecast["index_co"], forecast["index_uv"], forecast["index_xc"])
 
         report_today = report_today.replace(u"\u2103", u"°C")
         report_today = report_today.replace(u"~", u"至")
@@ -402,7 +415,7 @@ def get_weather(citycode="101010100", city_name=u'北京', debug=True):
 
     if debug:
         print "[Debug] Done getting weather"
-    return report_today, report_future
+    return report_today, report_future, report_zhishu
    
 
 def get_twitter(debug=False):
@@ -524,7 +537,7 @@ def post_realtime(text, tw, target, mid, cd):
         # msg = u"@%s %s" % (target, e.args[0])
         raise ValueError(e.args[0])
 
-    report_today, report_future = get_weather(citycode=code, city_name = hanzi)
+    report_today, report_future, report_zhishu = get_weather(citycode=code, city_name = hanzi)
     if report_today is None:
         msg = u"很抱歉。获取%s天气信息失败，请稍后重试。"
         return post_msg(tw, msg, mid)
@@ -534,14 +547,14 @@ def post_realtime(text, tw, target, mid, cd):
     msg = "Reply to %s @%s id %s B %s" % (target, datetime.now(), mid, text)
     print msg.encode('utf8')
     post_msg(tw, u'@%s %s #tq #%s' % (target, report_future, pinyin), mid)
-    post_msg(tw, u'@%s %s #tq #%s' % (target, report_today, pinyin), mid)
+    post_msg(tw, u'@%s %s #tq #%s' % (target, report_today + " " + report_zhishu, pinyin), mid)
 
 def update(tweets="", debug=True):
     
     tw = get_twitter()
     
-    points = [810, 1800]
-    report_today, report_future = get_weather()
+    points = [800, 1800]
+    report_today, report_future, report_zhishu = get_weather()
     if report_today is None:
         return
 
@@ -572,9 +585,9 @@ def update(tweets="", debug=True):
         
         # update the report at certain time points
         if hourmin % 100 == 0:
-            temp_report_today, temp_report_future = get_weather()
+            temp_report_today, temp_report_future, temp_report_zhishu = get_weather()
             if temp_report_today is not None:
-                report_today, report_future = temp_report_today, temp_report_future
+                report_today, report_future, report_zhishu = temp_report_today, temp_report_future, temp_report_zhishu
 
         dict_file = sys.path[0] + os.sep + "answers.txt"
         try:
@@ -802,8 +815,8 @@ def update(tweets="", debug=True):
             
         if hourmin in points:
             # tweet weather report for beijing
-            post_msg(tw, report_future + "#tq #beijing")
-            post_msg(tw, report_today + "#tq #beijing")
+            # post_msg(tw, report_future + "#tq #beijing")
+            # post_msg(tw, report_today + "#tq #beijing")
             print "Twitter %s" % "weather report"
             
             # Get all ids in subscription and mention them weather report 
@@ -826,7 +839,7 @@ def update(tweets="", debug=True):
                     print u"[Error] city %s in db is invalid" % city[0]
                     continue
 
-                report_today, report_future = get_weather(citycode=city_code, city_name=city_hanzi)
+                report_today, report_future, report_zhishu = get_weather(citycode=city_code, city_name=city_hanzi)
                 if report_today is None:
                     try:
                         print u"[Error] Can not retrieve weather report for %s" % city_hanzi
@@ -839,8 +852,11 @@ def update(tweets="", debug=True):
                 ids = c.fetchall()
                 for id in ids:
                     print ("pushing report: @%s %s" % (id[0], city_hanzi)).encode('utf8')
-                    post_msg(tw, u'@%s %s #tq #%s' % (id[0], report_future, city_pinyin))
-                    post_msg(tw, u'@%s %s #tq #%s' % (id[0], report_today, city_pinyin))
+                    if hourmin == points[0]: # morning
+                        post_msg(tw, u'@%s %s #tq #%s' % (id[0], report_today + " " + report_zhishu, city_pinyin))
+                    else: # afternoon
+                        post_msg(tw, u'@%s %s #tq #%s' % (id[0], report_future, city_pinyin))
+                        post_msg(tw, u'@%s %s #tq #%s' % (id[0], report_today, city_pinyin))
 
             c.close()
         
