@@ -52,6 +52,7 @@
 
 @history
 
+2.4: 11/02/14 report of today and future is condensed to one tweet
 2.3: 11/02/13 Added support for all kinds of zhishu
 2.2: 11/01/30 Fixed a bug that duplicate item will occur in database
 2.1: 11/01/29 Added realtime weather report for world cities (via Google weather API)
@@ -394,13 +395,13 @@ def get_weather(citycode="101010100", city_name=u'北京', debug=True):
             realtime["temp"], realtime["WD"], realtime["WSE"])
     #print report_today
 
-        report_future = u"明天 %s%s%s %s,\n后天 %s%s%s %s" % \
+        report_future = u"明天 %s%s%s %s, 后天 %s%s%s %s" % \
                 (forecast["weather2"], emoji[forecast["img3"]], emoji[forecast["img4"]], forecast["temp2"],\
                  forecast["weather3"], emoji[forecast["img5"]], emoji[forecast["img6"]], forecast["temp3"])
     #print report_future
 
-        report_zhishu = u"穿衣:%s 晨练:%s 舒适度:%s 紫外线:%s 洗车:%s" % \
-                        (forecast["index"], forecast["index_cl"], forecast["index_co"], forecast["index_uv"], forecast["index_xc"])
+        report_zhishu = u"天气%s %s 紫外线%s %s晨练 %s洗车" % \
+                        (forecast["index"], forecast["index_co"], forecast["index_uv"], forecast["index_cl"], forecast["index_xc"])
 
         report_today = report_today.replace(u"\u2103", u"°C")
         report_today = report_today.replace(u"~", u"至")
@@ -855,8 +856,7 @@ def update(tweets="", debug=True):
                     if hourmin == points[0]: # morning
                         post_msg(tw, u'@%s %s #tq #%s' % (id[0], report_today + " " + report_zhishu, city_pinyin))
                     else: # afternoon
-                        post_msg(tw, u'@%s %s #tq #%s' % (id[0], report_future, city_pinyin))
-                        post_msg(tw, u'@%s %s #tq #%s' % (id[0], report_today, city_pinyin))
+                        post_msg(tw, u'@%s %s #tq #%s' % (id[0], report_today + " " + report_future, city_pinyin))
 
             c.close()
         
