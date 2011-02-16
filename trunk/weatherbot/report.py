@@ -311,8 +311,10 @@ def get_weather(citycode="101010100", city_name=u'北京', debug=True):
     if debug:
         print "[Debug] Getting weather"
 
-    #citycode = "101010100" # beijing
+    # citycode = "101010100" # beijing
+    # http://m.weather.com.cn/data/101010100.html 
     fore_url = "http://m.weather.com.cn/data/%s.html" % (citycode) # forecast in 3 days(including today)
+    # http://www.weather.com.cn/data/101010100.html 
     rt_url = "http://www.weather.com.cn/data/sk/%s.html" % (citycode) # today's realtime
 
     try:
