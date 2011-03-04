@@ -8,6 +8,7 @@
 # @usage:
 #         ./batch.sh
 
+
 while read line
 do
     echo ${line}
