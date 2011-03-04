@@ -1,4 +1,4 @@
-There are two sub-directories:
+There are two sub-directories in this directory:
 
     * scripts: All scripts needed for test generation. There are writtern in Python/Shell. Please refer the documentation 
                 at the beginning of each file for details, including brief description, usage, etc.
