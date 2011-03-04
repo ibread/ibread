@@ -1,0 +1,616 @@
+// -------------------------------------------------------------------//
+// LibComp : v8.2009_2.10-snapshot_200-prerelease                     //
+// Date : Thu Mar 12 23:41:08 PDT 2009                                //
+//                                                                    //
+// -------------------------------------------------------------------//
+// ATPG Library Created on Fri Mar 13 08:22:08 2009
+array_delimiter = "[]";
+
+
+
+model udp_dff
+  (out, in, clk, clr, set, NOTIFIER)
+(
+  input (in) ( )
+  input (clk) ( )  // Posedge Triggered Clock.
+  input (clr) ( )  //  ActiveHI Asynch. Reset.
+  input (set) ( )  //  ActiveHI Asynch. Set.
+  input (NOTIFIER) (no_fault = sa0 sa1; used = false;)  // Notifier.
+  output (out) ( 
+    primitive = _inv mlc_set_not_gate (set, mlc_set_not_net);
+    primitive = _and mlc_reset_and_gate (mlc_set_not_net, clr, mlc_reset_and_net);
+    primitive = _dff mlc_dff ( set, mlc_reset_and_net, clk, in, out, );
+  )
+)
+
+
+model udp_mux2
+  (out, in0, in1, sel)
+(
+  input (in0, in1, sel) ( )
+  output (out) ( 
+    primitive = _mux mlc_gate0 (in0, in1, sel, out);
+  )
+)
+
+
+model udp_tlat
+  (out, in, enable, clr, set, NOTIFIER)
+(
+  input (in) ( )
+  input (enable) ( )  // ActiveHI Level Sensitive Clock.
+  input (clr) ( )  //  ActiveHI Asynch. Reset.
+  input (set) ( )  //  ActiveHI Asynch. Set.
+  input (NOTIFIER) (no_fault = sa0 sa1; used = false;)  // Notifier.
+  output (out) ( 
+    primitive = _inv mlc_set_not_gate (set, mlc_set_not_net);
+    primitive = _and mlc_reset_and_gate (mlc_set_not_net, clr, mlc_reset_and_net);
+    primitive = _dlat mlc_latch ( set, mlc_reset_and_net, enable, in, out, );
+  )
+)
+
+
+model udp_rslat
+  (out, clr, set, NOTIFIER)
+(
+  input (clr) ( )  //  ActiveHI Asynch. Reset.
+  input (set) ( )  //  ActiveHI Asynch. Set.
+  input (NOTIFIER) (no_fault = sa0 sa1; used = false;)  // Notifier.
+  output (out) ( 
+    primitive = _inv mlc_set_not_gate (set, mlc_set_not_net);
+    primitive = _and mlc_reset_and_gate (mlc_set_not_net, clr, mlc_reset_and_net);
+    primitive = _tie0 mlc_C_tied_off_gate (mlc_clock_net:nf);
+    primitive = _tie0 mlc_D_tied_off_gate (mlc_data_net:nf);
+    primitive = _dlat mlc_asynch_latch ( set, mlc_reset_and_net, mlc_clock_net:nf, mlc_data_net:nf, out, );
+  )
+)
+
+model ADDFX1
+  (A, B, CI, CO, S)
+(
+  input (A) ( )
+  input (B) ( )
+  input (CI) ( )
+  output (CO) ()
+  output (S) (
+    primitive = _and  mlc_and_1 ( A, B, I0_out );
+    primitive = _and  mlc_and_2 ( B, CI, I1_out );
+    primitive = _and  mlc_and_3 ( CI, A, I3_out );
+    primitive = _or  mlc_or_1 ( I0_out, I1_out, I3_out, CO );
+    primitive = _xor  mlc_xor_1 ( A, B, I5_out );
+    primitive = _xor  mlc_xor_2 ( I5_out, CI, S );
+  )
+)
+
+model ADDHX1
+  (A, B, CO, S)
+(
+  input (A) ( )
+  input (B) ( )
+  output (CO) ()
+  output (S) (
+    primitive = _and  mlc_and_1 ( A, B, CO );
+    primitive = _xor  mlc_xor_1 ( A, B, S );
+  )
+)
+
+model AND2X1
+  (A, B, Y)
+(
+  input (A) ( )
+  input (B) ( )
+  output (Y) (
+    primitive = _and  mlc_and_1 ( A, B, Y );
+  )
+)
+
+model AOI21X1
+  (A0, A1, B0, Y)
+(
+  input (A0) ( )
+  input (A1) ( )
+  input (B0) ( )
+  output (Y) (
+    primitive = _and  mlc_and_1 ( A0, A1, I0_out );
+    primitive = _or  mlc_or_1 ( I0_out, B0, I1_out );
+    primitive = _inv  mlc_inv_1 ( I1_out, Y );
+  )
+)
+
+model AOI22X1
+  (A0, A1, B0, B1, Y)
+(
+  input (A0) ( )
+  input (A1) ( )
+  input (B0) ( )
+  input (B1) ( )
+  output (Y) (
+    primitive = _and  mlc_and_1 ( B0, B1, I0_out );
+    primitive = _and  mlc_and_2 ( A0, A1, I1_out );
+    primitive = _or  mlc_or_1 ( I0_out, I1_out, I2_out );
+    primitive = _inv  mlc_inv_1 ( I2_out, Y );
+  )
+)
+
+model BUFX1
+  (A, Y)
+(
+  input (A) ( )
+  output (Y) (
+    primitive = _buf  mlc_buf_1 ( A, Y );
+  )
+)
+
+model BUFX3
+  (A, Y)
+(
+  input (A) ( )
+  output (Y) (
+    primitive = _buf  mlc_buf_1 ( A, Y );
+  )
+)
+
+model CLKBUFX1
+  (A, Y)
+(
+  input (A) ( )
+  output (Y) (
+    primitive = _buf  mlc_buf_1 ( A, Y );
+  )
+)
+
+model CLKBUFX2
+  (A, Y)
+(
+  input (A) ( )
+  output (Y) (
+    primitive = _buf  mlc_buf_1 ( A, Y );
+  )
+)
+
+model CLKBUFX3
+  (A, Y)
+(
+  input (A) ( )
+  output (Y) (
+    primitive = _buf  mlc_buf_1 ( A, Y );
+  )
+)
+
+model DFFSRX1
+  (CK, D, RN, SN,
+  Q, QN)
+(
+  input (CK) ( )
+  input (D) ( )
+  input (RN) ( )
+  input (SN) ( )
+  output (Q) ()
+  output (QN) (
+    primitive = _inv  mlc_inv_1 ( RN, I0_CLEAR );
+    primitive = _inv  mlc_inv_2 ( SN, I0_SET );
+    instance = udp_dff  mlc_inst1 ( NET0131_, D_, CK, I0_SET, I0_CLEAR, NOTIFIER );
+    instance = udp_dff  mlc_inst2 ( P0001_, D, CK, I0_CLEAR, I0_SET, NOTIFIER );
+    primitive = _inv  mlc_inv_3 ( D, D_ );
+    primitive = _inv  mlc_inv_4 ( NET0131_, NET0131 );
+    primitive = _inv  mlc_inv_5 ( P0001_, P0001 );
+    primitive = _buf  mlc_buf_1 ( NET0131, Q );
+    primitive = _buf  mlc_buf_2 ( P0001, QN );
+  )
+)
+
+model DFFX1
+  (CK, D, Q, QN)
+(
+  input (CK) ( )
+  input (D) ( )
+  output (Q) ()
+  output (QN) (
+    instance = udp_dff  mlc_inst3 ( P0001, D, CK, mlc_n0, mlc_n1, NOTIFIER );
+    primitive = _tie0  mlc_tie0_1 ( mlc_n0 );
+    primitive = _tie0  mlc_tie0_2 ( mlc_n1 );
+    primitive = _inv  mlc_inv_1 ( P0001, P0000 );
+    primitive = _inv  mlc_inv_2 ( P0000, Q );
+    primitive = _buf  mlc_buf_1 ( P0000, QN );
+  )
+)
+
+model INVX1
+  (A, Y)
+(
+  input (A) ( )
+  output (Y) (
+    primitive = _inv  mlc_inv_1 ( A, Y );
+  )
+)
+
+model INVX2
+  (A, Y)
+(
+  input (A) ( )
+  output (Y) (
+    primitive = _inv  mlc_inv_1 ( A, Y );
+  )
+)
+
+model INVX4
+  (A, Y)
+(
+  input (A) ( )
+  output (Y) (
+    primitive = _inv  mlc_inv_1 ( A, Y );
+  )
+)
+
+model INVX8
+  (A, Y)
+(
+  input (A) ( )
+  output (Y) (
+    primitive = _inv  mlc_inv_1 ( A, Y );
+  )
+)
+
+model MX2X1
+  (A, B, S0, Y)
+(
+  input (A) ( )
+  input (B) ( )
+  input (S0) ( )
+  output (Y) (
+    instance = udp_mux2  mlc_inst4 ( Y, A, B, S0 );
+  )
+)
+
+model NAND2X1
+  (A, B, Y)
+(
+  input (A) ( )
+  input (B) ( )
+  output (Y) (
+    primitive = _and  mlc_and_1 ( A, B, I0_out );
+    primitive = _inv  mlc_inv_1 ( I0_out, Y );
+  )
+)
+
+model NAND2X2
+  (A, B, Y)
+(
+  input (A) ( )
+  input (B) ( )
+  output (Y) (
+    primitive = _and  mlc_and_1 ( A, B, I0_out );
+    primitive = _inv  mlc_inv_1 ( I0_out, Y );
+  )
+)
+
+model NAND3X1
+  (A, B, C, Y)
+(
+  input (A) ( )
+  input (B) ( )
+  input (C) ( )
+  output (Y) (
+    primitive = _and  mlc_and_1 ( A, B, C, I1_out );
+    primitive = _inv  mlc_inv_1 ( I1_out, Y );
+  )
+)
+
+model NAND4X1
+  (A, B, C, D, Y)
+(
+  input (A) ( )
+  input (B) ( )
+  input (C) ( )
+  input (D) ( )
+  output (Y) (
+    primitive = _and  mlc_and_1 ( A, B, C, D, I2_out );
+    primitive = _inv  mlc_inv_1 ( I2_out, Y );
+  )
+)
+
+model NOR2X1
+  (A, B, Y)
+(
+  input (A) ( )
+  input (B) ( )
+  output (Y) (
+    primitive = _or  mlc_or_1 ( A, B, I0_out );
+    primitive = _inv  mlc_inv_1 ( I0_out, Y );
+  )
+)
+
+model NOR3X1
+  (A, B, C, Y)
+(
+  input (A) ( )
+  input (B) ( )
+  input (C) ( )
+  output (Y) (
+    primitive = _or  mlc_or_1 ( A, B, C, I1_out );
+    primitive = _inv  mlc_inv_1 ( I1_out, Y );
+  )
+)
+
+model NOR4X1
+  (A, B, C, D, Y)
+(
+  input (A) ( )
+  input (B) ( )
+  input (C) ( )
+  input (D) ( )
+  output (Y) (
+    primitive = _or  mlc_or_1 ( A, B, C, D, I2_out );
+    primitive = _inv  mlc_inv_1 ( I2_out, Y );
+  )
+)
+
+model OAI21X1
+  (A0, A1, B0, Y)
+(
+  input (A0) ( )
+  input (A1) ( )
+  input (B0) ( )
+  output (Y) (
+    primitive = _or  mlc_or_1 ( A0, A1, I0_out );
+    primitive = _and  mlc_and_1 ( I0_out, B0, I1_out );
+    primitive = _inv  mlc_inv_1 ( I1_out, Y );
+  )
+)
+
+model OAI22X1
+  (A0, A1, B0, B1, Y)
+(
+  input (A0) ( )
+  input (A1) ( )
+  input (B0) ( )
+  input (B1) ( )
+  output (Y) (
+    primitive = _or  mlc_or_1 ( B0, B1, I0_out );
+    primitive = _or  mlc_or_2 ( A0, A1, I1_out );
+    primitive = _and  mlc_and_1 ( I0_out, I1_out, I2_out );
+    primitive = _inv  mlc_inv_1 ( I2_out, Y );
+  )
+)
+
+model OAI33X1
+  (A0, A1, A2, B0,
+  B1, B2, Y)
+(
+  input (A0) ( )
+  input (A1) ( )
+  input (A2) ( )
+  input (B0) ( )
+  input (B1) ( )
+  input (B2) ( )
+  output (Y) (
+    primitive = _or  mlc_or_1 ( B0, B1, B2, I1_out );
+    primitive = _or  mlc_or_2 ( A0, A1, A2, I3_out );
+    primitive = _and  mlc_and_1 ( I1_out, I3_out, I4_out );
+    primitive = _inv  mlc_inv_1 ( I4_out, Y );
+  )
+)
+
+model OR2X1
+  (A, B, Y)
+(
+  input (A) ( )
+  input (B) ( )
+  output (Y) (
+    primitive = _or  mlc_or_1 ( A, B, Y );
+  )
+)
+
+model OR4X1
+  (A, B, C, D, Y)
+(
+  input (A) ( )
+  input (B) ( )
+  input (C) ( )
+  input (D) ( )
+  output (Y) (
+    primitive = _or  mlc_or_1 ( A, B, C, D, Y );
+  )
+)
+
+model SDFFSRX1
+  (CK, D, RN, SE,
+  SI, SN, Q, QN)
+(
+  input (CK) ( )
+  input (D) ( )
+  input (RN) ( )
+  input (SE) ( )
+  input (SI) ( )
+  input (SN) ( )
+  output (Q) ()
+  output (QN) (
+    instance = udp_mux2  mlc_inst5 ( I0_D, D, SI, SE );
+    primitive = _inv  mlc_inv_1 ( RN, I0_CLEAR );
+    primitive = _inv  mlc_inv_2 ( SN, I0_SET );
+    instance = udp_dff  mlc_inst6 ( P0002, I0_D, CK, I0_CLEAR, I0_SET, NOTIFIER );
+    primitive = _inv  mlc_inv_3 ( P0002, P0000 );
+    primitive = _inv  mlc_inv_4 ( P0000, Q );
+    primitive = _buf  mlc_buf_1 ( P0000, QN );
+  )
+)
+
+model TBUFX1
+  (A, OE, Y)
+(
+  input (A) ( )
+  input (OE) ( )
+  output (Y) (
+    primitive = _tsh  mlc_tsh_1 ( A, OE, Y );
+  )
+)
+
+model TBUFX2
+  (A, OE, Y)
+(
+  input (A) ( )
+  input (OE) ( )
+  output (Y) (
+    primitive = _tsh  mlc_tsh_1 ( A, OE, Y );
+  )
+)
+
+model TBUFX4
+  (A, OE, Y)
+(
+  input (A) ( )
+  input (OE) ( )
+  output (Y) (
+    primitive = _tsh  mlc_tsh_1 ( A, OE, Y );
+  )
+)
+
+model TBUFX8
+  (A, OE, Y)
+(
+  input (A) ( )
+  input (OE) ( )
+  output (Y) (
+    primitive = _tsh  mlc_tsh_1 ( A, OE, Y );
+  )
+)
+
+model TINVX1
+  (A, OE, Y)
+(
+  input (A) ( )
+  input (OE) ( )
+  output (Y) (
+    primitive = _inv  mlc_inv_1 ( A, I0_out );
+    primitive = _tsh  mlc_tsh_1 ( I0_out, OE, Y );
+  )
+)
+
+model TLATSRX1
+  (D, G, RN, SN,
+  Q, QN)
+(
+  input (D) ( )
+  input (G) ( )
+  input (RN) ( )
+  input (SN) ( )
+  output (Q) ()
+  output (QN) (
+    primitive = _inv  mlc_inv_1 ( RN, I0_CLEAR );
+    primitive = _inv  mlc_inv_2 ( SN, I0_SET );
+    instance = udp_tlat  mlc_inst7 ( P0001, D, G, I0_CLEAR, I0_SET, NOTIFIER );
+    primitive = _inv  mlc_inv_3 ( P0001, P0000 );
+    primitive = _inv  mlc_inv_4 ( P0000, Q );
+    primitive = _buf  mlc_buf_1 ( P0000, QN );
+  )
+)
+
+model TLATX1
+  (C, D, Q, QN)
+(
+  input (C) ( )
+  input (D) ( )
+  output (Q) ()
+  output (QN) (
+    instance = udp_tlat  mlc_inst8 ( P0000, D, C, mlc_n2, mlc_n3, NOTIFIER );
+    primitive = _tie0  mlc_tie0_1 ( mlc_n2 );
+    primitive = _tie0  mlc_tie0_2 ( mlc_n3 );
+    primitive = _buf  mlc_buf_1 ( P0000, Q );
+    primitive = _inv  mlc_inv_2 ( P0000, QN );
+  )
+)
+
+model XOR2X1
+  (A, B, Y)
+(
+  input (A) ( )
+  input (B) ( )
+  output (Y) (
+    primitive = _xor  mlc_xor_1 ( A, B, Y );
+  )
+)
+
+model SDFF (D, SI, SE, ST, RT, CK, Q) (
+        cell_type = SCANCELL CK D;
+        scan_definition (
+                type = mux_scan;
+                data_in = D;
+                scan_in = SI;
+                scan_enable = SE;
+                scan_out = Q;
+        )
+        input (D, SI, SE, ST, RT) ()
+        input (CK) (clock = rise_edge;)
+        intern(_D) (primitive = _mux (D, SI, SE, _D);)
+        output(Q)  (primitive = _dff(ST, RT, CK, _D, Q, );)
+)
+
+model SDFFN (D, SI, SE, ST, RT, CK, Q, SO) (
+        cell_type = SCANCELL CK D;
+        scan_definition (
+                type = mux_scan;
+                data_in = D;
+                scan_in = SI;
+                scan_enable = SE;
+                scan_out = SO;
+        )
+        input (D, SI, SE, ST, RT) ()
+        input (CK) (clock = rise_edge;)
+        intern(_D) (primitive = _mux (D, SI, SE, _D);)
+        output(Q, SO)  (
+        primitive = _dff(ST, RT, CK, _D, TEMP, );
+        primitive = _buf(TEMP, Q);
+        primitive = _buf(TEMP, SO);
+))
+
+model SDFFNSR (D, SI, SE, CK, Q) (
+        cell_type = SCANCELL CK D;
+        scan_definition (
+                type = mux_scan;
+                data_in = D;
+                scan_in = SI;
+                scan_enable = SE;
+                scan_out = Q;
+        )
+        input (D, SI, SE) ()
+        input (CK) (clock = rise_edge;)
+        intern(_D) (primitive = _mux (D, SI, SE, _D);)
+        output(Q)  (primitive = _dff(, , CK, _D, Q, );)
+)
+
+
+model SDFFNSRN (D, SI, SE, CK, Q, SO) (
+        cell_type = SCANCELL CK D;
+        scan_definition (
+                type = mux_scan;
+                data_in = D;
+                scan_in = SI;
+                scan_enable = SE;
+                scan_out = SO;
+        )
+        input (D, SI, SE) ()
+        input (CK) (clock = rise_edge;)
+        intern(_D) (primitive = _mux (D, SI, SE, _D);)
+        output(Q, SO)  (
+        primitive = _dff(, , CK, _D, TEMP, );
+        primitive = _buf(TEMP, Q);
+        primitive = _buf(TEMP, SO);
+        )
+)
+
+model DFF1 (D, ST, RT, CK, Q) (
+        input (D, ST, RT) ()
+        input (CK) (clock = rise_edge;)
+        output(Q)  (primitive = _dff(ST, RT, CK, D, Q, );)
+)
+
+model DFF1NSR (D, CK, Q) (
+        input (D) ()
+        input (CK) (clock = rise_edge;)
+        output(Q)  (primitive = _dff(, , CK, D, Q, );)
+)
+
+model DLATCH(D, CK, Q) (
+        input(D, CK) ()
+        output(Q) (primitive = _dlat(, , CK, D, Q, );)
+)
