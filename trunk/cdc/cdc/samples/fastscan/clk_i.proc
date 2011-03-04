@@ -1,0 +1,52 @@
+timeplate tp_slow =
+        force_pi 0;
+        measure_po 100;
+        pulse clk_i 200 100;
+        period 400;
+end ;
+
+timeplate tp_fast =
+        force_pi 0;
+        measure_po 10;
+        pulse clk_i 20 10;
+        period 40;
+end ;
+
+procedure load_unload =
+        scan_group grp1;
+        timeplate tp_slow ;
+        cycle =
+                force clk_i 0;
+                force scan_enable 1;
+        end ;
+        apply shift 47;
+end ;
+
+procedure shift =
+        timeplate tp_slow ;
+        cycle =
+                force_sci ;
+                measure_sco ;
+                pulse clk_i;
+        end ;
+end ;
+		
+procedure capture =
+        timeplate tp_fast ;
+        cycle =
+                force_pi ;
+                measure_po ;
+        pulse_capture_clock ;
+        end ;
+end ;
+
+procedure clock_sequential =
+        timeplate tp_fast ;
+        cycle =
+                force_pi ;
+                pulse_capture_clock ;
+                pulse_read_clock;
+                pulse_write_clock;
+        end ;
+end ;
+			
