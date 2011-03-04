@@ -89,6 +89,7 @@
 #       This denotes that s-a-1 should be added into /g35371/Y
 #       Also, we should add constraint to u1_slt4_reg_b0_b/bit_clk_pad_i to make sure it is 1.
 #
+#   Hello, I found the proble as blabla
 
 import os, sys
 import re
