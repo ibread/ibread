@@ -106,6 +106,12 @@ if len(sys.argv) < 2:
 
 source = sys.argv[1]
 
+def _py230orlower():
+    return sys.hexversion <= 0x20304f0
+
+if _py230orlower():
+    from sets import Set as set
+
 # This class is used to represent a gate in the circuits
 class node:
     name = "default"
