@@ -96,6 +96,8 @@
 #       This part of work is completed by another script
 
 
+RECV_DOMAIN = "reciever_clk"
+
 import os, sys, re
 
 if len(sys.argv) < 2:
@@ -679,7 +681,7 @@ def process():
             out: output pin
             clk: which clock domain this belongs to
             origin: origin where the traversal begins
-            paths: a directory. key is the start and the end of the path, both of which are dffs, value is the path.
+            paths: a dictionary. key is the start and the end of the path, both of which are dffs, value is the path.
             path: current path, when it ends with a dff, it will be added into paths
 
         @brief:
@@ -690,19 +692,19 @@ def process():
             #print "[Debug] out %s of %s is none" % (out, origin)
             return []
                 
-        recv_dff = []
+        recv_dff = set([])
         
         if out not in in_dict.keys():
             #print "[Debug] out %s of %s connects nothing" % (out, origin)
-            return []
+            return recv_dff
         
         path_base = path
         # traverse every dev which is attached to output of current device
         for next_dev in in_dict[out]:
             path = path_base + ("-" + next_dev)
             if next_dev in dffs_list:
-                #print "[in] %s => %s" % (origin, next_dev)
-                recv_dff.append(next_dev)
+                # print "[in] %s => %s" % (origin, next_dev)
+                recv_dff.add(next_dev)
                 paths["%s-%s" % (origin, next_dev)] = path
             else: # is a normal device
                 out = dev_out[next_dev]
@@ -719,7 +721,7 @@ def process():
                 if out not in in_dict.keys():
                     continue
                 
-                recv_dff.extend(get_recv_dff(out, clk, origin, paths, path))
+                recv_dff = recv_dff.union(get_recv_dff(out, clk, origin, paths, path))
                 
         return recv_dff
 
@@ -733,11 +735,12 @@ def process():
             out = dev_out[dff]        
             
             recv_dff = get_recv_dff(out, clk, dff, paths, dff)
-            #print "*%s*" % dff, recv_dff
+            # print "*%s*" % dff, recv_dff
                                                                                               
             for r in recv_dff:                                                                
                 if dev_clk[r] != dev_clk[dff]:                                                
-                    #print "[CB] %s .CK(%s) => %s .CK(%s)" % (dff, dev_clk[dff], r, dev_clk[r])
+                    # print "[CB] %s .CK(%s) => %s .CK(%s)" % (dff, dev_clk[dff], r, dev_clk[r])
+                    # print "  ", paths['%s-%s' % (dff, r)]
                     out = dev_out[r]
                     
                     if out in in_dict.keys():
@@ -986,9 +989,11 @@ endmodule
     # the extra control is added by generating constraints using another script parse_path.py
     # we need only output the path, including detailed information here
     for cb in ck_bound:
+        # print "cb", cb
         (from_clk, to_clk, from_dff, to_dff, path) = cb
-        if to_clk == 'clk_i':
+        if to_clk == RECV_DOMAIN:
             path = path.split('-')
+            # print "path", path
 
             send_dff = path[0]
 
