@@ -414,6 +414,11 @@ def process():
     # clk: list(dff)
     clk_dff = {}
     
+    # assigns
+    # for the statement like 
+    # assign wb_err_o = 1'b0;
+    assigns = {}
+    
     # for every dff, there is a clock attached
     # for other device, the clock is assigned by the one of the dff which 
     # is upstream of it
@@ -445,7 +450,8 @@ def process():
             inside = False
         
         # skip comments
-        if not line or line.startswith('//'):
+        if not line or line.strip().startswith('//'):
+            # print "##Comment: %s" % line
             continue
     
         state += line.strip()
@@ -463,7 +469,7 @@ def process():
                 pri_ins.append(i.strip(',;'))
                 
         if state.split()[0] not in ["module", "input", "output", "wire"]:
-            #print "*", state, "*"
+            # print "*", state, "*"
             
             dev_type = state.split()[0]
             
@@ -505,9 +511,14 @@ def process():
             
             tin = []
             tout = "no_output"
+
+            if dev_type=='assign':
+                pin = state.split()[1]
+                assigns[pin] = state
+                # print assigns
             
             # get output and inputs of the devices
-            
+
             # if the module is not DFF
             # then .Y indicates the output
             if dev_type not in ['DFFSRX1', 'SDFFSRX1', 'DFFX1', 'assign']:                
@@ -927,11 +938,20 @@ endmodule
         f.write("module %s_domain (" % clk)
         
         f.write("scan_enable, scan_data_in, scan_data_out, %s, " % clk)
+
+        # initialize the type of assign pins
+        # {pin_name: type} and type is [input, output, wire]
+        apin_type = {}
+        
         
         for i in inputs_by_clk[clk]:
+            if i in assigns.keys():
+                apin_type[i] = "input"
             f.write(i + ", ")
             
         for i in xrange(len(outputs_by_clk[clk])):
+            if i in assigns.keys():
+                apin_type[i] = "output"
             f.write(outputs_by_clk[clk][i])            
             if i != len(outputs_by_clk[clk])-1:
                 f.write(", ")
@@ -956,6 +976,8 @@ endmodule
         
         if clk in wires_by_clk.keys():
             for w in wires_by_clk[clk]:
+                if i in assigns.keys():
+                    apin_type[i] = "wire"
                 f.write("wire %s;\n" % w)
         
 #        f.write("wire ")
@@ -966,6 +988,13 @@ endmodule
 #                f.write(wires_by_clk[clk][w])
 #        f.write(";\n")
 #        
+        # output the assign statement
+        # we've already store the type of the pin in apin_type
+        for apin in assigns.keys():
+            if apin not in apin_type.keys():
+                f.write("// add wire for assign statement\n")
+                f.write("wire %s;\n" % apin)
+            f.write(assigns[apin] + '\n')
         
         # output the scan chain
         f.write("// scan chain begins here\n")
