@@ -614,7 +614,7 @@ def process():
     new_wires = []
 
     for dev in dev_state.keys():
-        print dev_state[dev]
+        #print dev_state[dev]
 
         # check if its output is primary output
         # if its ouptut is not input of other devices
@@ -754,9 +754,8 @@ endmodule
     
     f.write("\n buf1 BUFbread(scan_data_out, %s);\n" % last_output)
     
-    for dev in dev_clk.keys():
-        if dev_clk[dev] == clk and dev not in clk_dff[clk]:
-            f.write(dev_state[dev] + "\n")
+    for dev in dev_state.keys():
+        f.write(dev_state[dev] + "\n")
             
     f.write("\nendmodule")
         
