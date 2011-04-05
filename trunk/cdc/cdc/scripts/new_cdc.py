@@ -96,7 +96,7 @@
 #       This part of work is completed by another script
 
 
-RECV_DOMAIN = "reciever_clk"
+RECV_DOMAIN = "clk_i"
 
 import os, sys, re
 
@@ -613,6 +613,7 @@ def process():
     new_pri_ins = []
     new_wires = []
 
+
     for dev in dev_state.keys():
         #print dev_state[dev]
 
@@ -623,17 +624,20 @@ def process():
             # is primary output
             new_pri_outs.append(temp_out)
         else:
-            new_wires.append(temp_out)
+            if temp_out not in new_wires:
+                new_wires.append(temp_out)
 
-        temp_in = dev_in[dev]
-        if temp_in not in out_dict.keys():
-            new_pri_ins.append(temp_in)
-        else:
-            new_wires.append(temp_in)
+        for temp_in in dev_in[dev]:
+            if temp_in not in out_dict.keys():
+                if temp_in not in new_pri_ins:
+                    new_pri_ins.append(temp_in)
+            else:
+                if temp_in not in new_wires:
+                    new_wires.append(temp_in)
 
         # generate scan-chain
-        #  model SDFF (D, SI, SE, ST, RT, CK, Q) 
-        #  model SDFFNSR (D, SI, SE, CK, Q) 
+        #  model SDFFN (CK, D, Q, SO, RT, ST, SE, SI)
+        #  model SDFFNSRN (CK, D, Q, SO, SE, S*)
         # 
         #  DFFX1 u9_empty_reg(.CK (clk_i), .D (n_5613), .Q (), .QN (i3_empty));
         #  => SDFFNSR u9_empty_reg(.CK(clk_i), .D(n_5163), .Q(i3_empty), .SE(scan_enable), SI(last_output))
@@ -690,11 +694,13 @@ endmodule
     
     f.write("module new_module (")
     
-    f.write("scan_enable, scan_data_in, scan_data_out, %s, " % clk)
+    f.write("scan_enable, scan_data_in, scan_data_out")
 
     # initialize the type of assign pins
     # {pin_name: type} and type is [input, output, wire]
     apin_type = {}
+
+    #print "new_pri_ins", new_pri_ins
     
     
     for i in new_pri_ins:
@@ -711,8 +717,8 @@ endmodule
     
     f.write(");\n\n")
     
-    f.write( "input scan_enable, scan_data_in, %s, " % clk) 
-    for i in xrange(new_pri_ins):
+    f.write( "input scan_enable, scan_data_in" )
+    for i in xrange(len(new_pri_ins)):
         if i != 0:
             f.write(", ")
         f.write(new_pri_ins[i])
@@ -760,7 +766,6 @@ endmodule
     f.write("\nendmodule")
         
     f.close()
-    print "===================%s ends===================" % clk
 
     # output all DFFs in clk_i domain and in clock boundaries
     # to check if its input are from primary inputs
@@ -773,8 +778,8 @@ endmodule
     # the extra control is added by generating constraints using another script parse_path.py
     # we need only output the path, including detailed information here
     for cb in ck_bound:
-        # print "cb", cb
         (from_clk, to_clk, from_dff, to_dff, path) = cb
+        # print to_clk, RECV_DOMAIN
         if to_clk == RECV_DOMAIN:
             path = path.split('-')
             # print "path", path
@@ -811,7 +816,7 @@ endmodule
                     if index >= len(dev_in[path[i]]):
                         break
                     if dev_in[path[i]][index] == out:
-                        if out in inputs_by_clk[to_clk]:
+                        if out in new_pri_ins:
                             print "[%s @ %s]:%s(pi:%s)" % (type_dict[path[i]], dev_clk[path[i]], dev_in_port[path[i]][index], out),
                         else:
                             print "[%s @ %s]:%s(%s)" % (type_dict[path[i]], dev_clk[path[i]], dev_in_port[path[i]][index], out),
