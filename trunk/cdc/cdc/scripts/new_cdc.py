@@ -219,6 +219,8 @@ def process():
 
     # primary inputs
     pri_ins = []
+    # primary outputs
+    pri_outs = []
     
     # each time a device is assigned a clock
     # there must be a dff driving it, which is called as origin
@@ -694,7 +696,7 @@ endmodule
     
     f.write("module new_module (")
     
-    f.write("scan_enable, scan_data_in, scan_data_out")
+    f.write("scan_enable, scan_data_in, scan_data_out, ")
 
     # initialize the type of assign pins
     # {pin_name: type} and type is [input, output, wire]
@@ -702,6 +704,8 @@ endmodule
 
     #print "new_pri_ins", new_pri_ins
     
+    for i in clk_dff.keys():
+        f.write(i + ", ")
     
     for i in new_pri_ins:
         if i in assigns.keys():
@@ -712,22 +716,20 @@ endmodule
         if i in assigns.keys():
             apin_type[i] = "output"
         f.write(new_pri_outs[i])
-        if i != len(new_pri_outs[i])-1:
+        if i != len(new_pri_outs)-1:
             f.write(", ")
-    
+
     f.write(");\n\n")
     
     f.write( "input scan_enable, scan_data_in" )
     for i in xrange(len(new_pri_ins)):
-        if i != 0:
-            f.write(", ")
+        f.write(", ")
         f.write(new_pri_ins[i])
     f.write(";\n")
     
-    f.write("output scan_data_out, ")        
+    f.write("output scan_data_out")        
     for o in xrange(len(new_pri_outs)):
-        if o != 0:
-            f.write(", ")
+        f.write(", ")
         f.write(new_pri_outs[o])
     f.write(";\n")
     
