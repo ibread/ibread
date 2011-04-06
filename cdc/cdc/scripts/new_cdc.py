@@ -735,8 +735,8 @@ def process():
                 scan_chain.append(new_dff)
             
     
-    print "Inputs ", new_pri_ins
-    print "Outputs ", new_pri_outs
+    # print "Inputs ", new_pri_ins
+    # print "Outputs ", new_pri_outs
 
     f.write('''
 module buf1 (out, in);
@@ -771,7 +771,7 @@ endmodule
         f.write(i)
         l += 1
         if l != len(all_pins):
-            f.write(i)
+            f.write(", ")
 
     f.write(");\n\n")
     
