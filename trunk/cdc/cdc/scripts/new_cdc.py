@@ -97,6 +97,8 @@
 
 
 RECV_DOMAIN = "clk_i"
+SCAN_CHAIN_FILE = "scanchain.info"
+STRUCT_FILE = "struct.info"
 
 import os, sys, re
 from sets import Set
@@ -681,8 +683,6 @@ def process():
             if not flag_in:
                 new_wires.add(temp_in)
 
-    print "temp", temp_pri_ins
-    print "temp", temp_pri_outs
     for i in temp_pri_ins:
         new_pri_ins.add(i)
     for o in temp_pri_outs:
@@ -696,7 +696,10 @@ def process():
     #  => SDFFNSR u9_empty_reg(.CK(clk_i), .D(n_5163), .Q(i3_empty), .SE(scan_enable), SI(last_output))
     #
     scan_chain = []
+    # also to the SCAN_CHAIN_FILE
+    scan_file = open(SCAN_CHAIN_FILE, "w+")
     
+    dff_index = 1
     last_output = "scan_data_in";
     for clk in clk_dff.keys():
         for dff in clk_dff[clk]:
@@ -707,6 +710,9 @@ def process():
             
             input = dev_in[dff][0]
             output = dev_out[dff]            
+
+            scan_file.write("%d %s\n" % (dff_index, dff))
+            dff_index += 1
             
             if dev_type == "DFFX1":                
                 new_dff = "SDFFNSRN %s (.CK(%s), .D(%s), .Q(%s), .SO(%s), .SE(scan_enable), .SI(%s));" % \
@@ -735,8 +741,27 @@ def process():
                     
             last_output = output
             scan_chain.append(new_dff)
+    scan_file.close()
             
     
+    struct_file = open(STRUCT_FILE, "w+")
+    struct_file.write("input ")
+    for i in new_pri_ins:
+        struct_file.write(i + " ")
+    struct_file.write("\n")
+
+    struct_file.write("output ") 
+    for o in new_pri_outs:
+        struct_file.write(o + " ")
+    struct_file.write("\n")
+
+    struct_file.write("clk ")
+    for clk in clk_dff:
+        struct_file.write(clk + " ")
+    struct_file.write("\n")
+    struct_file.close()
+        
+        
     # print "Inputs ", new_pri_ins
     # print "Outputs ", new_pri_outs
 
@@ -795,7 +820,7 @@ endmodule
         f.write("wire %s;\n" % w)
     
     # f.write("wire ")
-    # if clk in wires_by_clk.keys():
+    # io clk in wires_by_clk.keys():
     #     for w in range(len(wires_by_clk[clk])):
     #         if w != 0:
     #             f.write(", ")
@@ -810,7 +835,8 @@ endmodule
             f.write("wire %s;\n" % apin)
         f.write(assigns[apin] + '\n')
     
-    # output the scan chain
+    # output the scan chain to the new verilog netlist,
+    
     f.write("// scan chain begins here\n")
     for dff in scan_chain:
         f.write(dff + "\n")        
