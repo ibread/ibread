@@ -442,8 +442,8 @@ def process():
     succ_dev = {}
     succ_port = {}
 
+
     for line in fin:
-        
         if line.startswith("module"):
             inside = True
         elif line.startswith("endmodule"):
