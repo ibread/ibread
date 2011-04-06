@@ -715,8 +715,10 @@ def process():
             dff_index += 1
             
             if dev_type == "DFFX1":                
-                new_dff = "SDFFNSRN %s (.CK(%s), .D(%s), .Q(%s), .SO(%s), .SE(scan_enable), .SI(%s));" % \
-                                  (dff, clk, input, output, output, last_output)
+                # new_dff = "SDFFNSRN %s (.CK(%s), .D(%s), .Q(%s), .SO(%s), .SE(scan_enable), .SI(%s));" % \
+                #                  (dff, clk, input, output, output, last_output)
+                new_dff = "SDFFNSR %s (.CK(%s), .D(%s), .Q(%s), SE(scan_enable), .SI(%s));" % \
+                                  (dff, clk, input, output, last_output)
                 
                 
                 # get input
@@ -736,8 +738,10 @@ def process():
                 if str is not None:
                     SN = str
                     
-                new_dff = "SDFFN %s (.CK(%s), .D(%s), .Q(%s), .SO(%s), .RT(1'b0), .ST(1'b0), .SE(scan_enable), .SI(%s));" % \
-                            (dff, clk, input, output, output, last_output)
+                # new_dff = "SDFFN %s (.CK(%s), .D(%s), .Q(%s), .SO(%s), .RT(1'b0), .ST(1'b0), .SE(scan_enable), .SI(%s));" % \
+                #            (dff, clk, input, output, output, last_output)
+                new_dff = "SDFF %s (.CK(%s), .D(%s), .Q(%s), .RT(1'b0), .ST(1'b0), .SE(scan_enable), .SI(%s));" % \
+                            (dff, clk, input, output, last_output)
                     
             last_output = output
             scan_chain.append(new_dff)
@@ -837,15 +841,16 @@ endmodule
     
     # output the scan chain to the new verilog netlist,
     
-    f.write("// scan chain begins here\n")
+    f.write("// scan chain starts here;\n")
     for dff in scan_chain:
         f.write(dff + "\n")        
-    f.write("// scan chain ends here\n")
+    f.write("// scan chain ends here;\n")
     
     f.write("\n buf1 BUFbread(scan_data_out, %s);\n" % last_output)
     
     for dev in dev_state.keys():
-        f.write(dev_state[dev] + "\n")
+        if dev not in dffs_list:
+            f.write(dev_state[dev] + "\n")
             
     f.write("\nendmodule")
         
@@ -919,8 +924,6 @@ endmodule
                 print "-- %s:%s" % (succ_dev[recv_dff], succ_port[recv_dff])
             else:
                 print "-- DFF"
-            
-            
 
 if __name__ == '__main__':
     process()
