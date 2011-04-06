@@ -99,6 +99,7 @@
 RECV_DOMAIN = "clk_i"
 
 import os, sys, re
+from sets import Set
 
 if len(sys.argv) < 2:
     print "Usages: %s FILENAME" % sys.argv[0]
@@ -259,9 +260,21 @@ def process():
             inputs = inputs.replace(' ', '')
             inputs = inputs.split(',')
             for i in inputs:
-                # print i, i.strip(',;')
-                pri_ins.append(i.strip(',;'))
+                i = i.strip(',;')
+                p = re.compile(r"\[.*\]")
+                i = p.sub('', i)
+                pri_ins.append(i)
                 
+        if state.split()[0] == "output":
+            outputs= ''.join(state.split()[1:])
+            outputs= outputs.replace(' ', '')
+            outputs= outputs.split(',')
+            for i in outputs:
+                i = i.strip(',;')
+                p = re.compile(r"\[.*\]")
+                i = p.sub('', i)
+                pri_outs.append(i)
+
         if state.split()[0] not in ["module", "input", "output", "wire"]:
             # print "*", state, "*"
             
@@ -272,7 +285,7 @@ def process():
             all_array = re.findall(r'\[.*?\]', state)
             
             for a in all_array:
-                state = state.replace(a, "_b%s_b" % a.strip('[]'))
+                state = state.replace(a, "_b%sb" % a.strip('[]'))
                 
             state = state.replace('\\', '')
             
@@ -596,12 +609,7 @@ def process():
             except KeyError:
                 print "KeyError", dev_state[dff]
     
-    # when we split the circuits, we need to redefine the input and output
-    inputs_by_clk = {}
-    outputs_by_clk = {}
-    wires_by_clk = {}
-    
-    # these is a bug here
+    # there is a bug here
     #print "======", dev_clk['g41347']
     for dev in dev_clk.keys():
         if dev_clk[dev] == "null":
@@ -611,32 +619,71 @@ def process():
     f = open("new.v", "w+")
     # we need write input, wire, output, and devices, and scan chain
 
-    new_pri_outs = []
-    new_pri_ins = []
-    new_wires = []
+    new_pri_outs = Set([])
+    new_pri_ins = Set([])
+    new_wires = Set([])
 
+    temp_pri_ins = pri_ins[:]
+    temp_pri_outs = pri_outs[:]
+
+    # process the clocks
+    for clk in clk_dff.keys():
+        if clk in pri_ins:
+            new_pri_ins.add(clk)
+        elif clk in pri_outs:
+            new_pri_outs.add(clk)
+        else:
+            new_wires.add(clk)
 
     for dev in dev_state.keys():
         #print dev_state[dev]
 
         # check if its output is primary output
-        # if its ouptut is not input of other devices
         temp_out = dev_out[dev]
-        if temp_out not in in_dict.keys():
-            # is primary output
-            new_pri_outs.append(temp_out)
+        flag_out = False
+        if temp_out in pri_outs:
+            new_pri_outs.add(temp_out)
+            flag_out = True
+            if temp_out in temp_pri_outs:
+                temp_pri_outs.remove(temp_out)
         else:
-            if temp_out not in new_wires:
-                new_wires.append(temp_out)
+            # sometimes, abc[1] will be converted into abc_b1b
+            p = re.compile(r"_b\d+b$")
+            if len(p.findall(temp_out)) > 0:
+                temp_temp_out = p.sub('',temp_out)
+                if temp_temp_out in pri_outs:
+                    new_pri_outs.add(temp_out)
+                    flag_out = True
+                    if temp_temp_out in temp_pri_outs:
+                        temp_pri_outs.remove(temp_temp_out)
+        if not flag_out:
+            new_wires.add(temp_out)            
 
         for temp_in in dev_in[dev]:
-            if temp_in not in out_dict.keys():
-                if temp_in not in new_pri_ins:
-                    new_pri_ins.append(temp_in)
+            flag_in = False
+            if temp_in in pri_ins:
+                flag_in = True
+                new_pri_ins.add(temp_in)
+                if temp_in in temp_pri_ins:
+                    temp_pri_ins.remove(temp_in)
             else:
-                if temp_in not in new_wires:
-                    new_wires.append(temp_in)
+                # sometimes, abc[1] will be converted into abc_b1b
+                p = re.compile(r"_b\d+b$")
+                if len(p.findall(temp_in)) > 0:
+                    temp_temp_in = p.sub('',temp_in)
+                    if temp_temp_in in pri_ins:
+                        new_pri_ins.add(temp_in)
+                        flag_in = True
+                        if temp_temp_in in temp_pri_ins:
+                            temp_pri_ins.remove(temp_temp_in)
+            if not flag_in:
+                new_wires.add(temp_in)
 
+        for i in temp_pri_ins:
+            new_pri_ins.add(i)
+        for o in temp_pri_outs:
+            new_pri_outs.add(o)
+            
         # generate scan-chain
         #  model SDFFN (CK, D, Q, SO, RT, ST, SE, SI)
         #  model SDFFNSRN (CK, D, Q, SO, SE, S*)
@@ -686,6 +733,9 @@ def process():
                 scan_chain.append(new_dff)
             
     
+    print "Inputs ", new_pri_ins
+    print "Outputs ", new_pri_outs
+
     f.write('''
 module buf1 (out, in);
 output out;
@@ -712,25 +762,27 @@ endmodule
             apin_type[i] = "input"
         f.write(i + ", ")
         
-    for i in xrange(len(new_pri_outs)):
+    l = 0
+    for i in new_pri_outs:
         if i in assigns.keys():
             apin_type[i] = "output"
-        f.write(new_pri_outs[i])
-        if i != len(new_pri_outs)-1:
+        f.write(i)
+        l += 1
+        if l != len(new_pri_outs):
             f.write(", ")
 
     f.write(");\n\n")
     
     f.write( "input scan_enable, scan_data_in" )
-    for i in xrange(len(new_pri_ins)):
+    for i in new_pri_ins:
         f.write(", ")
-        f.write(new_pri_ins[i])
+        f.write(i)
     f.write(";\n")
     
     f.write("output scan_data_out")        
-    for o in xrange(len(new_pri_outs)):
+    for o in new_pri_outs:
         f.write(", ")
-        f.write(new_pri_outs[o])
+        f.write(o)
     f.write(";\n")
     
     for w in new_wires:
@@ -738,14 +790,14 @@ endmodule
             apin_type[i] = "wire"
         f.write("wire %s;\n" % w)
     
-#        f.write("wire ")
-#        if clk in wires_by_clk.keys():
-#            for w in range(len(wires_by_clk[clk])):
-#                if w != 0:
-#                    f.write(", ")
-#                f.write(wires_by_clk[clk][w])
-#        f.write(";\n")
-#        
+    # f.write("wire ")
+    # if clk in wires_by_clk.keys():
+    #     for w in range(len(wires_by_clk[clk])):
+    #         if w != 0:
+    #             f.write(", ")
+    #         f.write(wires_by_clk[clk][w])
+    # f.write(";\n")
+
     # output the assign statement
     # we've already store the type of the pin in apin_type
     for apin in assigns.keys():
