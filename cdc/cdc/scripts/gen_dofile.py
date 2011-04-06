@@ -2,6 +2,10 @@
 
 import os, sys
 
+# please change this if you want other faults, this will appear as
+# 0 UC g32/Y
+fault_value = 0 
+
 format = '''
 // All the command should be inserted in this file
 // Check fastscan help documents to get more information
@@ -18,7 +22,7 @@ add scan chains chain10 grp1 scan_data_in scan_data_out
 set z hand ext x
 
 add nofaults SDFFNSR -module //important2
-add nofaults SDFFN -module 
+add nofaults SDFF -module 
 
 add pin constraint scan_data_in C0
 add pin constraint scan_enable C0
@@ -95,13 +99,16 @@ num = len(lines)# please change this into the number of cases
 os.system("mkdir -p ./dofiles")
 
 for i in xrange(num):
+    dff = lines[i].split()
+    if len(dff)==0 or dff[0] == "NO_SENDER" or dff[1] == "NO_RECV":
+        print "Error in %dth dofile" % i
+        continue
     print "outputting %d" % i
     f = open("./dofiles/%d.do" % i, "w+")
-    dff = fin.readline().strip()
-    f.write(format % {'num':i, 'dff':dff})
+    f.write(format % {'num':i, 'dff':dff[1]})
     f.close()
     f = open("./dofiles/f2_%d" % i, "w+")
-    f.write()
+    f.write("%d UC %s/Q" % (fault_value, dff[0]))
     f.close()
 
 fin.close()
