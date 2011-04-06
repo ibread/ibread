@@ -630,6 +630,8 @@ def process():
     for clk in clk_dff.keys():
         if clk in pri_ins:
             new_pri_ins.add(clk)
+            if clk in temp_pri_ins:
+                temp_pri_ins.remove(clk)
         elif clk in pri_outs:
             new_pri_outs.add(clk)
         else:
@@ -753,23 +755,23 @@ endmodule
     apin_type = {}
 
     #print "new_pri_ins", new_pri_ins
-    
-    for i in clk_dff.keys():
-        f.write(i + ", ")
-    
+
+    all_pins = Set([])
     for i in new_pri_ins:
+        all_pins.add(i)
         if i in assigns.keys():
             apin_type[i] = "input"
-        f.write(i + ", ")
-        
-    l = 0
     for i in new_pri_outs:
+        all_pins.add(i)
         if i in assigns.keys():
             apin_type[i] = "output"
+
+    l = 0
+    for i in all_pins:
         f.write(i)
         l += 1
-        if l != len(new_pri_outs):
-            f.write(", ")
+        if l != len(all_pins):
+            f.write(i)
 
     f.write(");\n\n")
     
