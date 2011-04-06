@@ -681,58 +681,60 @@ def process():
             if not flag_in:
                 new_wires.add(temp_in)
 
-        for i in temp_pri_ins:
-            new_pri_ins.add(i)
-        for o in temp_pri_outs:
-            new_pri_outs.add(o)
+    print "temp", temp_pri_ins
+    print "temp", temp_pri_outs
+    for i in temp_pri_ins:
+        new_pri_ins.add(i)
+    for o in temp_pri_outs:
+        new_pri_outs.add(o)
             
-        # generate scan-chain
-        #  model SDFFN (CK, D, Q, SO, RT, ST, SE, SI)
-        #  model SDFFNSRN (CK, D, Q, SO, SE, S*)
-        # 
-        #  DFFX1 u9_empty_reg(.CK (clk_i), .D (n_5613), .Q (), .QN (i3_empty));
-        #  => SDFFNSR u9_empty_reg(.CK(clk_i), .D(n_5163), .Q(i3_empty), .SE(scan_enable), SI(last_output))
-        #
-        scan_chain = []
-        
-        last_output = "scan_data_in";
-        for clk in clk_dff.keys():
-            for dff in clk_dff[clk]:
-                state = dev_state[dff]
-                dev_type = state.split()[0]
+    # generate scan-chain
+    #  model SDFFN (CK, D, Q, SO, RT, ST, SE, SI)
+    #  model SDFFNSRN (CK, D, Q, SO, SE, S*)
+    # 
+    #  DFFX1 u9_empty_reg(.CK (clk_i), .D (n_5613), .Q (), .QN (i3_empty));
+    #  => SDFFNSR u9_empty_reg(.CK(clk_i), .D(n_5163), .Q(i3_empty), .SE(scan_enable), SI(last_output))
+    #
+    scan_chain = []
+    
+    last_output = "scan_data_in";
+    for clk in clk_dff.keys():
+        for dff in clk_dff[clk]:
+            state = dev_state[dff]
+            dev_type = state.split()[0]
+            
+            pattern_base = r"%s ?\((.*?)\)"
+            
+            input = dev_in[dff][0]
+            output = dev_out[dff]            
+            
+            if dev_type == "DFFX1":                
+                new_dff = "SDFFNSRN %s (.CK(%s), .D(%s), .Q(%s), .SO(%s), .SE(scan_enable), .SI(%s));" % \
+                                  (dff, clk, input, output, output, last_output)
                 
-                pattern_base = r"%s ?\((.*?)\)"
                 
-                input = dev_in[dff][0]
-                output = dev_out[dff]            
+                # get input
+            elif dev_type == "DFFSRX1":
+            #  DFFSRX1 valid_s_reg(.RN (1'b1), .SN (1'b1), .CK (clk_i), .D(valid_s1), .Q (valid_s), .QN ());
+            #  => SDFF valid_s_reg(.RT (), .ST(), .CK(), .D, .Q)
                 
-                if dev_type == "DFFX1":                
-                    new_dff = "SDFFNSRN %s (.CK(%s), .D(%s), .Q(%s), .SO(%s), .SE(scan_enable), .SI(%s));" % \
-                                      (dff, clk, input, output, output, last_output)
+                RN = ""
+                pattern = pattern_base % "RN"
+                str = get_by_regex(pattern, state)
+                if str is not None:
+                    RN = str
                     
+                SN = ""
+                pattern = pattern_base % "SN"
+                str = get_by_regex(pattern, state)
+                if str is not None:
+                    SN = str
                     
-                    # get input
-                elif dev_type == "DFFSRX1":
-                #  DFFSRX1 valid_s_reg(.RN (1'b1), .SN (1'b1), .CK (clk_i), .D(valid_s1), .Q (valid_s), .QN ());
-                #  => SDFF valid_s_reg(.RT (), .ST(), .CK(), .D, .Q)
+                new_dff = "SDFFN %s (.CK(%s), .D(%s), .Q(%s), .SO(%s), .RT(1'b0), .ST(1'b0), .SE(scan_enable), .SI(%s));" % \
+                            (dff, clk, input, output, output, last_output)
                     
-                    RN = ""
-                    pattern = pattern_base % "RN"
-                    str = get_by_regex(pattern, state)
-                    if str is not None:
-                        RN = str
-                        
-                    SN = ""
-                    pattern = pattern_base % "SN"
-                    str = get_by_regex(pattern, state)
-                    if str is not None:
-                        SN = str
-                        
-                    new_dff = "SDFFN %s (.CK(%s), .D(%s), .Q(%s), .SO(%s), .RT(1'b0), .ST(1'b0), .SE(scan_enable), .SI(%s));" % \
-                                (dff, clk, input, output, output, last_output)
-                        
-                last_output = output
-                scan_chain.append(new_dff)
+            last_output = output
+            scan_chain.append(new_dff)
             
     
     # print "Inputs ", new_pri_ins
