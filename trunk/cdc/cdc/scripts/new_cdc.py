@@ -615,9 +615,9 @@ def process():
     
     # there is a bug here
     #print "======", dev_clk['g41347']
-    for dev in dev_clk.keys():
-        if dev_clk[dev] == "null":
-            print dev, "null"
+    # for dev in dev_clk.keys():
+    #     if dev_clk[dev] == "null":
+    #         print dev, "null"
 
     # output the original netlist, with only scan-chain added
     f = open("new.v", "w+")
