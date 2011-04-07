@@ -247,7 +247,9 @@ def process():
             inside = False
         
         # skip comments
-        if not line or line.strip().startswith('//'):
+        # if not line or line.strip().startswith('//'):
+        # change this because Naghmeh may put the statement like this: output dff_out_old; //extra output
+        if not line or '//' in line.strip():
             # print "##Comment: %s" % line
             continue
     
@@ -717,7 +719,7 @@ def process():
             if dev_type == "DFFX1":                
                 # new_dff = "SDFFNSRN %s (.CK(%s), .D(%s), .Q(%s), .SO(%s), .SE(scan_enable), .SI(%s));" % \
                 #                  (dff, clk, input, output, output, last_output)
-                new_dff = "SDFFNSR %s (.CK(%s), .D(%s), .Q(%s), SE(scan_enable), .SI(%s));" % \
+                new_dff = "SDFFNSR %s (.CK(%s), .D(%s), .Q(%s), .SE(scan_enable), .SI(%s));" % \
                                   (dff, clk, input, output, last_output)
                 
                 
