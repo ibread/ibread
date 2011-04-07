@@ -1,11 +1,17 @@
 #!/usr/bin/env python
 
-import re
+import re, os, sys
 
-SEND_CLK = 'bit_clk_pad_i'
-RECV_CLK = 'clk_i'
+if len(sys.argv) < 4:
+    print "Usages: %s FILENAME SENDER_CLK RECV_CLK"
+    print "The default values are used: cdc_path.txt, bit_clk_pad_i, clk_i"
+    filename = "cdc_path.txt"
+    SEND_CLK = 'bit_clk_pad_i'
+    RECV_CLK = 'clk_i'
+else:
+    filename, SEND_CLK, RECV_CLK = sys.argv[1:]
 
-fin = open("cdc_path.txt")
+fin = open(filename)
 
 fout = open("recv_dff.txt", "w+")
 
