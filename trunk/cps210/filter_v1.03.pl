@@ -32,7 +32,7 @@ while (my $line = <$fh_input>){
 	#print $counter."\n";
 	#$counter += 1;
 	my $server = 3;
-	my $client = 5;
+	my $client = 4;
 	if ($line =~ /192\.168\.1\.$server/ && ($line =~ /192\.168\.1\.$client/)){
 	@output_line =  ("na", "na", "na", "na", "na", "na", "na", "na", "na", 1, "na");
 	if($line =~ /\s+access\s+/){
