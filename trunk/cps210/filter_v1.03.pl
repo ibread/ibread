@@ -32,8 +32,15 @@ while (my $line = <$fh_input>){
 	#print $counter."\n";
 	#$counter += 1;
 	my $server = 3;
-	my $client = 4;
-	if ($line =~ /192\.168\.1\.$server/ && ($line =~ /192\.168\.1\.$client/)){
+	my @client = (4, 5, 6);
+	my $client_status = 0;
+	foreach my $client (@client){
+		if ($line =~ /192.\.168\.1\.$client/){
+			$client_status = 1;
+			last;
+		}
+	}	
+	if ($line =~ /192\.168\.1\.$server/ && $client_status){
 	@output_line =  ("na", "na", "na", "na", "na", "na", "na", "na", "na", 1, "na");
 	if($line =~ /\s+access\s+/){
 		if( $line =~ /^(.+?) \s+ IP .+ \) \s+ (\S+) \s+ > \s+ (\S+) \: .+? (access) \s+ fh\[(.+)\] .+ $/x){
