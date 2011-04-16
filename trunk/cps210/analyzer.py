@@ -87,6 +87,9 @@ def analyze(result_file):
 
     total_duration = 0
     total_lines = 0
+    
+    first_start = 0.0
+    last_end = 0.0
 
     for line in fin:
         total_lines += 1
@@ -142,6 +145,9 @@ def analyze(result_file):
         if "na" not in [time_start, time_end]:
             try:
                 duration = convert_time(time_end) - convert_time(time_start)
+                last_end = convert_time(time_end)
+                if total_line == 1:
+                    first_start = convert_time(time_start)
             except AttributeError:
                 print "[Debug] AttriError on line %s" % c.f_lineno
                 print " time_end, time_start = %s, %s" % (time_end, time_start)
