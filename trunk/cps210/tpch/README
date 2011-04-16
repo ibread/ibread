@@ -1,0 +1,76 @@
+TPC-H Data Generation & Data Loading
+------------------------------------
+
+Summary:
+--------
+The scripts can be used to generate TPC-H data (uniform and skew), 
+create a TPC-H database in Postgres, load data into it, and create indexes.
+
+Note: The src directory contains files used by the tpch_*.pl scripts
+      and should not be modified.
+
+Overall Procedure:
+------------------
+1) Modify the data.properties and db.properties files
+   to specify necessary input parameters
+2) Execute: 'perl tpch_gen_data.pl data.properties'
+3) Execute: 'perl tpch_create_db.pl db.properties'
+4) Execute: 'perl tpch_load_data.pl db.properties'
+5) Execute: 'perl tpch_create_indexes.pl db.properties'
+6) Execute: 'perl tpch_distributions.pl db.properties'
+
+Detailed Description and Procedure:
+-----------------------------------
+1) (a) The data.properties file contains the input parameters for the
+   tpch_gen_data.pl script. The parameters are:
+   - scalingfactor: TPCH scaling factor (in terms of GB of data)
+   - num_file_splits: The number of TPC-H data file splits
+   - first_file_split: The first file split to generate. The script will
+       generate all file splits up to last_file_split
+   - last_file_split: The last file split to generate
+   - zipf: Zipfian distribution factor: 0-4, where 0 means uniform, 
+           -1 for random zipf for each column
+   - tpch_home: The directory where the TPC-H binaries and data will reside
+
+   (b) The db.properties file contains the input parameters for the
+   remaining script. The parameters are:
+   - dbname: TPCH database name
+   - username: Username to access database
+   - tpch_data: The directory where the generated TPC-H data reside
+   - pgdir: The Postgres installation path (where psql is located)
+
+2) Execute: 'perl tpch_gen_data.pl data.properties'
+   This scripts will
+      (a) unzip the TPC-H installer located in the src directory
+          to the specified directory,
+      (b) compile the code using the makefile also located in the 
+          src directory,
+      (c) generate the data.
+   
+   The data is generated in pieces depending on the num_file_splits.
+   For example, if the num_file_splits = 3, three files will be generated
+   for the tables customer, orders, part, supplier, partsupp, and lineitem.
+   There is always a single file for tables nation and region.
+
+3) Execute: 'perl tpch_create_db.pl db.properties'
+   This script creates the database, creates the schema, and any 
+   referential constraints. An existing database with the same name 
+   will be droped after user confirmation.
+
+4) Execute: 'perl tpch_load_data.pl db.properties'
+   This script first drops any constraints, loads the data in the database,
+   creates the referential constraints, and updates the statistics.
+
+5) Execute: 'perl tpch_create_indexes.pl db.properties'
+   This script creates indexes for the loaded data and updates 
+   the statistics.
+
+6) Execute: 'perl tpch_distributions.pl db.properties'
+   This script can be used to verify/observe the distibution of the
+   generated data. The output is stored in an output file in the current
+   directory and it will contain
+    (a) the number of unique values
+    (b) the 20 most frequent values
+    (c) the 20 least frequent values
+  for important columns from each table.
+
