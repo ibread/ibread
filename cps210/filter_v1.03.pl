@@ -35,12 +35,12 @@ while (my $line = <$fh_input>){
 	my @client = (4, 5, 6);# array for controlling clients
 	my $client_status = 0;
 	foreach my $client (@client){#if the transaction is revoked by one of the clients, set status as 1
-		if ($line =~ /192.\.168\.1\.$client/){
+		if ($line =~ /192\.168\.1\.$client/){
 			$client_status = 1;
 			last;
 		}
 	}	
-	if ($line =~ /192\.168\.1\.$server/ && $client_status){# if the transaction is between the server
+	if ($line =~ /192\.168\.1\.$server/ && ($client_status == 1)){# if the transaction is between the server
 #and one of the clients, filter the dumped info
 	@output_line =  ("na", "na", "na", "na", "na", "na", "na", "na", "na", 1, "na");
 	if($line =~ /\s+access\s+/){
