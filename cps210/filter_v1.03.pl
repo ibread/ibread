@@ -31,16 +31,17 @@ my $dir = "./results";
 while (my $line = <$fh_input>){
 	#print $counter."\n";
 	#$counter += 1;
-	my $server = 3;
-	my @client = (4, 5, 6);
+	my $server = 3;#scalar variable for controlling server
+	my @client = (4, 5, 6);# array for controlling clients
 	my $client_status = 0;
-	foreach my $client (@client){
+	foreach my $client (@client){#if the transaction is revoked by one of the clients, set status as 1
 		if ($line =~ /192.\.168\.1\.$client/){
 			$client_status = 1;
 			last;
 		}
 	}	
-	if ($line =~ /192\.168\.1\.$server/ && $client_status){
+	if ($line =~ /192\.168\.1\.$server/ && $client_status){# if the transaction is between the server
+#and one of the clients, filter the dumped info
 	@output_line =  ("na", "na", "na", "na", "na", "na", "na", "na", "na", 1, "na");
 	if($line =~ /\s+access\s+/){
 		if( $line =~ /^(.+?) \s+ IP .+ \) \s+ (\S+) \s+ > \s+ (\S+) \: .+? (access) \s+ fh\[(.+)\] .+ $/x){
