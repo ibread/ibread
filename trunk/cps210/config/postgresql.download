@@ -8,8 +8,15 @@ fi
 NUM=${1}
 
 URL="http://oscg-downloads.s3.amazonaws.com/packages/postgres-9.0.3-1.amd64.openscg.deb"
+echo "Downloading..."
 wget ${URL}
+echo "Installing..."
 dpkg -i postgres-9.0.3-1.amd64.openscg.deb
+echo "Config..."
 cp ./postgres-9.0-openscg /etc/init.d/
 sed -ne "s/BREAD_DB=.*$/BREAD_DB=\/mnt\/db{NUM}/gp" /etc/init.d/postgres-9.0-openscg 
+echo "Start the service..."
 /etc/init.d/postgres-9.0-openscg restart
+echo "Copy password..."
+cp ./.pgpass ~/
+chmod 0600 ~/.pgpass
