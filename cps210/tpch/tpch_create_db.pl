@@ -41,14 +41,14 @@ println "This script will drop database $DB_NAME if it exists";
 print "Are you sure (yes/no): ";
 
 #Commented by Zhiqiu, for batch task
-$| = 1;
-$_ = <STDIN>;
-chomp;
-
-if ( $_ ne "yes" )
-{
-   exit(0);
-}
+#$| = 1;
+#$_ = <STDIN>;
+#chomp;
+#
+#if ( $_ ne "yes" )
+#{
+#   exit(0);
+#}
 
 # Create the database and load the schema
 println "Creating database $DB_NAME";
