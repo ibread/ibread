@@ -1,0 +1,19 @@
+Description:
+------------
+
+The src directory contains files used by the tpch_*.pl scripts and
+should not be modified.
+
+The tpch_*.tar.gz files contain the source code for the TPC-H data and query
+generation tool.
+
+The makefile* contain predefined makefiles for the TPC-H code. Note that
+the TPC-H code does not come with a makefile, rather a template that
+needs to be modified by the user.
+
+The *.sql file contains SQL commands for creating the schema, constraints,
+indexes etc.
+
+The GetOptions.pm is a user-defined perl library used to parse the *.properties
+files.
+

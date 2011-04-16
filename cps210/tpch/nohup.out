@@ -1,0 +1,20 @@
+Fri Apr 15 16:54:35 UTC 2011
+Input Parameters:
+TPCH home dir: /mnt/pdata/
+Scaling factor: 3
+Number of file splits: 3
+Generate file splits: 1 TO 3
+zipf: 0
+
+Creating TPCH directory
+Died at ./tpch_gen_data.pl line 62.
+Fri Apr 15 16:54:48 UTC 2011
+Input Parameters:
+DBName: sample_tpch
+Username: postgres
+PSQL bin dir: /opt/postgres/9.0/bin/
+
+This script will drop database sample_tpch if it exists
+Are you sure (yes/no): Use of uninitialized value $_ in scalar chomp at ./tpch_create_db.pl line 45.
+Use of uninitialized value $_ in string ne at ./tpch_create_db.pl line 47.
+Fri Apr 15 16:54:48 UTC 2011
