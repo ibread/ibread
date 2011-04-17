@@ -1,0 +1,875 @@
+
+=========Sun Apr 17 04:00:01 UTC 2011========
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.0   5240   444 ?        Ss   Apr15   0:06 /sbin/init
+root         2  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kthreadd]
+root         3  0.0  0.0      0     0 ?        S<   Apr15   0:00 [migration/0]
+root         4  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ksoftirqd/0]
+root         5  0.0  0.0      0     0 ?        S<   Apr15   0:00 [watchdog/0]
+root         6  0.0  0.0      0     0 ?        S<   Apr15   0:01 [migration/1]
+root         7  0.0  0.0      0     0 ?        S<   Apr15   0:03 [ksoftirqd/1]
+root         8  0.0  0.0      0     0 ?        S<   Apr15   0:00 [watchdog/1]
+root         9  0.0  0.0      0     0 ?        S<   Apr15   0:00 [events/0]
+root        10  0.0  0.0      0     0 ?        S<   Apr15   0:01 [events/1]
+root        11  0.0  0.0      0     0 ?        S<   Apr15   0:00 [khelper]
+root        12  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kstop/0]
+root        13  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kstop/1]
+root        14  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kintegrityd/0]
+root        15  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kintegrityd/1]
+root        16  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kblockd/0]
+root        17  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kblockd/1]
+root        18  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kacpid]
+root        19  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kacpi_notify]
+root        20  0.0  0.0      0     0 ?        S<   Apr15   0:00 [cqueue]
+root        21  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ata/0]
+root        22  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ata/1]
+root        23  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ata_aux]
+root        24  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ksuspend_usbd]
+root        25  0.0  0.0      0     0 ?        S<   Apr15   0:00 [khubd]
+root        26  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kseriod]
+root        27  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kmmcd]
+root        28  0.0  0.0      0     0 ?        S<   Apr15   0:00 [btaddconn]
+root        29  0.0  0.0      0     0 ?        S<   Apr15   0:00 [btdelconn]
+root        32  0.0  0.0      0     0 ?        S<   Apr15   1:23 [kswapd0]
+root        33  0.0  0.0      0     0 ?        S<   Apr15   0:00 [aio/0]
+root        34  0.0  0.0      0     0 ?        S<   Apr15   0:00 [aio/1]
+root        35  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ecryptfs-kthrea]
+root        38  0.0  0.0      0     0 ?        S<   Apr15   0:00 [scsi_eh_0]
+root        39  0.0  0.0      0     0 ?        S<   Apr15   0:00 [scsi_eh_1]
+root        40  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kstriped]
+root        41  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kmpathd/0]
+root        42  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kmpathd/1]
+root        43  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kmpath_handlerd]
+root        44  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ksnapd]
+root        45  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kondemand/0]
+root        46  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kondemand/1]
+root        47  0.0  0.0      0     0 ?        S<   Apr15   0:00 [krfcommd]
+root       603  0.0  0.0      0     0 ?        S<   Apr15   0:00 [scsi_eh_2]
+root       620  0.0  0.0      0     0 ?        S    Apr16   0:01 [pdflush]
+root       747  0.0  0.0      0     0 ?        S<   Apr15   0:06 [kjournald]
+root       840  0.0  0.0  16732   176 ?        S<s  Apr15   0:00 /sbin/udevd --daemon
+root       997  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kpsmoused]
+root      1024  0.0  0.0      0     0 ?        S<   Apr15   0:00 [vballoon]
+daemon    1628  0.0  0.0   8180   312 ?        Ss   Apr15   0:00 /sbin/portmap
+statd     1645  0.0  0.0  10300   132 ?        Ss   Apr15   0:00 /sbin/rpc.statd
+root      1816  0.0  0.1   6488   532 ?        S<s  Apr15   0:00 dhclient3 -e IF_METRIC=100 -pf /var/run/dhclient.eth0.pid -lf /var/lib/dhcp3/dhclient.eth0.leases eth0
+root      1854  0.0  0.0   3944   108 tty4     Ss+  Apr15   0:00 /sbin/getty 38400 tty4
+root      1857  0.0  0.0   3944   108 tty5     Ss+  Apr15   0:00 /sbin/getty 38400 tty5
+root      1870  0.0  0.0   3944   108 tty2     Ss+  Apr15   0:00 /sbin/getty 38400 tty2
+root      1871  0.0  0.0   3944   108 tty3     Ss+  Apr15   0:00 /sbin/getty 38400 tty3
+root      1873  0.0  0.0   3944   108 tty6     Ss+  Apr15   0:00 /sbin/getty 38400 tty6
+syslog    1915  0.0  0.0  12376   448 ?        Ss   Apr15   0:03 /sbin/syslogd -u syslog
+root      1933  0.0  0.0   8204   156 ?        S    Apr15   0:00 /bin/dd bs 1 if /proc/kmsg of /var/run/klogd/kmsg
+klog      1935  0.0  0.5   6504  2808 ?        Ss   Apr15   0:00 /sbin/klogd -P /var/run/klogd/kmsg
+root      1953  0.0  0.1  48940   792 ?        Ss   Apr15   0:00 /usr/sbin/sshd
+root      1974  0.3  0.0      0     0 ?        S<   Apr15   6:55 [rpciod/0]
+root      1975  0.3  0.0      0     0 ?        S<   Apr15   6:16 [rpciod/1]
+root      2006  0.0  0.0      0     0 ?        S<   Apr15   0:00 [lockd]
+root      2007  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd4]
+root      2008  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2009  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2010  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2011  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2012  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2013  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2014  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2015  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2019  0.0  0.0  14520   192 ?        Ss   Apr15   0:00 /usr/sbin/rpc.mountd --manage-gids
+root      2349  0.0  0.0   3944   184 tty1     Ss+  Apr15   0:00 /sbin/getty 38400 tty1
+root      2670  0.1  0.0      0     0 ?        S<   Apr15   1:58 [nfsiod]
+condor    2767  0.0  0.4  35752  2364 ?        Ss   Apr15   0:12 condor_master
+condor    2768  0.0  0.7  37212  3688 ?        Ss   Apr15   1:24 condor_startd -f
+root      4141  0.0  0.1  18712   576 ?        Ss   Apr15   0:00 /usr/sbin/cron
+postgres 13290  0.0  0.6  82044  3280 ?        S    Apr16   0:01 /opt/postgres/9.0/bin/postgres -D /mnt/db5
+postgres 13292  0.0  5.0  82120 25420 ?        Ss   Apr16   0:10 postgres: writer process                  
+postgres 13293  0.0  0.2  82044  1164 ?        Ss   Apr16   0:05 postgres: wal writer process              
+postgres 13294  0.0  0.4  82860  2176 ?        Ss   Apr16   0:04 postgres: autovacuum launcher process     
+postgres 13295  0.0  0.2  53492  1096 ?        Ss   Apr16   0:06 postgres: stats collector process         
+condor   13338  0.0  0.6  25976  3144 ?        Ss   Apr16   0:04 /usr/bin/SCREEN.real -c /home/condor/.screen-profiles/profile
+condor   13339  0.0  0.0   4024   480 pts/0    Ss   Apr16   0:00 /bin/sh /usr/bin/motd+shell
+condor   13342  0.0  0.2  18328  1396 pts/0    S+   Apr16   0:00 /bin/bash
+condor   13622  0.0  0.4  22176  2080 ?        S    Apr16   0:02 condor_procd -A /tmp/condor-lock.host_50.191183934294717/procd_pipe.STARTD -S 60 -C 1000
+root     15544  0.0  0.6  70140  3104 ?        Ss   01:06   0:00 sshd: condor [priv]
+condor   15546  0.0  0.3  70140  1756 ?        S    01:06   0:00 sshd: condor@pts/1
+condor   15547  0.0  0.4  18280  2264 pts/1    Ss+  01:06   0:00 -bash
+root     17793  0.0  0.6  70140  3100 ?        Ss   03:28   0:00 sshd: condor [priv]
+condor   17795  0.0  0.3  70288  1768 ?        S    03:28   0:00 sshd: condor@pts/3
+condor   17796  0.0  0.4  18260  2220 pts/3    Ss+  03:28   0:00 -bash
+condor   17970  0.0  0.1   3976   736 pts/3    S    03:38   0:00 sar -o /home/condor/cps210/cpu 300 72
+condor   17971  0.0  0.1   3972   748 pts/3    S    03:38   0:00 sadc 300 73 -z -S ALL /home/condor/cps210/cpu
+root     18343  0.0  0.1   3940   696 ?        Ss   04:00   0:00 /sbin/getty 38400 xvc0
+root     18345  0.0  0.2  31380  1060 ?        S    04:00   0:00 /USR/SBIN/CRON
+root     18347  0.0  0.1   4024   584 ?        Ss   04:00   0:00 /bin/sh -c [ -x /usr/sbin/update-motd ] && /usr/sbin/update-motd 2>/dev/null
+root     18349  0.0  0.1   4024   588 ?        RN   04:00   0:00 /bin/sh -e /usr/sbin/update-motd
+root     18353  0.0  0.2  31380  1060 ?        S    04:00   0:00 /USR/SBIN/CRON
+condor   18358  0.0  0.1   4024   572 ?        Ss   04:00   0:00 /bin/sh -c /home/condor/cps210/monitor.sh
+condor   18362  0.0  0.2   9520  1480 ?        S    04:00   0:00 /bin/bash /home/condor/cps210/monitor.sh
+condor   18396  0.0  0.2  14892  1036 ?        R    04:00   0:00 ps aux
+condor   23071  0.1  0.6  25988  3236 ?        Ss   Apr16   1:40 /usr/bin/SCREEN.real -c /home/condor/.screen-profiles/profile
+condor   23072  0.0  0.0   4024   480 pts/2    Ss   Apr16   0:00 /bin/sh /usr/bin/motd+shell
+condor   23075  0.0  0.3  18340  1660 pts/2    S+   Apr16   0:00 /bin/bash
+root     28400  0.0  0.0      0     0 ?        S    Apr16   0:03 [pdflush]
+
+=========Sun Apr 17 04:05:01 UTC 2011========
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.0   5240   444 ?        Ss   Apr15   0:06 /sbin/init
+root         2  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kthreadd]
+root         3  0.0  0.0      0     0 ?        S<   Apr15   0:00 [migration/0]
+root         4  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ksoftirqd/0]
+root         5  0.0  0.0      0     0 ?        S<   Apr15   0:00 [watchdog/0]
+root         6  0.0  0.0      0     0 ?        S<   Apr15   0:01 [migration/1]
+root         7  0.0  0.0      0     0 ?        S<   Apr15   0:03 [ksoftirqd/1]
+root         8  0.0  0.0      0     0 ?        S<   Apr15   0:00 [watchdog/1]
+root         9  0.0  0.0      0     0 ?        S<   Apr15   0:00 [events/0]
+root        10  0.0  0.0      0     0 ?        S<   Apr15   0:01 [events/1]
+root        11  0.0  0.0      0     0 ?        S<   Apr15   0:00 [khelper]
+root        12  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kstop/0]
+root        13  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kstop/1]
+root        14  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kintegrityd/0]
+root        15  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kintegrityd/1]
+root        16  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kblockd/0]
+root        17  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kblockd/1]
+root        18  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kacpid]
+root        19  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kacpi_notify]
+root        20  0.0  0.0      0     0 ?        S<   Apr15   0:00 [cqueue]
+root        21  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ata/0]
+root        22  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ata/1]
+root        23  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ata_aux]
+root        24  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ksuspend_usbd]
+root        25  0.0  0.0      0     0 ?        S<   Apr15   0:00 [khubd]
+root        26  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kseriod]
+root        27  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kmmcd]
+root        28  0.0  0.0      0     0 ?        S<   Apr15   0:00 [btaddconn]
+root        29  0.0  0.0      0     0 ?        S<   Apr15   0:00 [btdelconn]
+root        32  0.0  0.0      0     0 ?        S<   Apr15   1:23 [kswapd0]
+root        33  0.0  0.0      0     0 ?        S<   Apr15   0:00 [aio/0]
+root        34  0.0  0.0      0     0 ?        S<   Apr15   0:00 [aio/1]
+root        35  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ecryptfs-kthrea]
+root        38  0.0  0.0      0     0 ?        S<   Apr15   0:00 [scsi_eh_0]
+root        39  0.0  0.0      0     0 ?        S<   Apr15   0:00 [scsi_eh_1]
+root        40  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kstriped]
+root        41  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kmpathd/0]
+root        42  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kmpathd/1]
+root        43  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kmpath_handlerd]
+root        44  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ksnapd]
+root        45  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kondemand/0]
+root        46  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kondemand/1]
+root        47  0.0  0.0      0     0 ?        S<   Apr15   0:00 [krfcommd]
+root       603  0.0  0.0      0     0 ?        S<   Apr15   0:00 [scsi_eh_2]
+root       620  0.0  0.0      0     0 ?        S    Apr16   0:01 [pdflush]
+root       747  0.0  0.0      0     0 ?        S<   Apr15   0:06 [kjournald]
+root       840  0.0  0.0  16732   176 ?        S<s  Apr15   0:00 /sbin/udevd --daemon
+root       997  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kpsmoused]
+root      1024  0.0  0.0      0     0 ?        S<   Apr15   0:00 [vballoon]
+daemon    1628  0.0  0.0   8180   264 ?        Ss   Apr15   0:00 /sbin/portmap
+statd     1645  0.0  0.0  10300   132 ?        Ss   Apr15   0:00 /sbin/rpc.statd
+root      1816  0.0  0.0   6488   380 ?        S<s  Apr15   0:00 dhclient3 -e IF_METRIC=100 -pf /var/run/dhclient.eth0.pid -lf /var/lib/dhcp3/dhclient.eth0.leases eth0
+root      1854  0.0  0.0   3944   108 tty4     Ss+  Apr15   0:00 /sbin/getty 38400 tty4
+root      1857  0.0  0.0   3944   108 tty5     Ss+  Apr15   0:00 /sbin/getty 38400 tty5
+root      1870  0.0  0.0   3944   108 tty2     Ss+  Apr15   0:00 /sbin/getty 38400 tty2
+root      1871  0.0  0.0   3944   108 tty3     Ss+  Apr15   0:00 /sbin/getty 38400 tty3
+root      1873  0.0  0.0   3944   108 tty6     Ss+  Apr15   0:00 /sbin/getty 38400 tty6
+syslog    1915  0.0  0.0  12376   448 ?        Ss   Apr15   0:03 /sbin/syslogd -u syslog
+root      1933  0.0  0.0   8204   156 ?        S    Apr15   0:00 /bin/dd bs 1 if /proc/kmsg of /var/run/klogd/kmsg
+klog      1935  0.0  0.5   6504  2808 ?        Ss   Apr15   0:00 /sbin/klogd -P /var/run/klogd/kmsg
+root      1953  0.0  0.1  48940   788 ?        Ss   Apr15   0:00 /usr/sbin/sshd
+root      1974  0.3  0.0      0     0 ?        S<   Apr15   6:56 [rpciod/0]
+root      1975  0.3  0.0      0     0 ?        S<   Apr15   6:17 [rpciod/1]
+root      2006  0.0  0.0      0     0 ?        S<   Apr15   0:00 [lockd]
+root      2007  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd4]
+root      2008  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2009  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2010  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2011  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2012  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2013  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2014  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2015  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2019  0.0  0.0  14520   192 ?        Ss   Apr15   0:00 /usr/sbin/rpc.mountd --manage-gids
+root      2349  0.0  0.0   3944   184 tty1     Ss+  Apr15   0:00 /sbin/getty 38400 tty1
+root      2670  0.1  0.0      0     0 ?        S<   Apr15   1:58 [nfsiod]
+condor    2767  0.0  0.4  35752  2212 ?        Ss   Apr15   0:12 condor_master
+condor    2768  0.0  0.7  37400  3796 ?        Ss   Apr15   1:26 condor_startd -f
+root      4141  0.0  0.1  18712   576 ?        Ss   Apr15   0:00 /usr/sbin/cron
+postgres 13290  0.0  0.6  82044  3276 ?        S    Apr16   0:01 /opt/postgres/9.0/bin/postgres -D /mnt/db5
+postgres 13292  0.0  5.0  82120 25420 ?        Ss   Apr16   0:10 postgres: writer process                  
+postgres 13293  0.0  0.2  82044  1164 ?        Ss   Apr16   0:05 postgres: wal writer process              
+postgres 13294  0.0  0.4  82860  2176 ?        Ss   Apr16   0:05 postgres: autovacuum launcher process     
+postgres 13295  0.0  0.2  53492  1096 ?        Ss   Apr16   0:06 postgres: stats collector process         
+condor   13338  0.0  0.6  25976  3144 ?        Ss   Apr16   0:04 /usr/bin/SCREEN.real -c /home/condor/.screen-profiles/profile
+condor   13339  0.0  0.0   4024   480 pts/0    Ss   Apr16   0:00 /bin/sh /usr/bin/motd+shell
+condor   13342  0.0  0.2  18328  1396 pts/0    S+   Apr16   0:00 /bin/bash
+condor   13622  0.0  0.4  22176  2100 ?        S    Apr16   0:03 condor_procd -A /tmp/condor-lock.host_50.191183934294717/procd_pipe.STARTD -S 60 -C 1000
+root     15544  0.0  0.6  70140  3052 ?        Ss   01:06   0:00 sshd: condor [priv]
+condor   15546  0.0  0.3  70140  1736 ?        S    01:06   0:00 sshd: condor@pts/1
+condor   15547  0.0  0.3  18280  1912 pts/1    Ss+  01:06   0:00 -bash
+root     17793  0.0  0.6  70140  3048 ?        Ss   03:28   0:00 sshd: condor [priv]
+condor   17795  0.0  0.3  70288  1748 ?        S    03:28   0:00 sshd: condor@pts/3
+condor   17796  0.0  0.3  18260  1868 pts/3    Ss+  03:28   0:00 -bash
+condor   17970  0.0  0.1   3976   736 pts/3    S    03:38   0:00 sar -o /home/condor/cps210/cpu 300 72
+condor   17971  0.0  0.1   3972   748 pts/3    S    03:38   0:00 sadc 300 73 -z -S ALL /home/condor/cps210/cpu
+root     18775  0.0  0.1   3940   692 ?        Ss   04:05   0:00 /sbin/getty 38400 xvc0
+root     18777  0.0  0.2  31380  1060 ?        S    04:05   0:00 /USR/SBIN/CRON
+condor   18778  0.0  0.1   4024   572 ?        Ss   04:05   0:00 /bin/sh -c /home/condor/cps210/monitor.sh
+condor   18780  0.0  0.2   9520  1480 ?        R    04:05   0:00 /bin/bash /home/condor/cps210/monitor.sh
+condor   18787  0.0  0.2  14892  1036 ?        R    04:05   0:00 ps aux
+condor   23071  0.1  0.6  25988  3172 ?        Ss   Apr16   1:40 /usr/bin/SCREEN.real -c /home/condor/.screen-profiles/profile
+condor   23072  0.0  0.0   4024   480 pts/2    Ss   Apr16   0:00 /bin/sh /usr/bin/motd+shell
+condor   23075  0.0  0.2  18340  1468 pts/2    S+   Apr16   0:00 /bin/bash
+root     28400  0.0  0.0      0     0 ?        S    Apr16   0:03 [pdflush]
+
+=========Sun Apr 17 04:10:01 UTC 2011========
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.0   5240   444 ?        Ss   Apr15   0:06 /sbin/init
+root         2  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kthreadd]
+root         3  0.0  0.0      0     0 ?        S<   Apr15   0:00 [migration/0]
+root         4  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ksoftirqd/0]
+root         5  0.0  0.0      0     0 ?        S<   Apr15   0:00 [watchdog/0]
+root         6  0.0  0.0      0     0 ?        S<   Apr15   0:01 [migration/1]
+root         7  0.0  0.0      0     0 ?        S<   Apr15   0:03 [ksoftirqd/1]
+root         8  0.0  0.0      0     0 ?        S<   Apr15   0:00 [watchdog/1]
+root         9  0.0  0.0      0     0 ?        S<   Apr15   0:00 [events/0]
+root        10  0.0  0.0      0     0 ?        S<   Apr15   0:01 [events/1]
+root        11  0.0  0.0      0     0 ?        S<   Apr15   0:00 [khelper]
+root        12  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kstop/0]
+root        13  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kstop/1]
+root        14  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kintegrityd/0]
+root        15  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kintegrityd/1]
+root        16  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kblockd/0]
+root        17  0.0  0.0      0     0 ?        R<   Apr15   0:00 [kblockd/1]
+root        18  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kacpid]
+root        19  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kacpi_notify]
+root        20  0.0  0.0      0     0 ?        S<   Apr15   0:00 [cqueue]
+root        21  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ata/0]
+root        22  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ata/1]
+root        23  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ata_aux]
+root        24  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ksuspend_usbd]
+root        25  0.0  0.0      0     0 ?        S<   Apr15   0:00 [khubd]
+root        26  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kseriod]
+root        27  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kmmcd]
+root        28  0.0  0.0      0     0 ?        S<   Apr15   0:00 [btaddconn]
+root        29  0.0  0.0      0     0 ?        S<   Apr15   0:00 [btdelconn]
+root        32  0.0  0.0      0     0 ?        S<   Apr15   1:23 [kswapd0]
+root        33  0.0  0.0      0     0 ?        S<   Apr15   0:00 [aio/0]
+root        34  0.0  0.0      0     0 ?        S<   Apr15   0:00 [aio/1]
+root        35  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ecryptfs-kthrea]
+root        38  0.0  0.0      0     0 ?        S<   Apr15   0:00 [scsi_eh_0]
+root        39  0.0  0.0      0     0 ?        S<   Apr15   0:00 [scsi_eh_1]
+root        40  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kstriped]
+root        41  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kmpathd/0]
+root        42  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kmpathd/1]
+root        43  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kmpath_handlerd]
+root        44  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ksnapd]
+root        45  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kondemand/0]
+root        46  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kondemand/1]
+root        47  0.0  0.0      0     0 ?        S<   Apr15   0:00 [krfcommd]
+root       603  0.0  0.0      0     0 ?        S<   Apr15   0:00 [scsi_eh_2]
+root       620  0.0  0.0      0     0 ?        S    Apr16   0:01 [pdflush]
+root       747  0.0  0.0      0     0 ?        S<   Apr15   0:06 [kjournald]
+root       840  0.0  0.0  16732   176 ?        S<s  Apr15   0:00 /sbin/udevd --daemon
+root       997  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kpsmoused]
+root      1024  0.0  0.0      0     0 ?        S<   Apr15   0:00 [vballoon]
+daemon    1628  0.0  0.0   8180   260 ?        Ss   Apr15   0:00 /sbin/portmap
+statd     1645  0.0  0.0  10300   132 ?        Ss   Apr15   0:00 /sbin/rpc.statd
+root      1816  0.0  0.1   6488   532 ?        S<s  Apr15   0:00 dhclient3 -e IF_METRIC=100 -pf /var/run/dhclient.eth0.pid -lf /var/lib/dhcp3/dhclient.eth0.leases eth0
+root      1854  0.0  0.0   3944   108 tty4     Ss+  Apr15   0:00 /sbin/getty 38400 tty4
+root      1857  0.0  0.0   3944   108 tty5     Ss+  Apr15   0:00 /sbin/getty 38400 tty5
+root      1870  0.0  0.0   3944   108 tty2     Ss+  Apr15   0:00 /sbin/getty 38400 tty2
+root      1871  0.0  0.0   3944   108 tty3     Ss+  Apr15   0:00 /sbin/getty 38400 tty3
+root      1873  0.0  0.0   3944   108 tty6     Ss+  Apr15   0:00 /sbin/getty 38400 tty6
+syslog    1915  0.0  0.0  12376   448 ?        Ss   Apr15   0:03 /sbin/syslogd -u syslog
+root      1933  0.0  0.0   8204   156 ?        S    Apr15   0:00 /bin/dd bs 1 if /proc/kmsg of /var/run/klogd/kmsg
+klog      1935  0.0  0.5   6504  2808 ?        Ss   Apr15   0:00 /sbin/klogd -P /var/run/klogd/kmsg
+root      1953  0.0  0.1  48940   668 ?        Ss   Apr15   0:00 /usr/sbin/sshd
+root      1974  0.3  0.0      0     0 ?        S<   Apr15   6:56 [rpciod/0]
+root      1975  0.3  0.0      0     0 ?        S<   Apr15   6:17 [rpciod/1]
+root      2006  0.0  0.0      0     0 ?        S<   Apr15   0:00 [lockd]
+root      2007  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd4]
+root      2008  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2009  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2010  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2011  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2012  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2013  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2014  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2015  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2019  0.0  0.0  14520   192 ?        Ss   Apr15   0:00 /usr/sbin/rpc.mountd --manage-gids
+root      2349  0.0  0.0   3944   184 tty1     Ss+  Apr15   0:00 /sbin/getty 38400 tty1
+root      2670  0.1  0.0      0     0 ?        S<   Apr15   1:58 [nfsiod]
+condor    2767  0.0  0.4  35752  2204 ?        Ss   Apr15   0:12 condor_master
+condor    2768  0.0  0.7  37544  3968 ?        Ss   Apr15   1:27 condor_startd -f
+root      4141  0.0  0.1  18712   576 ?        Ss   Apr15   0:00 /usr/sbin/cron
+postgres 13290  0.0  0.6  82044  3276 ?        S    Apr16   0:01 /opt/postgres/9.0/bin/postgres -D /mnt/db5
+postgres 13292  0.0  5.0  82120 25420 ?        Ss   Apr16   0:10 postgres: writer process                  
+postgres 13293  0.0  0.2  82044  1164 ?        Ss   Apr16   0:05 postgres: wal writer process              
+postgres 13294  0.0  0.4  82860  2176 ?        Ds   Apr16   0:05 postgres: autovacuum launcher process     
+postgres 13295  0.0  0.2  53492  1096 ?        Ss   Apr16   0:06 postgres: stats collector process         
+condor   13338  0.0  0.6  25976  3144 ?        Ss   Apr16   0:04 /usr/bin/SCREEN.real -c /home/condor/.screen-profiles/profile
+condor   13339  0.0  0.0   4024   480 pts/0    Ss   Apr16   0:00 /bin/sh /usr/bin/motd+shell
+condor   13342  0.0  0.2  18328  1396 pts/0    S+   Apr16   0:00 /bin/bash
+condor   13622  0.0  0.4  22176  2140 ?        S    Apr16   0:03 condor_procd -A /tmp/condor-lock.host_50.191183934294717/procd_pipe.STARTD -S 60 -C 1000
+root     15544  0.0  0.3  70140  1872 ?        Ss   01:06   0:00 sshd: condor [priv]
+condor   15546  0.0  0.2  70140  1304 ?        S    01:06   0:00 sshd: condor@pts/1
+condor   15547  0.0  0.3  18280  1752 pts/1    Ss+  01:06   0:00 -bash
+root     17793  0.0  0.3  70140  1868 ?        Ss   03:28   0:00 sshd: condor [priv]
+condor   17795  0.0  0.2  70288  1316 ?        S    03:28   0:00 sshd: condor@pts/3
+condor   17796  0.0  0.3  18260  1720 pts/3    Ss+  03:28   0:00 -bash
+condor   17970  0.0  0.1   3976   720 pts/3    S    03:38   0:00 sar -o /home/condor/cps210/cpu 300 72
+condor   17971  0.0  0.1   3972   740 pts/3    S    03:38   0:00 sadc 300 73 -z -S ALL /home/condor/cps210/cpu
+condor   18972  1.2  0.8  35180  4248 ?        Ss   04:09   0:00 condor_starter -f -a slot1 master.localdomain
+condor   18976  0.0  0.1   6560   780 ?        SNs  04:09   0:00 condor_exec.exe -n mBackground -N mBackground70:1.0 -R waif -w /mnt/montage_waif_2011-04-17T03:56:46/condor/pegasus/montage/20110417T035646+0000 -L montage -T 2011-04-15T19:17:46+00:00 /opt/Montage_v3.3/bin/mBackground -t p2mass-atlas-990502s-j1440174.fits c2mass-atlas-990502s-j1440174.fits pimages_20110327_233551_6695.tbl corrections.tbl
+condor   18977  1.1  2.9  24004 14808 ?        DN   04:09   0:00 /opt/Montage_v3.3/bin/mBackground -t p2mass-atlas-990502s-j1440174.fits c2mass-atlas-990502s-j1440174.fits pimages_20110327_233551_6695.tbl corrections.tbl
+condor   18990  3.0  0.8  35184  4248 ?        Ss   04:09   0:00 condor_starter -f -a slot2 master.localdomain
+condor   18992  0.0  0.1   6560   776 ?        SNs  04:10   0:00 condor_exec.exe -n mBackground -N mBackground78:1.0 -R waif -w /mnt/montage_waif_2011-04-17T03:56:46/condor/pegasus/montage/20110417T035646+0000 -L montage -T 2011-04-15T19:17:46+00:00 /opt/Montage_v3.3/bin/mBackground -t p2mass-atlas-990502s-j1350092.fits c2mass-atlas-990502s-j1350092.fits pimages_20110327_233551_6695.tbl corrections.tbl
+condor   18993  0.0  0.1  10464   532 ?        DN   04:10   0:00 /opt/Montage_v3.3/bin/mBackground -t p2mass-atlas-990502s-j1350092.fits c2mass-atlas-990502s-j1350092.fits pimages_20110327_233551_6695.tbl corrections.tbl
+root     18994  0.0  0.1   3940   692 ?        Ss   04:10   0:00 /sbin/getty 38400 xvc0
+root     18995  0.0  0.2  31380  1060 ?        S    04:10   0:00 /USR/SBIN/CRON
+root     18996  0.0  0.2  31380  1060 ?        S    04:10   0:00 /USR/SBIN/CRON
+condor   18997  0.0  0.1   4024   572 ?        Ss   04:10   0:00 /bin/sh -c /home/condor/cps210/monitor.sh
+root     18998  0.0  0.1   4024   580 ?        Ss   04:10   0:00 /bin/sh -c [ -x /usr/sbin/update-motd ] && /usr/sbin/update-motd 2>/dev/null
+root     18999  0.0  0.1   4024   588 ?        SN   04:10   0:00 /bin/sh -e /usr/sbin/update-motd
+condor   19000  0.0  0.2   9520  1480 ?        S    04:10   0:00 /bin/bash /home/condor/cps210/monitor.sh
+condor   19013  0.0  0.2  14892  1036 ?        R    04:10   0:00 ps aux
+root     19015  0.0  0.1   4024   592 ?        SN   04:10   0:00 /bin/sh -e /etc/update-motd.d//90-updates-available
+root     19017  0.0  0.0   3084   156 ?        DN   04:10   0:00 apt-config shell StateDir Dir::State
+condor   23071  0.1  0.6  25988  3172 ?        Ss   Apr16   1:40 /usr/bin/SCREEN.real -c /home/condor/.screen-profiles/profile
+condor   23072  0.0  0.0   4024   480 pts/2    Ss   Apr16   0:00 /bin/sh /usr/bin/motd+shell
+condor   23075  0.0  0.2  18340  1468 pts/2    S+   Apr16   0:00 /bin/bash
+root     28400  0.0  0.0      0     0 ?        S    Apr16   0:03 [pdflush]
+
+=========Sun Apr 17 04:15:01 UTC 2011========
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.0   5240   444 ?        Ss   Apr15   0:06 /sbin/init
+root         2  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kthreadd]
+root         3  0.0  0.0      0     0 ?        S<   Apr15   0:00 [migration/0]
+root         4  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ksoftirqd/0]
+root         5  0.0  0.0      0     0 ?        S<   Apr15   0:00 [watchdog/0]
+root         6  0.0  0.0      0     0 ?        S<   Apr15   0:01 [migration/1]
+root         7  0.0  0.0      0     0 ?        S<   Apr15   0:03 [ksoftirqd/1]
+root         8  0.0  0.0      0     0 ?        S<   Apr15   0:00 [watchdog/1]
+root         9  0.0  0.0      0     0 ?        S<   Apr15   0:00 [events/0]
+root        10  0.0  0.0      0     0 ?        S<   Apr15   0:01 [events/1]
+root        11  0.0  0.0      0     0 ?        S<   Apr15   0:00 [khelper]
+root        12  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kstop/0]
+root        13  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kstop/1]
+root        14  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kintegrityd/0]
+root        15  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kintegrityd/1]
+root        16  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kblockd/0]
+root        17  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kblockd/1]
+root        18  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kacpid]
+root        19  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kacpi_notify]
+root        20  0.0  0.0      0     0 ?        S<   Apr15   0:00 [cqueue]
+root        21  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ata/0]
+root        22  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ata/1]
+root        23  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ata_aux]
+root        24  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ksuspend_usbd]
+root        25  0.0  0.0      0     0 ?        S<   Apr15   0:00 [khubd]
+root        26  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kseriod]
+root        27  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kmmcd]
+root        28  0.0  0.0      0     0 ?        S<   Apr15   0:00 [btaddconn]
+root        29  0.0  0.0      0     0 ?        S<   Apr15   0:00 [btdelconn]
+root        32  0.0  0.0      0     0 ?        S<   Apr15   1:23 [kswapd0]
+root        33  0.0  0.0      0     0 ?        S<   Apr15   0:00 [aio/0]
+root        34  0.0  0.0      0     0 ?        S<   Apr15   0:00 [aio/1]
+root        35  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ecryptfs-kthrea]
+root        38  0.0  0.0      0     0 ?        S<   Apr15   0:00 [scsi_eh_0]
+root        39  0.0  0.0      0     0 ?        S<   Apr15   0:00 [scsi_eh_1]
+root        40  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kstriped]
+root        41  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kmpathd/0]
+root        42  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kmpathd/1]
+root        43  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kmpath_handlerd]
+root        44  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ksnapd]
+root        45  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kondemand/0]
+root        46  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kondemand/1]
+root        47  0.0  0.0      0     0 ?        S<   Apr15   0:00 [krfcommd]
+root       603  0.0  0.0      0     0 ?        S<   Apr15   0:00 [scsi_eh_2]
+root       620  0.0  0.0      0     0 ?        S    Apr16   0:01 [pdflush]
+root       747  0.0  0.0      0     0 ?        D<   Apr15   0:06 [kjournald]
+root       840  0.0  0.0  16732   176 ?        S<s  Apr15   0:00 /sbin/udevd --daemon
+root       997  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kpsmoused]
+root      1024  0.0  0.0      0     0 ?        S<   Apr15   0:00 [vballoon]
+daemon    1628  0.0  0.0   8180   312 ?        Ss   Apr15   0:00 /sbin/portmap
+statd     1645  0.0  0.0  10300   132 ?        Ss   Apr15   0:00 /sbin/rpc.statd
+root      1816  0.0  0.1   6488   532 ?        S<s  Apr15   0:00 dhclient3 -e IF_METRIC=100 -pf /var/run/dhclient.eth0.pid -lf /var/lib/dhcp3/dhclient.eth0.leases eth0
+root      1854  0.0  0.0   3944   108 tty4     Ss+  Apr15   0:00 /sbin/getty 38400 tty4
+root      1857  0.0  0.0   3944   108 tty5     Ss+  Apr15   0:00 /sbin/getty 38400 tty5
+root      1870  0.0  0.0   3944   108 tty2     Ss+  Apr15   0:00 /sbin/getty 38400 tty2
+root      1871  0.0  0.0   3944   108 tty3     Ss+  Apr15   0:00 /sbin/getty 38400 tty3
+root      1873  0.0  0.0   3944   108 tty6     Ss+  Apr15   0:00 /sbin/getty 38400 tty6
+syslog    1915  0.0  0.0  12376   448 ?        Ds   Apr15   0:03 /sbin/syslogd -u syslog
+root      1933  0.0  0.0   8204   156 ?        S    Apr15   0:00 /bin/dd bs 1 if /proc/kmsg of /var/run/klogd/kmsg
+klog      1935  0.0  0.5   6504  2808 ?        Ss   Apr15   0:00 /sbin/klogd -P /var/run/klogd/kmsg
+root      1953  0.0  0.1  48940   696 ?        Ss   Apr15   0:00 /usr/sbin/sshd
+root      1974  0.3  0.0      0     0 ?        S<   Apr15   6:56 [rpciod/0]
+root      1975  0.3  0.0      0     0 ?        S<   Apr15   6:17 [rpciod/1]
+root      2006  0.0  0.0      0     0 ?        S<   Apr15   0:00 [lockd]
+root      2007  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd4]
+root      2008  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2009  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2010  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2011  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2012  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2013  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2014  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2015  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2019  0.0  0.0  14520   192 ?        Ss   Apr15   0:00 /usr/sbin/rpc.mountd --manage-gids
+root      2349  0.0  0.0   3944   184 tty1     Ss+  Apr15   0:00 /sbin/getty 38400 tty1
+root      2670  0.1  0.0      0     0 ?        S<   Apr15   1:58 [nfsiod]
+condor    2767  0.0  0.4  35752  2268 ?        Ss   Apr15   0:12 condor_master
+condor    2768  0.0  0.8  37544  4032 ?        Ss   Apr15   1:27 condor_startd -f
+root      4141  0.0  0.1  18712   576 ?        Ss   Apr15   0:00 /usr/sbin/cron
+postgres 13290  0.0  0.6  82044  3276 ?        S    Apr16   0:01 /opt/postgres/9.0/bin/postgres -D /mnt/db5
+postgres 13292  0.0  5.0  82120 25420 ?        Ss   Apr16   0:10 postgres: writer process                  
+postgres 13293  0.0  0.2  82044  1164 ?        Ss   Apr16   0:05 postgres: wal writer process              
+postgres 13294  0.0  0.4  82860  2176 ?        Ss   Apr16   0:05 postgres: autovacuum launcher process     
+postgres 13295  0.0  0.2  53492  1096 ?        Ss   Apr16   0:06 postgres: stats collector process         
+condor   13338  0.0  0.6  25976  3144 ?        Ss   Apr16   0:04 /usr/bin/SCREEN.real -c /home/condor/.screen-profiles/profile
+condor   13339  0.0  0.0   4024   480 pts/0    Ss   Apr16   0:00 /bin/sh /usr/bin/motd+shell
+condor   13342  0.0  0.2  18328  1396 pts/0    S+   Apr16   0:00 /bin/bash
+condor   13622  0.0  0.4  22176  2144 ?        S    Apr16   0:03 condor_procd -A /tmp/condor-lock.host_50.191183934294717/procd_pipe.STARTD -S 60 -C 1000
+root     17793  0.0  0.3  70140  1868 ?        Ss   03:28   0:00 sshd: condor [priv]
+condor   17795  0.0  0.2  70288  1456 ?        S    03:28   0:00 sshd: condor@pts/3
+condor   17796  0.0  0.4  18260  2044 pts/3    Ss+  03:28   0:00 -bash
+condor   17970  0.0  0.1   3976   720 pts/3    S    03:38   0:00 sar -o /home/condor/cps210/cpu 300 72
+condor   17971  0.0  0.1   3972   740 pts/3    S    03:38   0:00 sadc 300 73 -z -S ALL /home/condor/cps210/cpu
+root     19115  0.0  0.1   3940   692 ?        Ss   04:15   0:00 /sbin/getty 38400 xvc0
+condor   19116  0.0  0.8  35176  4096 ?        Ss   04:15   0:00 condor_starter -f -a slot1 master.localdomain
+root     19117  0.0  0.2  31376  1020 ?        D    04:15   0:00 /USR/SBIN/CRON
+root     19118  0.0  0.2  31380  1060 ?        S    04:15   0:00 /USR/SBIN/CRON
+condor   19119  0.0  0.1   4024   576 ?        Ss   04:15   0:00 /bin/sh -c /home/condor/cps210/monitor.sh
+condor   19120  0.0  0.2   9520  1484 ?        R    04:15   0:00 /bin/bash /home/condor/cps210/monitor.sh
+condor   19128  0.0  0.2  14892  1036 ?        R    04:15   0:00 ps aux
+root     19129  0.0  0.2  31376  1020 ?        R    04:15   0:00 /USR/SBIN/CRON
+condor   23071  0.1  0.6  25988  3172 ?        Ss   Apr16   1:40 /usr/bin/SCREEN.real -c /home/condor/.screen-profiles/profile
+condor   23072  0.0  0.0   4024   480 pts/2    Ss   Apr16   0:00 /bin/sh /usr/bin/motd+shell
+condor   23075  0.0  0.2  18340  1468 pts/2    S+   Apr16   0:00 /bin/bash
+root     28400  0.0  0.0      0     0 ?        S    Apr16   0:03 [pdflush]
+
+=========Sun Apr 17 04:20:01 UTC 2011========
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.0   5240   444 ?        Ss   Apr15   0:06 /sbin/init
+root         2  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kthreadd]
+root         3  0.0  0.0      0     0 ?        S<   Apr15   0:00 [migration/0]
+root         4  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ksoftirqd/0]
+root         5  0.0  0.0      0     0 ?        S<   Apr15   0:00 [watchdog/0]
+root         6  0.0  0.0      0     0 ?        S<   Apr15   0:01 [migration/1]
+root         7  0.0  0.0      0     0 ?        S<   Apr15   0:03 [ksoftirqd/1]
+root         8  0.0  0.0      0     0 ?        S<   Apr15   0:00 [watchdog/1]
+root         9  0.0  0.0      0     0 ?        S<   Apr15   0:00 [events/0]
+root        10  0.0  0.0      0     0 ?        S<   Apr15   0:01 [events/1]
+root        11  0.0  0.0      0     0 ?        S<   Apr15   0:00 [khelper]
+root        12  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kstop/0]
+root        13  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kstop/1]
+root        14  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kintegrityd/0]
+root        15  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kintegrityd/1]
+root        16  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kblockd/0]
+root        17  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kblockd/1]
+root        18  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kacpid]
+root        19  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kacpi_notify]
+root        20  0.0  0.0      0     0 ?        S<   Apr15   0:00 [cqueue]
+root        21  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ata/0]
+root        22  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ata/1]
+root        23  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ata_aux]
+root        24  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ksuspend_usbd]
+root        25  0.0  0.0      0     0 ?        S<   Apr15   0:00 [khubd]
+root        26  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kseriod]
+root        27  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kmmcd]
+root        28  0.0  0.0      0     0 ?        S<   Apr15   0:00 [btaddconn]
+root        29  0.0  0.0      0     0 ?        S<   Apr15   0:00 [btdelconn]
+root        32  0.0  0.0      0     0 ?        S<   Apr15   1:23 [kswapd0]
+root        33  0.0  0.0      0     0 ?        S<   Apr15   0:00 [aio/0]
+root        34  0.0  0.0      0     0 ?        S<   Apr15   0:00 [aio/1]
+root        35  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ecryptfs-kthrea]
+root        38  0.0  0.0      0     0 ?        S<   Apr15   0:00 [scsi_eh_0]
+root        39  0.0  0.0      0     0 ?        S<   Apr15   0:00 [scsi_eh_1]
+root        40  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kstriped]
+root        41  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kmpathd/0]
+root        42  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kmpathd/1]
+root        43  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kmpath_handlerd]
+root        44  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ksnapd]
+root        45  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kondemand/0]
+root        46  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kondemand/1]
+root        47  0.0  0.0      0     0 ?        S<   Apr15   0:00 [krfcommd]
+root       603  0.0  0.0      0     0 ?        S<   Apr15   0:00 [scsi_eh_2]
+root       620  0.0  0.0      0     0 ?        S    Apr16   0:01 [pdflush]
+root       747  0.0  0.0      0     0 ?        S<   Apr15   0:06 [kjournald]
+root       840  0.0  0.0  16732   176 ?        S<s  Apr15   0:00 /sbin/udevd --daemon
+root       997  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kpsmoused]
+root      1024  0.0  0.0      0     0 ?        S<   Apr15   0:00 [vballoon]
+daemon    1628  0.0  0.0   8180   312 ?        Ss   Apr15   0:00 /sbin/portmap
+statd     1645  0.0  0.0  10300   132 ?        Ss   Apr15   0:00 /sbin/rpc.statd
+root      1816  0.0  0.1   6488   532 ?        S<s  Apr15   0:00 dhclient3 -e IF_METRIC=100 -pf /var/run/dhclient.eth0.pid -lf /var/lib/dhcp3/dhclient.eth0.leases eth0
+root      1854  0.0  0.0   3944   108 tty4     Ss+  Apr15   0:00 /sbin/getty 38400 tty4
+root      1857  0.0  0.0   3944   108 tty5     Ss+  Apr15   0:00 /sbin/getty 38400 tty5
+root      1870  0.0  0.0   3944   108 tty2     Ss+  Apr15   0:00 /sbin/getty 38400 tty2
+root      1871  0.0  0.0   3944   108 tty3     Ss+  Apr15   0:00 /sbin/getty 38400 tty3
+root      1873  0.0  0.0   3944   108 tty6     Ss+  Apr15   0:00 /sbin/getty 38400 tty6
+syslog    1915  0.0  0.0  12376   448 ?        Ss   Apr15   0:03 /sbin/syslogd -u syslog
+root      1933  0.0  0.0   8204   156 ?        S    Apr15   0:00 /bin/dd bs 1 if /proc/kmsg of /var/run/klogd/kmsg
+klog      1935  0.0  0.5   6504  2808 ?        Ss   Apr15   0:00 /sbin/klogd -P /var/run/klogd/kmsg
+root      1953  0.0  0.1  48940   696 ?        Ss   Apr15   0:00 /usr/sbin/sshd
+root      1974  0.3  0.0      0     0 ?        S<   Apr15   6:56 [rpciod/0]
+root      1975  0.3  0.0      0     0 ?        S<   Apr15   6:18 [rpciod/1]
+root      2006  0.0  0.0      0     0 ?        S<   Apr15   0:00 [lockd]
+root      2007  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd4]
+root      2008  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2009  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2010  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2011  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2012  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2013  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2014  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2015  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2019  0.0  0.0  14520   192 ?        Ss   Apr15   0:00 /usr/sbin/rpc.mountd --manage-gids
+root      2349  0.0  0.0   3944   184 tty1     Ss+  Apr15   0:00 /sbin/getty 38400 tty1
+root      2670  0.1  0.0      0     0 ?        S<   Apr15   1:58 [nfsiod]
+condor    2767  0.0  0.4  35752  2232 ?        Ss   Apr15   0:12 condor_master
+condor    2768  0.0  0.8  37752  4140 ?        Ss   Apr15   1:29 condor_startd -f
+root      4141  0.0  0.1  18712   576 ?        Ss   Apr15   0:00 /usr/sbin/cron
+postgres 13290  0.0  0.6  82044  3276 ?        S    Apr16   0:01 /opt/postgres/9.0/bin/postgres -D /mnt/db5
+postgres 13292  0.0  5.0  82120 25420 ?        Ss   Apr16   0:10 postgres: writer process                  
+postgres 13293  0.0  0.2  82044  1164 ?        Ss   Apr16   0:05 postgres: wal writer process              
+postgres 13294  0.0  0.4  82860  2176 ?        Ss   Apr16   0:05 postgres: autovacuum launcher process     
+postgres 13295  0.0  0.2  53492  1096 ?        Ss   Apr16   0:06 postgres: stats collector process         
+condor   13338  0.0  0.6  25976  3144 ?        Ss   Apr16   0:04 /usr/bin/SCREEN.real -c /home/condor/.screen-profiles/profile
+condor   13339  0.0  0.0   4024   480 pts/0    Ss   Apr16   0:00 /bin/sh /usr/bin/motd+shell
+condor   13342  0.0  0.2  18328  1396 pts/0    S+   Apr16   0:00 /bin/bash
+condor   13622  0.0  0.4  22176  2144 ?        S    Apr16   0:04 condor_procd -A /tmp/condor-lock.host_50.191183934294717/procd_pipe.STARTD -S 60 -C 1000
+root     17793  0.0  0.3  70140  1868 ?        Ss   03:28   0:00 sshd: condor [priv]
+condor   17795  0.0  0.2  70288  1456 ?        S    03:28   0:00 sshd: condor@pts/3
+condor   17796  0.0  0.4  18260  2036 pts/3    Ss+  03:28   0:00 -bash
+condor   17970  0.0  0.1   3976   720 pts/3    S    03:38   0:00 sar -o /home/condor/cps210/cpu 300 72
+condor   17971  0.0  0.1   3972   740 pts/3    S    03:38   0:00 sadc 300 73 -z -S ALL /home/condor/cps210/cpu
+root     19425  0.0  0.1   3940   696 ?        Ss   04:20   0:00 /sbin/getty 38400 xvc0
+root     19426  0.0  0.2  31380  1060 ?        S    04:20   0:00 /USR/SBIN/CRON
+root     19427  0.0  0.2  31380  1060 ?        S    04:20   0:00 /USR/SBIN/CRON
+root     19428  0.0  0.1   4024   584 ?        Ss   04:20   0:00 /bin/sh -c [ -x /usr/sbin/update-motd ] && /usr/sbin/update-motd 2>/dev/null
+condor   19429  0.0  0.1   4024   576 ?        Ss   04:20   0:00 /bin/sh -c /home/condor/cps210/monitor.sh
+root     19430  0.0  0.1   4024   588 ?        SN   04:20   0:00 /bin/sh -e /usr/sbin/update-motd
+condor   19431  0.0  0.2   9520  1484 ?        R    04:20   0:00 /bin/bash /home/condor/cps210/monitor.sh
+root     19441  0.0  0.1   4024   608 ?        RN   04:20   0:00 /bin/sh -e /etc/update-motd.d//90-updates-available
+condor   19460  0.0  0.2  14892  1040 ?        R    04:20   0:00 ps aux
+root     19465  0.0  0.1  16536   816 ?        RN   04:20   0:00 apt-config shell EtcDir Dir::Etc
+condor   23071  0.1  0.6  25988  3172 ?        Ss   Apr16   1:40 /usr/bin/SCREEN.real -c /home/condor/.screen-profiles/profile
+condor   23072  0.0  0.0   4024   480 pts/2    Ss   Apr16   0:00 /bin/sh /usr/bin/motd+shell
+condor   23075  0.0  0.2  18340  1468 pts/2    S+   Apr16   0:00 /bin/bash
+root     28400  0.0  0.0      0     0 ?        S    Apr16   0:03 [pdflush]
+
+=========Sun Apr 17 04:25:01 UTC 2011========
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.0   5240   444 ?        Ss   Apr15   0:06 /sbin/init
+root         2  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kthreadd]
+root         3  0.0  0.0      0     0 ?        S<   Apr15   0:00 [migration/0]
+root         4  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ksoftirqd/0]
+root         5  0.0  0.0      0     0 ?        S<   Apr15   0:00 [watchdog/0]
+root         6  0.0  0.0      0     0 ?        S<   Apr15   0:01 [migration/1]
+root         7  0.0  0.0      0     0 ?        S<   Apr15   0:03 [ksoftirqd/1]
+root         8  0.0  0.0      0     0 ?        S<   Apr15   0:00 [watchdog/1]
+root         9  0.0  0.0      0     0 ?        S<   Apr15   0:00 [events/0]
+root        10  0.0  0.0      0     0 ?        S<   Apr15   0:01 [events/1]
+root        11  0.0  0.0      0     0 ?        S<   Apr15   0:00 [khelper]
+root        12  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kstop/0]
+root        13  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kstop/1]
+root        14  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kintegrityd/0]
+root        15  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kintegrityd/1]
+root        16  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kblockd/0]
+root        17  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kblockd/1]
+root        18  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kacpid]
+root        19  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kacpi_notify]
+root        20  0.0  0.0      0     0 ?        S<   Apr15   0:00 [cqueue]
+root        21  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ata/0]
+root        22  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ata/1]
+root        23  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ata_aux]
+root        24  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ksuspend_usbd]
+root        25  0.0  0.0      0     0 ?        S<   Apr15   0:00 [khubd]
+root        26  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kseriod]
+root        27  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kmmcd]
+root        28  0.0  0.0      0     0 ?        S<   Apr15   0:00 [btaddconn]
+root        29  0.0  0.0      0     0 ?        S<   Apr15   0:00 [btdelconn]
+root        32  0.0  0.0      0     0 ?        S<   Apr15   1:24 [kswapd0]
+root        33  0.0  0.0      0     0 ?        S<   Apr15   0:00 [aio/0]
+root        34  0.0  0.0      0     0 ?        S<   Apr15   0:00 [aio/1]
+root        35  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ecryptfs-kthrea]
+root        38  0.0  0.0      0     0 ?        S<   Apr15   0:00 [scsi_eh_0]
+root        39  0.0  0.0      0     0 ?        S<   Apr15   0:00 [scsi_eh_1]
+root        40  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kstriped]
+root        41  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kmpathd/0]
+root        42  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kmpathd/1]
+root        43  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kmpath_handlerd]
+root        44  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ksnapd]
+root        45  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kondemand/0]
+root        46  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kondemand/1]
+root        47  0.0  0.0      0     0 ?        S<   Apr15   0:00 [krfcommd]
+root       603  0.0  0.0      0     0 ?        S<   Apr15   0:00 [scsi_eh_2]
+root       620  0.0  0.0      0     0 ?        S    Apr16   0:01 [pdflush]
+root       747  0.0  0.0      0     0 ?        S<   Apr15   0:06 [kjournald]
+root       840  0.0  0.0  16732   176 ?        S<s  Apr15   0:00 /sbin/udevd --daemon
+root       997  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kpsmoused]
+root      1024  0.0  0.0      0     0 ?        S<   Apr15   0:00 [vballoon]
+daemon    1628  0.0  0.0   8180   300 ?        Ss   Apr15   0:00 /sbin/portmap
+statd     1645  0.0  0.0  10300   132 ?        Ss   Apr15   0:00 /sbin/rpc.statd
+root      1816  0.0  0.1   6488   524 ?        S<s  Apr15   0:00 dhclient3 -e IF_METRIC=100 -pf /var/run/dhclient.eth0.pid -lf /var/lib/dhcp3/dhclient.eth0.leases eth0
+root      1854  0.0  0.0   3944   108 tty4     Ss+  Apr15   0:00 /sbin/getty 38400 tty4
+root      1857  0.0  0.0   3944   108 tty5     Ss+  Apr15   0:00 /sbin/getty 38400 tty5
+root      1870  0.0  0.0   3944   108 tty2     Ss+  Apr15   0:00 /sbin/getty 38400 tty2
+root      1871  0.0  0.0   3944   108 tty3     Ss+  Apr15   0:00 /sbin/getty 38400 tty3
+root      1873  0.0  0.0   3944   108 tty6     Ss+  Apr15   0:00 /sbin/getty 38400 tty6
+syslog    1915  0.0  0.0  12376   448 ?        Ss   Apr15   0:03 /sbin/syslogd -u syslog
+root      1933  0.0  0.0   8204   156 ?        S    Apr15   0:00 /bin/dd bs 1 if /proc/kmsg of /var/run/klogd/kmsg
+klog      1935  0.0  0.5   6504  2808 ?        Ss   Apr15   0:00 /sbin/klogd -P /var/run/klogd/kmsg
+root      1953  0.0  0.1  48940   680 ?        Ss   Apr15   0:00 /usr/sbin/sshd
+root      1974  0.3  0.0      0     0 ?        S<   Apr15   6:57 [rpciod/0]
+root      1975  0.3  0.0      0     0 ?        S<   Apr15   6:18 [rpciod/1]
+root      2006  0.0  0.0      0     0 ?        S<   Apr15   0:00 [lockd]
+root      2007  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd4]
+root      2008  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2009  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2010  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2011  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2012  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2013  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2014  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2015  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2019  0.0  0.0  14520   192 ?        Ss   Apr15   0:00 /usr/sbin/rpc.mountd --manage-gids
+root      2349  0.0  0.0   3944   184 tty1     Ss+  Apr15   0:00 /sbin/getty 38400 tty1
+root      2670  0.0  0.0      0     0 ?        S<   Apr15   1:58 [nfsiod]
+condor    2767  0.0  0.4  35752  2224 ?        Ss   Apr15   0:12 condor_master
+condor    2768  0.0  0.8  37752  4300 ?        Ss   Apr15   1:30 condor_startd -f
+root      4141  0.0  0.1  18712   576 ?        Ss   Apr15   0:00 /usr/sbin/cron
+postgres 13290  0.0  0.6  82044  3276 ?        S    Apr16   0:01 /opt/postgres/9.0/bin/postgres -D /mnt/db5
+postgres 13292  0.0  5.0  82120 25420 ?        Ss   Apr16   0:10 postgres: writer process                  
+postgres 13293  0.0  0.2  82044  1164 ?        Ss   Apr16   0:05 postgres: wal writer process              
+postgres 13294  0.0  0.4  82860  2176 ?        Ss   Apr16   0:05 postgres: autovacuum launcher process     
+postgres 13295  0.0  0.2  53556  1116 ?        Ds   Apr16   0:06 postgres: stats collector process         
+condor   13338  0.0  0.6  25976  3144 ?        Ss   Apr16   0:04 /usr/bin/SCREEN.real -c /home/condor/.screen-profiles/profile
+condor   13339  0.0  0.0   4024   480 pts/0    Ss   Apr16   0:00 /bin/sh /usr/bin/motd+shell
+condor   13342  0.0  0.2  18328  1396 pts/0    S+   Apr16   0:00 /bin/bash
+condor   13622  0.0  0.4  22176  2128 ?        S    Apr16   0:05 condor_procd -A /tmp/condor-lock.host_50.191183934294717/procd_pipe.STARTD -S 60 -C 1000
+root     17793  0.0  0.3  70140  1864 ?        Ss   03:28   0:00 sshd: condor [priv]
+condor   17795  0.0  0.2  70288  1452 ?        S    03:28   0:00 sshd: condor@pts/3
+condor   17796  0.0  0.4  18260  2016 pts/3    Ss+  03:28   0:00 -bash
+condor   17970  0.0  0.1   3976   720 pts/3    S    03:38   0:00 sar -o /home/condor/cps210/cpu 300 72
+condor   17971  0.0  0.1   3972   740 pts/3    S    03:38   0:00 sadc 300 73 -z -S ALL /home/condor/cps210/cpu
+postgres 19666  0.0  0.6  83272  3012 ?        Ss   04:25   0:00 postgres: autovacuum worker process   sample_tpch
+root     19667  0.0  0.1   3940   692 ?        Ss   04:25   0:00 /sbin/getty 38400 xvc0
+root     19669  0.0  0.2  31380  1060 ?        S    04:25   0:00 /USR/SBIN/CRON
+condor   19671  0.0  0.1   4024   572 ?        Ss   04:25   0:00 /bin/sh -c /home/condor/cps210/monitor.sh
+condor   19672  0.0  0.2   9520  1484 ?        S    04:25   0:00 /bin/bash /home/condor/cps210/monitor.sh
+condor   19679  0.0  0.2  14892  1040 ?        R    04:25   0:00 ps aux
+condor   23071  0.1  0.6  25988  3172 ?        Ss   Apr16   1:40 /usr/bin/SCREEN.real -c /home/condor/.screen-profiles/profile
+condor   23072  0.0  0.0   4024   480 pts/2    Ss   Apr16   0:00 /bin/sh /usr/bin/motd+shell
+condor   23075  0.0  0.2  18340  1468 pts/2    S+   Apr16   0:00 /bin/bash
+root     28400  0.0  0.0      0     0 ?        S    Apr16   0:03 [pdflush]
+
+=========Sun Apr 17 04:30:01 UTC 2011========
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.0   5240   444 ?        Ss   Apr15   0:06 /sbin/init
+root         2  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kthreadd]
+root         3  0.0  0.0      0     0 ?        S<   Apr15   0:00 [migration/0]
+root         4  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ksoftirqd/0]
+root         5  0.0  0.0      0     0 ?        S<   Apr15   0:00 [watchdog/0]
+root         6  0.0  0.0      0     0 ?        S<   Apr15   0:01 [migration/1]
+root         7  0.0  0.0      0     0 ?        S<   Apr15   0:03 [ksoftirqd/1]
+root         8  0.0  0.0      0     0 ?        S<   Apr15   0:00 [watchdog/1]
+root         9  0.0  0.0      0     0 ?        S<   Apr15   0:00 [events/0]
+root        10  0.0  0.0      0     0 ?        S<   Apr15   0:01 [events/1]
+root        11  0.0  0.0      0     0 ?        S<   Apr15   0:00 [khelper]
+root        12  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kstop/0]
+root        13  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kstop/1]
+root        14  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kintegrityd/0]
+root        15  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kintegrityd/1]
+root        16  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kblockd/0]
+root        17  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kblockd/1]
+root        18  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kacpid]
+root        19  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kacpi_notify]
+root        20  0.0  0.0      0     0 ?        S<   Apr15   0:00 [cqueue]
+root        21  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ata/0]
+root        22  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ata/1]
+root        23  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ata_aux]
+root        24  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ksuspend_usbd]
+root        25  0.0  0.0      0     0 ?        S<   Apr15   0:00 [khubd]
+root        26  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kseriod]
+root        27  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kmmcd]
+root        28  0.0  0.0      0     0 ?        S<   Apr15   0:00 [btaddconn]
+root        29  0.0  0.0      0     0 ?        S<   Apr15   0:00 [btdelconn]
+root        32  0.0  0.0      0     0 ?        S<   Apr15   1:24 [kswapd0]
+root        33  0.0  0.0      0     0 ?        S<   Apr15   0:00 [aio/0]
+root        34  0.0  0.0      0     0 ?        S<   Apr15   0:00 [aio/1]
+root        35  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ecryptfs-kthrea]
+root        38  0.0  0.0      0     0 ?        S<   Apr15   0:00 [scsi_eh_0]
+root        39  0.0  0.0      0     0 ?        S<   Apr15   0:00 [scsi_eh_1]
+root        40  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kstriped]
+root        41  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kmpathd/0]
+root        42  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kmpathd/1]
+root        43  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kmpath_handlerd]
+root        44  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ksnapd]
+root        45  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kondemand/0]
+root        46  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kondemand/1]
+root        47  0.0  0.0      0     0 ?        S<   Apr15   0:00 [krfcommd]
+root       603  0.0  0.0      0     0 ?        S<   Apr15   0:00 [scsi_eh_2]
+root       620  0.0  0.0      0     0 ?        S    Apr16   0:01 [pdflush]
+root       747  0.0  0.0      0     0 ?        S<   Apr15   0:06 [kjournald]
+root       840  0.0  0.0  16732   176 ?        S<s  Apr15   0:00 /sbin/udevd --daemon
+root       997  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kpsmoused]
+root      1024  0.0  0.0      0     0 ?        S<   Apr15   0:00 [vballoon]
+daemon    1628  0.0  0.0   8180   312 ?        Ss   Apr15   0:00 /sbin/portmap
+statd     1645  0.0  0.0  10300   132 ?        Ss   Apr15   0:00 /sbin/rpc.statd
+root      1816  0.0  0.1   6488   532 ?        S<s  Apr15   0:00 dhclient3 -e IF_METRIC=100 -pf /var/run/dhclient.eth0.pid -lf /var/lib/dhcp3/dhclient.eth0.leases eth0
+root      1854  0.0  0.0   3944   108 tty4     Ss+  Apr15   0:00 /sbin/getty 38400 tty4
+root      1857  0.0  0.0   3944   108 tty5     Ss+  Apr15   0:00 /sbin/getty 38400 tty5
+root      1870  0.0  0.0   3944   108 tty2     Ss+  Apr15   0:00 /sbin/getty 38400 tty2
+root      1871  0.0  0.0   3944   108 tty3     Ss+  Apr15   0:00 /sbin/getty 38400 tty3
+root      1873  0.0  0.0   3944   108 tty6     Ss+  Apr15   0:00 /sbin/getty 38400 tty6
+syslog    1915  0.0  0.0  12376   448 ?        Ss   Apr15   0:03 /sbin/syslogd -u syslog
+root      1933  0.0  0.0   8204   156 ?        S    Apr15   0:00 /bin/dd bs 1 if /proc/kmsg of /var/run/klogd/kmsg
+klog      1935  0.0  0.5   6504  2808 ?        Ss   Apr15   0:00 /sbin/klogd -P /var/run/klogd/kmsg
+root      1953  0.0  0.1  48940   680 ?        Ss   Apr15   0:00 /usr/sbin/sshd
+root      1974  0.3  0.0      0     0 ?        S<   Apr15   6:57 [rpciod/0]
+root      1975  0.3  0.0      0     0 ?        S<   Apr15   6:18 [rpciod/1]
+root      2006  0.0  0.0      0     0 ?        S<   Apr15   0:00 [lockd]
+root      2007  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd4]
+root      2008  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2009  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2010  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2011  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2012  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2013  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2014  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2015  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2019  0.0  0.0  14520   192 ?        Ss   Apr15   0:00 /usr/sbin/rpc.mountd --manage-gids
+root      2349  0.0  0.0   3944   184 tty1     Ss+  Apr15   0:00 /sbin/getty 38400 tty1
+root      2670  0.0  0.0      0     0 ?        S<   Apr15   1:58 [nfsiod]
+condor    2767  0.0  0.4  35752  2168 ?        Ss   Apr15   0:12 condor_master
+condor    2768  0.0  0.8  37936  4288 ?        Ss   Apr15   1:30 condor_startd -f
+root      4141  0.0  0.1  18712   576 ?        Ss   Apr15   0:00 /usr/sbin/cron
+postgres 13290  0.0  0.6  82044  3276 ?        S    Apr16   0:01 /opt/postgres/9.0/bin/postgres -D /mnt/db5
+postgres 13292  0.0  5.0  82120 25420 ?        Ss   Apr16   0:10 postgres: writer process                  
+postgres 13293  0.0  0.2  82044  1164 ?        Ss   Apr16   0:05 postgres: wal writer process              
+postgres 13294  0.0  0.4  82860  2176 ?        Ss   Apr16   0:05 postgres: autovacuum launcher process     
+postgres 13295  0.0  0.2  53492  1096 ?        Ss   Apr16   0:06 postgres: stats collector process         
+condor   13338  0.0  0.6  25976  3144 ?        Ss   Apr16   0:04 /usr/bin/SCREEN.real -c /home/condor/.screen-profiles/profile
+condor   13339  0.0  0.0   4024   480 pts/0    Ss   Apr16   0:00 /bin/sh /usr/bin/motd+shell
+condor   13342  0.0  0.2  18328  1396 pts/0    S+   Apr16   0:00 /bin/bash
+condor   13622  0.0  0.4  22176  2128 ?        S    Apr16   0:05 condor_procd -A /tmp/condor-lock.host_50.191183934294717/procd_pipe.STARTD -S 60 -C 1000
+root     17793  0.0  0.3  70140  1864 ?        Ss   03:28   0:00 sshd: condor [priv]
+condor   17795  0.0  0.2  70288  1452 ?        S    03:28   0:00 sshd: condor@pts/3
+condor   17796  0.0  0.4  18260  2004 pts/3    Ss+  03:28   0:00 -bash
+condor   17970  0.0  0.1   3976   720 pts/3    S    03:38   0:00 sar -o /home/condor/cps210/cpu 300 72
+condor   17971  0.0  0.1   3972   740 pts/3    S    03:38   0:00 sadc 300 73 -z -S ALL /home/condor/cps210/cpu
+root     19738  0.0  0.1   3940   696 ?        Ss   04:30   0:00 /sbin/getty 38400 xvc0
+root     19739  0.0  0.2  31380  1060 ?        S    04:30   0:00 /USR/SBIN/CRON
+root     19740  0.0  0.2  31380  1060 ?        S    04:30   0:00 /USR/SBIN/CRON
+root     19741  0.0  0.1   4024   584 ?        Ss   04:30   0:00 /bin/sh -c [ -x /usr/sbin/update-motd ] && /usr/sbin/update-motd 2>/dev/null
+condor   19742  0.0  0.1   4024   576 ?        Ss   04:30   0:00 /bin/sh -c /home/condor/cps210/monitor.sh
+condor   19743  0.0  0.2   9520  1480 ?        R    04:30   0:00 /bin/bash /home/condor/cps210/monitor.sh
+root     19744  0.0  0.1   4024   592 ?        RN   04:30   0:00 /bin/sh -e /usr/sbin/update-motd
+condor   19758  0.0  0.2  14892  1036 ?        R    04:30   0:00 ps aux
+condor   23071  0.1  0.6  25988  3172 ?        Ss   Apr16   1:40 /usr/bin/SCREEN.real -c /home/condor/.screen-profiles/profile
+condor   23072  0.0  0.0   4024   480 pts/2    Ss   Apr16   0:00 /bin/sh /usr/bin/motd+shell
+condor   23075  0.0  0.2  18340  1468 pts/2    S+   Apr16   0:00 /bin/bash
+root     28400  0.0  0.0      0     0 ?        S    Apr16   0:03 [pdflush]
+
+=========Sun Apr 17 04:35:01 UTC 2011========
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.0   5240   444 ?        Ss   Apr15   0:06 /sbin/init
+root         2  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kthreadd]
+root         3  0.0  0.0      0     0 ?        S<   Apr15   0:00 [migration/0]
+root         4  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ksoftirqd/0]
+root         5  0.0  0.0      0     0 ?        S<   Apr15   0:00 [watchdog/0]
+root         6  0.0  0.0      0     0 ?        S<   Apr15   0:01 [migration/1]
+root         7  0.0  0.0      0     0 ?        S<   Apr15   0:03 [ksoftirqd/1]
+root         8  0.0  0.0      0     0 ?        S<   Apr15   0:00 [watchdog/1]
+root         9  0.0  0.0      0     0 ?        S<   Apr15   0:00 [events/0]
+root        10  0.0  0.0      0     0 ?        S<   Apr15   0:01 [events/1]
+root        11  0.0  0.0      0     0 ?        S<   Apr15   0:00 [khelper]
+root        12  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kstop/0]
+root        13  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kstop/1]
+root        14  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kintegrityd/0]
+root        15  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kintegrityd/1]
+root        16  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kblockd/0]
+root        17  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kblockd/1]
+root        18  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kacpid]
+root        19  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kacpi_notify]
+root        20  0.0  0.0      0     0 ?        S<   Apr15   0:00 [cqueue]
+root        21  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ata/0]
+root        22  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ata/1]
+root        23  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ata_aux]
+root        24  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ksuspend_usbd]
+root        25  0.0  0.0      0     0 ?        S<   Apr15   0:00 [khubd]
+root        26  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kseriod]
+root        27  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kmmcd]
+root        28  0.0  0.0      0     0 ?        S<   Apr15   0:00 [btaddconn]
+root        29  0.0  0.0      0     0 ?        S<   Apr15   0:00 [btdelconn]
+root        32  0.0  0.0      0     0 ?        S<   Apr15   1:24 [kswapd0]
+root        33  0.0  0.0      0     0 ?        S<   Apr15   0:00 [aio/0]
+root        34  0.0  0.0      0     0 ?        S<   Apr15   0:00 [aio/1]
+root        35  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ecryptfs-kthrea]
+root        38  0.0  0.0      0     0 ?        S<   Apr15   0:00 [scsi_eh_0]
+root        39  0.0  0.0      0     0 ?        S<   Apr15   0:00 [scsi_eh_1]
+root        40  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kstriped]
+root        41  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kmpathd/0]
+root        42  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kmpathd/1]
+root        43  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kmpath_handlerd]
+root        44  0.0  0.0      0     0 ?        S<   Apr15   0:00 [ksnapd]
+root        45  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kondemand/0]
+root        46  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kondemand/1]
+root        47  0.0  0.0      0     0 ?        S<   Apr15   0:00 [krfcommd]
+root       603  0.0  0.0      0     0 ?        S<   Apr15   0:00 [scsi_eh_2]
+root       620  0.0  0.0      0     0 ?        S    Apr16   0:01 [pdflush]
+root       747  0.0  0.0      0     0 ?        S<   Apr15   0:06 [kjournald]
+root       840  0.0  0.0  16732   176 ?        S<s  Apr15   0:00 /sbin/udevd --daemon
+root       997  0.0  0.0      0     0 ?        S<   Apr15   0:00 [kpsmoused]
+root      1024  0.0  0.0      0     0 ?        S<   Apr15   0:00 [vballoon]
+daemon    1628  0.0  0.0   8180   312 ?        Ss   Apr15   0:00 /sbin/portmap
+statd     1645  0.0  0.0  10300   132 ?        Ss   Apr15   0:00 /sbin/rpc.statd
+root      1816  0.0  0.1   6488   532 ?        S<s  Apr15   0:00 dhclient3 -e IF_METRIC=100 -pf /var/run/dhclient.eth0.pid -lf /var/lib/dhcp3/dhclient.eth0.leases eth0
+root      1854  0.0  0.0   3944   108 tty4     Ss+  Apr15   0:00 /sbin/getty 38400 tty4
+root      1857  0.0  0.0   3944   108 tty5     Ss+  Apr15   0:00 /sbin/getty 38400 tty5
+root      1870  0.0  0.0   3944   108 tty2     Ss+  Apr15   0:00 /sbin/getty 38400 tty2
+root      1871  0.0  0.0   3944   108 tty3     Ss+  Apr15   0:00 /sbin/getty 38400 tty3
+root      1873  0.0  0.0   3944   108 tty6     Ss+  Apr15   0:00 /sbin/getty 38400 tty6
+syslog    1915  0.0  0.0  12376   448 ?        Ss   Apr15   0:03 /sbin/syslogd -u syslog
+root      1933  0.0  0.0   8204   156 ?        S    Apr15   0:00 /bin/dd bs 1 if /proc/kmsg of /var/run/klogd/kmsg
+klog      1935  0.0  0.5   6504  2808 ?        Ss   Apr15   0:00 /sbin/klogd -P /var/run/klogd/kmsg
+root      1953  0.0  0.1  48940   680 ?        Ss   Apr15   0:00 /usr/sbin/sshd
+root      1974  0.3  0.0      0     0 ?        S<   Apr15   6:57 [rpciod/0]
+root      1975  0.3  0.0      0     0 ?        S<   Apr15   6:18 [rpciod/1]
+root      2006  0.0  0.0      0     0 ?        S<   Apr15   0:00 [lockd]
+root      2007  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd4]
+root      2008  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2009  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2010  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2011  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2012  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2013  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2014  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2015  0.0  0.0      0     0 ?        S<   Apr15   0:00 [nfsd]
+root      2019  0.0  0.0  14520   192 ?        Ss   Apr15   0:00 /usr/sbin/rpc.mountd --manage-gids
+root      2349  0.0  0.0   3944   184 tty1     Ss+  Apr15   0:00 /sbin/getty 38400 tty1
+root      2670  0.0  0.0      0     0 ?        S<   Apr15   1:58 [nfsiod]
+condor    2767  0.0  0.4  35752  2236 ?        Ss   Apr15   0:12 condor_master
+condor    2768  0.0  0.8  37936  4304 ?        Ss   Apr15   1:30 condor_startd -f
+root      4141  0.0  0.1  18712   576 ?        Ss   Apr15   0:00 /usr/sbin/cron
+postgres 13290  0.0  0.6  82044  3276 ?        S    Apr16   0:01 /opt/postgres/9.0/bin/postgres -D /mnt/db5
+postgres 13292  0.0  5.0  82120 25420 ?        Ss   Apr16   0:10 postgres: writer process                  
+postgres 13293  0.0  0.2  82044  1164 ?        Ss   Apr16   0:05 postgres: wal writer process              
+postgres 13294  0.0  0.4  82860  2176 ?        Ss   Apr16   0:05 postgres: autovacuum launcher process     
+postgres 13295  0.0  0.2  53492  1096 ?        Ss   Apr16   0:06 postgres: stats collector process         
+condor   13338  0.0  0.6  25976  3144 ?        Ss   Apr16   0:04 /usr/bin/SCREEN.real -c /home/condor/.screen-profiles/profile
+condor   13339  0.0  0.0   4024   480 pts/0    Ss   Apr16   0:00 /bin/sh /usr/bin/motd+shell
+condor   13342  0.0  0.2  18328  1396 pts/0    S+   Apr16   0:00 /bin/bash
+condor   13622  0.0  0.4  22176  2128 ?        S    Apr16   0:05 condor_procd -A /tmp/condor-lock.host_50.191183934294717/procd_pipe.STARTD -S 60 -C 1000
+root     17793  0.0  0.3  70140  1864 ?        Ss   03:27   0:00 sshd: condor [priv]
+condor   17795  0.0  0.2  70288  1452 ?        S    03:27   0:00 sshd: condor@pts/3
+condor   17796  0.0  0.4  18260  2144 pts/3    Ss+  03:27   0:00 -bash
+condor   17970  0.0  0.1   3976   720 pts/3    S    03:38   0:00 sar -o /home/condor/cps210/cpu 300 72
+condor   17971  0.0  0.1   3972   740 pts/3    S    03:38   0:00 sadc 300 73 -z -S ALL /home/condor/cps210/cpu
+root     19834  0.0  0.1   3940   696 ?        Ss   04:35   0:00 /sbin/getty 38400 xvc0
+root     19836  0.0  0.2  31380  1060 ?        S    04:35   0:00 /USR/SBIN/CRON
+condor   19837  0.0  0.1   4024   576 ?        Ss   04:35   0:00 /bin/sh -c /home/condor/cps210/monitor.sh
+condor   19839  0.0  0.2   9520  1484 ?        S    04:35   0:00 /bin/bash /home/condor/cps210/monitor.sh
+condor   19846  0.0  0.2  14892  1032 ?        R    04:35   0:00 ps aux
+condor   23071  0.1  0.6  25988  3172 ?        Ss   Apr16   1:40 /usr/bin/SCREEN.real -c /home/condor/.screen-profiles/profile
+condor   23072  0.0  0.0   4024   480 pts/2    Ss   Apr16   0:00 /bin/sh /usr/bin/motd+shell
+condor   23075  0.0  0.2  18340  1468 pts/2    S+   Apr16   0:00 /bin/bash
+root     28400  0.0  0.0      0     0 ?        S    Apr16   0:03 [pdflush]
