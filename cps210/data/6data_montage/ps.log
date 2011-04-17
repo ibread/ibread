@@ -1,0 +1,863 @@
+
+=========Sun Apr 17 04:00:01 UTC 2011========
+%CPU    SZ    VSZ - -  UTIME   PID USER     COMMAND
+ 0.1  3828  26908 - -      -  5157 condor   /usr/bin/SCREEN.real -c /home/condor/.screen-profiles/profile
+ 0.1     0      0 - -      -  1921 root     [rpciod/1]
+ 0.1     0      0 - -      -  1920 root     [rpciod/0]
+ 0.0  3552  37632 - -      -  2439 condor   condor_startd -f
+ 0.0  2824   6504 - -      -  1880 klog     /sbin/klogd -P /var/run/klogd/kmsg
+ 0.0  2140  35612 - -      -  2438 condor   condor_master
+ 0.0  2100  22100 - -      -  1524 condor   condor_procd -A /tmp/condor-lock.host_60.191183934294717/procd_pipe.STARTD -S 60 -C 1000
+ 0.0  1084  18324 - -      -  5161 condor   /bin/bash
+ 0.0  1044  18284 - -      -  4488 condor   -bash
+ 0.0  1036  18276 - -      -  6587 condor   -bash
+ 0.0  1036  18276 - -      -  6089 condor   -bash
+ 0.0   756  70288 - -      -  4487 condor   sshd: condor@pts/0
+ 0.0   700   9520 - -      -  6969 condor   /bin/bash /home/condor/cps210/monitor.sh
+ 0.0   608  70140 - -      -  6586 condor   sshd: condor@pts/3
+ 0.0   608  70140 - -      -  6584 root     sshd: condor [priv]
+ 0.0   608  70140 - -      -  6088 condor   sshd: condor@pts/2
+ 0.0   608  70140 - -      -  6086 root     sshd: condor [priv]
+ 0.0   608  70140 - -      -  4485 root     sshd: condor [priv]
+ 0.0   608  14892 - -      -  6984 condor   ps -eo pcpu,size,vsize,cutime,cstime,utime,pid,user,args
+ 0.0   560  48940 - -      -  2053 root     /usr/sbin/sshd
+ 0.0   520  31380 - -      -  6966 root     /USR/SBIN/CRON
+ 0.0   520  31380 - -      -  6959 root     /USR/SBIN/CRON
+ 0.0   520  31380 - -      -  6958 root     /USR/SBIN/CRON
+ 0.0   344  16732 - -      -   832 root     /sbin/udevd --daemon
+ 0.0   336   4104 - -      -     1 root     /sbin/init
+ 0.0   304   6488 - -      -  2011 root     dhclient3 -e IF_METRIC=100 -pf /var/run/dhclient.eth0.pid -lf /var/lib/dhcp3/dhclient.eth0.leases eth0
+ 0.0   292  14520 - -      -  1965 root     /usr/sbin/rpc.mountd --manage-gids
+ 0.0   288  18712 - -      -  4842 root     /usr/sbin/cron
+ 0.0   276   8204 - -      -  1878 root     /bin/dd bs 1 if /proc/kmsg of /var/run/klogd/kmsg
+ 0.0   276   8180 - -      -  1616 daemon   /sbin/portmap
+ 0.0   272  12376 - -      -  1860 syslog   /sbin/syslogd -u syslog
+ 0.0   272  10300 - -      -  1633 statd    /sbin/rpc.statd
+ 0.0   272   4024 - -      -  6981 root     /bin/sh -e /etc/update-motd.d//90-updates-available
+ 0.0   272   4024 - -      -  6967 condor   /bin/sh -c /home/condor/cps210/monitor.sh
+ 0.0   272   4024 - -      -  6963 root     /bin/sh -e /usr/sbin/update-motd
+ 0.0   272   4024 - -      -  6962 root     /bin/sh -e /usr/sbin/update-motd hourly
+ 0.0   272   4024 - -      -  6961 root     /bin/sh -c [ -x /usr/sbin/update-motd ] && /usr/sbin/update-motd 2>/dev/null
+ 0.0   272   4024 - -      -  6960 root     /bin/sh -c [ -x /usr/sbin/update-motd ] && /usr/sbin/update-motd hourly 2>/dev/null
+ 0.0   272   4024 - -      -  5158 condor   /bin/sh /usr/bin/motd+shell
+ 0.0   272   3944 - -      -  2346 root     /sbin/getty 38400 tty1
+ 0.0   272   3944 - -      -  1822 root     /sbin/getty 38400 tty6
+ 0.0   272   3944 - -      -  1820 root     /sbin/getty 38400 tty3
+ 0.0   272   3944 - -      -  1818 root     /sbin/getty 38400 tty2
+ 0.0   272   3944 - -      -  1809 root     /sbin/getty 38400 tty5
+ 0.0   272   3944 - -      -  1808 root     /sbin/getty 38400 tty4
+ 0.0   268   3940 - -      -  6956 root     /sbin/getty 38400 xvc0
+ 0.0   260   3976 - -      -  6613 condor   sar -o /home/condor/cps210/cpu 300 72
+ 0.0   260   3972 - -      -  6614 condor   sadc 300 73 -z -S ALL /home/condor/cps210/cpu
+ 0.0     0      0 - -      - 21525 root     [pdflush]
+ 0.0     0      0 - -      -  6988 root     [ls] <defunct>
+ 0.0     0      0 - -      -  2821 root     [nfsiod]
+ 0.0     0      0 - -      -  1961 root     [nfsd]
+ 0.0     0      0 - -      -  1960 root     [nfsd]
+ 0.0     0      0 - -      -  1959 root     [nfsd]
+ 0.0     0      0 - -      -  1958 root     [nfsd]
+ 0.0     0      0 - -      -  1957 root     [nfsd]
+ 0.0     0      0 - -      -  1956 root     [nfsd]
+ 0.0     0      0 - -      -  1955 root     [nfsd]
+ 0.0     0      0 - -      -  1954 root     [nfsd]
+ 0.0     0      0 - -      -  1953 root     [nfsd4]
+ 0.0     0      0 - -      -  1952 root     [lockd]
+ 0.0     0      0 - -      -  1021 root     [vballoon]
+ 0.0     0      0 - -      -  1002 root     [kpsmoused]
+ 0.0     0      0 - -      -   739 root     [kjournald]
+ 0.0     0      0 - -      -   595 root     [scsi_eh_2]
+ 0.0     0      0 - -      -    47 root     [krfcommd]
+ 0.0     0      0 - -      -    46 root     [kondemand/1]
+ 0.0     0      0 - -      -    45 root     [kondemand/0]
+ 0.0     0      0 - -      -    44 root     [ksnapd]
+ 0.0     0      0 - -      -    43 root     [kmpath_handlerd]
+ 0.0     0      0 - -      -    42 root     [kmpathd/1]
+ 0.0     0      0 - -      -    41 root     [kmpathd/0]
+ 0.0     0      0 - -      -    40 root     [kstriped]
+ 0.0     0      0 - -      -    39 root     [scsi_eh_1]
+ 0.0     0      0 - -      -    38 root     [scsi_eh_0]
+ 0.0     0      0 - -      -    35 root     [ecryptfs-kthrea]
+ 0.0     0      0 - -      -    34 root     [aio/1]
+ 0.0     0      0 - -      -    33 root     [aio/0]
+ 0.0     0      0 - -      -    32 root     [kswapd0]
+ 0.0     0      0 - -      -    30 root     [pdflush]
+ 0.0     0      0 - -      -    29 root     [btdelconn]
+ 0.0     0      0 - -      -    28 root     [btaddconn]
+ 0.0     0      0 - -      -    27 root     [kmmcd]
+ 0.0     0      0 - -      -    26 root     [kseriod]
+ 0.0     0      0 - -      -    25 root     [khubd]
+ 0.0     0      0 - -      -    24 root     [ksuspend_usbd]
+ 0.0     0      0 - -      -    23 root     [ata_aux]
+ 0.0     0      0 - -      -    22 root     [ata/1]
+ 0.0     0      0 - -      -    21 root     [ata/0]
+ 0.0     0      0 - -      -    20 root     [cqueue]
+ 0.0     0      0 - -      -    19 root     [kacpi_notify]
+ 0.0     0      0 - -      -    18 root     [kacpid]
+ 0.0     0      0 - -      -    17 root     [kblockd/1]
+ 0.0     0      0 - -      -    16 root     [kblockd/0]
+ 0.0     0      0 - -      -    15 root     [kintegrityd/1]
+ 0.0     0      0 - -      -    14 root     [kintegrityd/0]
+ 0.0     0      0 - -      -    13 root     [kstop/1]
+ 0.0     0      0 - -      -    12 root     [kstop/0]
+ 0.0     0      0 - -      -    11 root     [khelper]
+ 0.0     0      0 - -      -    10 root     [events/1]
+ 0.0     0      0 - -      -     9 root     [events/0]
+ 0.0     0      0 - -      -     8 root     [watchdog/1]
+ 0.0     0      0 - -      -     7 root     [ksoftirqd/1]
+ 0.0     0      0 - -      -     6 root     [migration/1]
+ 0.0     0      0 - -      -     5 root     [watchdog/0]
+ 0.0     0      0 - -      -     4 root     [ksoftirqd/0]
+ 0.0     0      0 - -      -     3 root     [migration/0]
+ 0.0     0      0 - -      -     2 root     [kthreadd]
+
+=========Sun Apr 17 04:05:01 UTC 2011========
+%CPU    SZ    VSZ - -  UTIME   PID USER     COMMAND
+ 0.1  3828  26908 - -      -  5157 condor   /usr/bin/SCREEN.real -c /home/condor/.screen-profiles/profile
+ 0.1     0      0 - -      -  1921 root     [rpciod/1]
+ 0.1     0      0 - -      -  1920 root     [rpciod/0]
+ 0.0 31484  39440 - -      -  7371 condor   sort -k 1 -r
+ 0.0  3816  37896 - -      -  2439 condor   condor_startd -f
+ 0.0  2824   6504 - -      -  1880 klog     /sbin/klogd -P /var/run/klogd/kmsg
+ 0.0  2140  35612 - -      -  2438 condor   condor_master
+ 0.0  2100  22100 - -      -  1524 condor   condor_procd -A /tmp/condor-lock.host_60.191183934294717/procd_pipe.STARTD -S 60 -C 1000
+ 0.0  1084  18324 - -      -  5161 condor   /bin/bash
+ 0.0  1044  18284 - -      -  4488 condor   -bash
+ 0.0  1036  18276 - -      -  6587 condor   -bash
+ 0.0  1036  18276 - -      -  6089 condor   -bash
+ 0.0   756  70288 - -      -  4487 condor   sshd: condor@pts/0
+ 0.0   700   9520 - -      -  7365 condor   /bin/bash /home/condor/cps210/monitor.sh
+ 0.0   608  70140 - -      -  6586 condor   sshd: condor@pts/3
+ 0.0   608  70140 - -      -  6584 root     sshd: condor [priv]
+ 0.0   608  70140 - -      -  6088 condor   sshd: condor@pts/2
+ 0.0   608  70140 - -      -  6086 root     sshd: condor [priv]
+ 0.0   608  70140 - -      -  4485 root     sshd: condor [priv]
+ 0.0   608  14892 - -      -  7370 condor   ps -eo pcpu,size,vsize,cutime,cstime,utime,pid,user,args
+ 0.0   560  48940 - -      -  2053 root     /usr/sbin/sshd
+ 0.0   520  31380 - -      -  7363 root     /USR/SBIN/CRON
+ 0.0   344  16732 - -      -   832 root     /sbin/udevd --daemon
+ 0.0   336   4104 - -      -     1 root     /sbin/init
+ 0.0   304   6488 - -      -  2011 root     dhclient3 -e IF_METRIC=100 -pf /var/run/dhclient.eth0.pid -lf /var/lib/dhcp3/dhclient.eth0.leases eth0
+ 0.0   292  14520 - -      -  1965 root     /usr/sbin/rpc.mountd --manage-gids
+ 0.0   288  18712 - -      -  4842 root     /usr/sbin/cron
+ 0.0   276   8204 - -      -  1878 root     /bin/dd bs 1 if /proc/kmsg of /var/run/klogd/kmsg
+ 0.0   276   8180 - -      -  1616 daemon   /sbin/portmap
+ 0.0   272  12376 - -      -  1860 syslog   /sbin/syslogd -u syslog
+ 0.0   272  10300 - -      -  1633 statd    /sbin/rpc.statd
+ 0.0   272   4024 - -      -  7364 condor   /bin/sh -c /home/condor/cps210/monitor.sh
+ 0.0   272   4024 - -      -  5158 condor   /bin/sh /usr/bin/motd+shell
+ 0.0   272   3944 - -      -  2346 root     /sbin/getty 38400 tty1
+ 0.0   272   3944 - -      -  1822 root     /sbin/getty 38400 tty6
+ 0.0   272   3944 - -      -  1820 root     /sbin/getty 38400 tty3
+ 0.0   272   3944 - -      -  1818 root     /sbin/getty 38400 tty2
+ 0.0   272   3944 - -      -  1809 root     /sbin/getty 38400 tty5
+ 0.0   272   3944 - -      -  1808 root     /sbin/getty 38400 tty4
+ 0.0   268   3940 - -      -  7361 root     /sbin/getty 38400 xvc0
+ 0.0   260   3976 - -      -  6613 condor   sar -o /home/condor/cps210/cpu 300 72
+ 0.0   260   3972 - -      -  6614 condor   sadc 300 73 -z -S ALL /home/condor/cps210/cpu
+ 0.0     0      0 - -      - 21525 root     [pdflush]
+ 0.0     0      0 - -      -  2821 root     [nfsiod]
+ 0.0     0      0 - -      -  1961 root     [nfsd]
+ 0.0     0      0 - -      -  1960 root     [nfsd]
+ 0.0     0      0 - -      -  1959 root     [nfsd]
+ 0.0     0      0 - -      -  1958 root     [nfsd]
+ 0.0     0      0 - -      -  1957 root     [nfsd]
+ 0.0     0      0 - -      -  1956 root     [nfsd]
+ 0.0     0      0 - -      -  1955 root     [nfsd]
+ 0.0     0      0 - -      -  1954 root     [nfsd]
+ 0.0     0      0 - -      -  1953 root     [nfsd4]
+ 0.0     0      0 - -      -  1952 root     [lockd]
+ 0.0     0      0 - -      -  1021 root     [vballoon]
+ 0.0     0      0 - -      -  1002 root     [kpsmoused]
+ 0.0     0      0 - -      -   739 root     [kjournald]
+ 0.0     0      0 - -      -   595 root     [scsi_eh_2]
+ 0.0     0      0 - -      -    47 root     [krfcommd]
+ 0.0     0      0 - -      -    46 root     [kondemand/1]
+ 0.0     0      0 - -      -    45 root     [kondemand/0]
+ 0.0     0      0 - -      -    44 root     [ksnapd]
+ 0.0     0      0 - -      -    43 root     [kmpath_handlerd]
+ 0.0     0      0 - -      -    42 root     [kmpathd/1]
+ 0.0     0      0 - -      -    41 root     [kmpathd/0]
+ 0.0     0      0 - -      -    40 root     [kstriped]
+ 0.0     0      0 - -      -    39 root     [scsi_eh_1]
+ 0.0     0      0 - -      -    38 root     [scsi_eh_0]
+ 0.0     0      0 - -      -    35 root     [ecryptfs-kthrea]
+ 0.0     0      0 - -      -    34 root     [aio/1]
+ 0.0     0      0 - -      -    33 root     [aio/0]
+ 0.0     0      0 - -      -    32 root     [kswapd0]
+ 0.0     0      0 - -      -    30 root     [pdflush]
+ 0.0     0      0 - -      -    29 root     [btdelconn]
+ 0.0     0      0 - -      -    28 root     [btaddconn]
+ 0.0     0      0 - -      -    27 root     [kmmcd]
+ 0.0     0      0 - -      -    26 root     [kseriod]
+ 0.0     0      0 - -      -    25 root     [khubd]
+ 0.0     0      0 - -      -    24 root     [ksuspend_usbd]
+ 0.0     0      0 - -      -    23 root     [ata_aux]
+ 0.0     0      0 - -      -    22 root     [ata/1]
+ 0.0     0      0 - -      -    21 root     [ata/0]
+ 0.0     0      0 - -      -    20 root     [cqueue]
+ 0.0     0      0 - -      -    19 root     [kacpi_notify]
+ 0.0     0      0 - -      -    18 root     [kacpid]
+ 0.0     0      0 - -      -    17 root     [kblockd/1]
+ 0.0     0      0 - -      -    16 root     [kblockd/0]
+ 0.0     0      0 - -      -    15 root     [kintegrityd/1]
+ 0.0     0      0 - -      -    14 root     [kintegrityd/0]
+ 0.0     0      0 - -      -    13 root     [kstop/1]
+ 0.0     0      0 - -      -    12 root     [kstop/0]
+ 0.0     0      0 - -      -    11 root     [khelper]
+ 0.0     0      0 - -      -    10 root     [events/1]
+ 0.0     0      0 - -      -     9 root     [events/0]
+ 0.0     0      0 - -      -     8 root     [watchdog/1]
+ 0.0     0      0 - -      -     7 root     [ksoftirqd/1]
+ 0.0     0      0 - -      -     6 root     [migration/1]
+ 0.0     0      0 - -      -     5 root     [watchdog/0]
+ 0.0     0      0 - -      -     4 root     [ksoftirqd/0]
+ 0.0     0      0 - -      -     3 root     [migration/0]
+ 0.0     0      0 - -      -     2 root     [kthreadd]
+
+=========Sun Apr 17 04:10:01 UTC 2011========
+%CPU    SZ    VSZ - -  UTIME   PID USER     COMMAND
+ 4.0  1032  35184 - -      -  7596 condor   condor_starter -f -a slot1 master.localdomain
+ 1.8 14280  24004 - -      -  7594 condor   /opt/Montage_v3.3/bin/mBackground -t p2mass-atlas-990502s-j1450103.fits c2mass-atlas-990502s-j1450103.fits pimages_20110327_233551_6695.tbl corrections.tbl
+ 1.2  1032  35184 - -      -  7588 condor   condor_starter -f -a slot2 master.localdomain
+ 0.1  3828  26908 - -      -  5157 condor   /usr/bin/SCREEN.real -c /home/condor/.screen-profiles/profile
+ 0.1   268   6560 - -      -  7593 condor   condor_exec.exe -n mBackground -N mBackground69:1.0 -R waif -w /mnt/montage_waif_2011-04-17T03:56:46/condor/pegasus/montage/20110417T035646+0000 -L montage -T 2011-04-15T19:17:46+00:00 /opt/Montage_v3.3/bin/mBackground -t p2mass-atlas-990502s-j1450103.fits c2mass-atlas-990502s-j1450103.fits pimages_20110327_233551_6695.tbl corrections.tbl
+ 0.1     0      0 - -      -  1921 root     [rpciod/1]
+ 0.1     0      0 - -      -  1920 root     [rpciod/0]
+ 0.0 31484  39440 - -      -  7613 condor   sort -k 1 -r
+ 0.0  3816  37896 - -      -  2439 condor   condor_startd -f
+ 0.0  2824   6504 - -      -  1880 klog     /sbin/klogd -P /var/run/klogd/kmsg
+ 0.0  2140  35612 - -      -  2438 condor   condor_master
+ 0.0  2100  22100 - -      -  1524 condor   condor_procd -A /tmp/condor-lock.host_60.191183934294717/procd_pipe.STARTD -S 60 -C 1000
+ 0.0  1084  18324 - -      -  5161 condor   /bin/bash
+ 0.0  1044  18284 - -      -  4488 condor   -bash
+ 0.0  1036  18276 - -      -  6587 condor   -bash
+ 0.0  1036  18276 - -      -  6089 condor   -bash
+ 0.0   756  70288 - -      -  4487 condor   sshd: condor@pts/0
+ 0.0   740  10464 - -      -  7599 condor   /opt/Montage_v3.3/bin/mBackground -t p2mass-atlas-990502s-j1420186.fits c2mass-atlas-990502s-j1420186.fits pimages_20110327_233551_6695.tbl corrections.tbl
+ 0.0   700   9520 - -      -  7604 condor   /bin/bash /home/condor/cps210/monitor.sh
+ 0.0   608  70140 - -      -  6586 condor   sshd: condor@pts/3
+ 0.0   608  70140 - -      -  6584 root     sshd: condor [priv]
+ 0.0   608  70140 - -      -  6088 condor   sshd: condor@pts/2
+ 0.0   608  70140 - -      -  6086 root     sshd: condor [priv]
+ 0.0   608  70140 - -      -  4485 root     sshd: condor [priv]
+ 0.0   608  14892 - -      -  7612 condor   ps -eo pcpu,size,vsize,cutime,cstime,utime,pid,user,args
+ 0.0   560  48940 - -      -  2053 root     /usr/sbin/sshd
+ 0.0   520  31380 - -      -  7601 root     /USR/SBIN/CRON
+ 0.0   520  31380 - -      -  7600 root     /USR/SBIN/CRON
+ 0.0   344  16732 - -      -   832 root     /sbin/udevd --daemon
+ 0.0   336   4104 - -      -     1 root     /sbin/init
+ 0.0   304   6488 - -      -  2011 root     dhclient3 -e IF_METRIC=100 -pf /var/run/dhclient.eth0.pid -lf /var/lib/dhcp3/dhclient.eth0.leases eth0
+ 0.0   292  14520 - -      -  1965 root     /usr/sbin/rpc.mountd --manage-gids
+ 0.0   288  18712 - -      -  4842 root     /usr/sbin/cron
+ 0.0   276   8204 - -      -  1878 root     /bin/dd bs 1 if /proc/kmsg of /var/run/klogd/kmsg
+ 0.0   276   8180 - -      -  1616 daemon   /sbin/portmap
+ 0.0   272  12376 - -      -  1860 syslog   /sbin/syslogd -u syslog
+ 0.0   272  10300 - -      -  1633 statd    /sbin/rpc.statd
+ 0.0   272   4024 - -      -  7618 root     /bin/sh -e /etc/update-motd.d//90-updates-available
+ 0.0   272   4024 - -      -  7605 root     /bin/sh -e /usr/sbin/update-motd
+ 0.0   272   4024 - -      -  7603 root     /bin/sh -c [ -x /usr/sbin/update-motd ] && /usr/sbin/update-motd 2>/dev/null
+ 0.0   272   4024 - -      -  7602 condor   /bin/sh -c /home/condor/cps210/monitor.sh
+ 0.0   272   4024 - -      -  5158 condor   /bin/sh /usr/bin/motd+shell
+ 0.0   272   3944 - -      -  2346 root     /sbin/getty 38400 tty1
+ 0.0   272   3944 - -      -  1822 root     /sbin/getty 38400 tty6
+ 0.0   272   3944 - -      -  1820 root     /sbin/getty 38400 tty3
+ 0.0   272   3944 - -      -  1818 root     /sbin/getty 38400 tty2
+ 0.0   272   3944 - -      -  1809 root     /sbin/getty 38400 tty5
+ 0.0   272   3944 - -      -  1808 root     /sbin/getty 38400 tty4
+ 0.0   268   6560 - -      -  7598 condor   condor_exec.exe -n mBackground -N mBackground77:1.0 -R waif -w /mnt/montage_waif_2011-04-17T03:56:46/condor/pegasus/montage/20110417T035646+0000 -L montage -T 2011-04-15T19:17:46+00:00 /opt/Montage_v3.3/bin/mBackground -t p2mass-atlas-990502s-j1420186.fits c2mass-atlas-990502s-j1420186.fits pimages_20110327_233551_6695.tbl corrections.tbl
+ 0.0   268   3940 - -      -  7586 root     /sbin/getty 38400 xvc0
+ 0.0   260   3976 - -      -  6613 condor   sar -o /home/condor/cps210/cpu 300 72
+ 0.0   260   3972 - -      -  6614 condor   sadc 300 73 -z -S ALL /home/condor/cps210/cpu
+ 0.0   212  16536 - -      -  7620 root     apt-config shell StateDir Dir::State
+ 0.0     0      0 - -      - 21525 root     [pdflush]
+ 0.0     0      0 - -      -  2821 root     [nfsiod]
+ 0.0     0      0 - -      -  1961 root     [nfsd]
+ 0.0     0      0 - -      -  1960 root     [nfsd]
+ 0.0     0      0 - -      -  1959 root     [nfsd]
+ 0.0     0      0 - -      -  1958 root     [nfsd]
+ 0.0     0      0 - -      -  1957 root     [nfsd]
+ 0.0     0      0 - -      -  1956 root     [nfsd]
+ 0.0     0      0 - -      -  1955 root     [nfsd]
+ 0.0     0      0 - -      -  1954 root     [nfsd]
+ 0.0     0      0 - -      -  1953 root     [nfsd4]
+ 0.0     0      0 - -      -  1952 root     [lockd]
+ 0.0     0      0 - -      -  1021 root     [vballoon]
+ 0.0     0      0 - -      -  1002 root     [kpsmoused]
+ 0.0     0      0 - -      -   739 root     [kjournald]
+ 0.0     0      0 - -      -   595 root     [scsi_eh_2]
+ 0.0     0      0 - -      -    47 root     [krfcommd]
+ 0.0     0      0 - -      -    46 root     [kondemand/1]
+ 0.0     0      0 - -      -    45 root     [kondemand/0]
+ 0.0     0      0 - -      -    44 root     [ksnapd]
+ 0.0     0      0 - -      -    43 root     [kmpath_handlerd]
+ 0.0     0      0 - -      -    42 root     [kmpathd/1]
+ 0.0     0      0 - -      -    41 root     [kmpathd/0]
+ 0.0     0      0 - -      -    40 root     [kstriped]
+ 0.0     0      0 - -      -    39 root     [scsi_eh_1]
+ 0.0     0      0 - -      -    38 root     [scsi_eh_0]
+ 0.0     0      0 - -      -    35 root     [ecryptfs-kthrea]
+ 0.0     0      0 - -      -    34 root     [aio/1]
+ 0.0     0      0 - -      -    33 root     [aio/0]
+ 0.0     0      0 - -      -    32 root     [kswapd0]
+ 0.0     0      0 - -      -    30 root     [pdflush]
+ 0.0     0      0 - -      -    29 root     [btdelconn]
+ 0.0     0      0 - -      -    28 root     [btaddconn]
+ 0.0     0      0 - -      -    27 root     [kmmcd]
+ 0.0     0      0 - -      -    26 root     [kseriod]
+ 0.0     0      0 - -      -    25 root     [khubd]
+ 0.0     0      0 - -      -    24 root     [ksuspend_usbd]
+ 0.0     0      0 - -      -    23 root     [ata_aux]
+ 0.0     0      0 - -      -    22 root     [ata/1]
+ 0.0     0      0 - -      -    21 root     [ata/0]
+ 0.0     0      0 - -      -    20 root     [cqueue]
+ 0.0     0      0 - -      -    19 root     [kacpi_notify]
+ 0.0     0      0 - -      -    18 root     [kacpid]
+ 0.0     0      0 - -      -    17 root     [kblockd/1]
+ 0.0     0      0 - -      -    16 root     [kblockd/0]
+ 0.0     0      0 - -      -    15 root     [kintegrityd/1]
+ 0.0     0      0 - -      -    14 root     [kintegrityd/0]
+ 0.0     0      0 - -      -    13 root     [kstop/1]
+ 0.0     0      0 - -      -    12 root     [kstop/0]
+ 0.0     0      0 - -      -    11 root     [khelper]
+ 0.0     0      0 - -      -    10 root     [events/1]
+ 0.0     0      0 - -      -     9 root     [events/0]
+ 0.0     0      0 - -      -     8 root     [watchdog/1]
+ 0.0     0      0 - -      -     7 root     [ksoftirqd/1]
+ 0.0     0      0 - -      -     6 root     [migration/1]
+ 0.0     0      0 - -      -     5 root     [watchdog/0]
+ 0.0     0      0 - -      -     4 root     [ksoftirqd/0]
+ 0.0     0      0 - -      -     3 root     [migration/0]
+ 0.0     0      0 - -      -     2 root     [kthreadd]
+
+=========Sun Apr 17 04:15:01 UTC 2011========
+%CPU    SZ    VSZ - -  UTIME   PID USER     COMMAND
+ 0.1  3828  26908 - -      -  5157 condor   /usr/bin/SCREEN.real -c /home/condor/.screen-profiles/profile
+ 0.1     0      0 - -      -  1921 root     [rpciod/1]
+ 0.1     0      0 - -      -  1920 root     [rpciod/0]
+ 0.0 31484  39440 - -      -  7745 condor   sort -k 1 -r
+ 0.0  4016  38096 - -      -  2439 condor   condor_startd -f
+ 0.0  2824   6504 - -      -  1880 klog     /sbin/klogd -P /var/run/klogd/kmsg
+ 0.0  2140  35612 - -      -  2438 condor   condor_master
+ 0.0  2100  22100 - -      -  1524 condor   condor_procd -A /tmp/condor-lock.host_60.191183934294717/procd_pipe.STARTD -S 60 -C 1000
+ 0.0  1084  18324 - -      -  5161 condor   /bin/bash
+ 0.0  1044  18284 - -      -  4488 condor   -bash
+ 0.0  1036  18276 - -      -  6587 condor   -bash
+ 0.0  1036  18276 - -      -  6089 condor   -bash
+ 0.0  1024  35176 - -      -  7733 condor   condor_starter -f -a slot1 master.localdomain
+ 0.0  1024  35176 - -      -  7732 condor   condor_starter -f -a slot2 master.localdomain
+ 0.0   756  70288 - -      -  4487 condor   sshd: condor@pts/0
+ 0.0   700   9520 - -      -  7740 condor   /bin/bash /home/condor/cps210/monitor.sh
+ 0.0   608  70140 - -      -  6586 condor   sshd: condor@pts/3
+ 0.0   608  70140 - -      -  6584 root     sshd: condor [priv]
+ 0.0   608  70140 - -      -  6088 condor   sshd: condor@pts/2
+ 0.0   608  70140 - -      -  6086 root     sshd: condor [priv]
+ 0.0   608  70140 - -      -  4485 root     sshd: condor [priv]
+ 0.0   608  14892 - -      -  7744 condor   ps -eo pcpu,size,vsize,cutime,cstime,utime,pid,user,args
+ 0.0   560  48940 - -      -  2053 root     /usr/sbin/sshd
+ 0.0   520  31380 - -      -  7737 root     /USR/SBIN/CRON
+ 0.0   344  16732 - -      -   832 root     /sbin/udevd --daemon
+ 0.0   336   4104 - -      -     1 root     /sbin/init
+ 0.0   304   6488 - -      -  2011 root     dhclient3 -e IF_METRIC=100 -pf /var/run/dhclient.eth0.pid -lf /var/lib/dhcp3/dhclient.eth0.leases eth0
+ 0.0   292  14520 - -      -  1965 root     /usr/sbin/rpc.mountd --manage-gids
+ 0.0   288  18712 - -      -  4842 root     /usr/sbin/cron
+ 0.0   276   8204 - -      -  1878 root     /bin/dd bs 1 if /proc/kmsg of /var/run/klogd/kmsg
+ 0.0   276   8180 - -      -  1616 daemon   /sbin/portmap
+ 0.0   272  12376 - -      -  1860 syslog   /sbin/syslogd -u syslog
+ 0.0   272  10300 - -      -  1633 statd    /sbin/rpc.statd
+ 0.0   272   4024 - -      -  7738 condor   /bin/sh -c /home/condor/cps210/monitor.sh
+ 0.0   272   4024 - -      -  5158 condor   /bin/sh /usr/bin/motd+shell
+ 0.0   272   3944 - -      -  2346 root     /sbin/getty 38400 tty1
+ 0.0   272   3944 - -      -  1822 root     /sbin/getty 38400 tty6
+ 0.0   272   3944 - -      -  1820 root     /sbin/getty 38400 tty3
+ 0.0   272   3944 - -      -  1818 root     /sbin/getty 38400 tty2
+ 0.0   272   3944 - -      -  1809 root     /sbin/getty 38400 tty5
+ 0.0   272   3944 - -      -  1808 root     /sbin/getty 38400 tty4
+ 0.0   268   3940 - -      -  7731 root     /sbin/getty 38400 xvc0
+ 0.0   260   3976 - -      -  6613 condor   sar -o /home/condor/cps210/cpu 300 72
+ 0.0   260   3972 - -      -  6614 condor   sadc 300 73 -z -S ALL /home/condor/cps210/cpu
+ 0.0     0      0 - -      - 21525 root     [pdflush]
+ 0.0     0      0 - -      -  2821 root     [nfsiod]
+ 0.0     0      0 - -      -  1961 root     [nfsd]
+ 0.0     0      0 - -      -  1960 root     [nfsd]
+ 0.0     0      0 - -      -  1959 root     [nfsd]
+ 0.0     0      0 - -      -  1958 root     [nfsd]
+ 0.0     0      0 - -      -  1957 root     [nfsd]
+ 0.0     0      0 - -      -  1956 root     [nfsd]
+ 0.0     0      0 - -      -  1955 root     [nfsd]
+ 0.0     0      0 - -      -  1954 root     [nfsd]
+ 0.0     0      0 - -      -  1953 root     [nfsd4]
+ 0.0     0      0 - -      -  1952 root     [lockd]
+ 0.0     0      0 - -      -  1021 root     [vballoon]
+ 0.0     0      0 - -      -  1002 root     [kpsmoused]
+ 0.0     0      0 - -      -   739 root     [kjournald]
+ 0.0     0      0 - -      -   595 root     [scsi_eh_2]
+ 0.0     0      0 - -      -    47 root     [krfcommd]
+ 0.0     0      0 - -      -    46 root     [kondemand/1]
+ 0.0     0      0 - -      -    45 root     [kondemand/0]
+ 0.0     0      0 - -      -    44 root     [ksnapd]
+ 0.0     0      0 - -      -    43 root     [kmpath_handlerd]
+ 0.0     0      0 - -      -    42 root     [kmpathd/1]
+ 0.0     0      0 - -      -    41 root     [kmpathd/0]
+ 0.0     0      0 - -      -    40 root     [kstriped]
+ 0.0     0      0 - -      -    39 root     [scsi_eh_1]
+ 0.0     0      0 - -      -    38 root     [scsi_eh_0]
+ 0.0     0      0 - -      -    35 root     [ecryptfs-kthrea]
+ 0.0     0      0 - -      -    34 root     [aio/1]
+ 0.0     0      0 - -      -    33 root     [aio/0]
+ 0.0     0      0 - -      -    32 root     [kswapd0]
+ 0.0     0      0 - -      -    30 root     [pdflush]
+ 0.0     0      0 - -      -    29 root     [btdelconn]
+ 0.0     0      0 - -      -    28 root     [btaddconn]
+ 0.0     0      0 - -      -    27 root     [kmmcd]
+ 0.0     0      0 - -      -    26 root     [kseriod]
+ 0.0     0      0 - -      -    25 root     [khubd]
+ 0.0     0      0 - -      -    24 root     [ksuspend_usbd]
+ 0.0     0      0 - -      -    23 root     [ata_aux]
+ 0.0     0      0 - -      -    22 root     [ata/1]
+ 0.0     0      0 - -      -    21 root     [ata/0]
+ 0.0     0      0 - -      -    20 root     [cqueue]
+ 0.0     0      0 - -      -    19 root     [kacpi_notify]
+ 0.0     0      0 - -      -    18 root     [kacpid]
+ 0.0     0      0 - -      -    17 root     [kblockd/1]
+ 0.0     0      0 - -      -    16 root     [kblockd/0]
+ 0.0     0      0 - -      -    15 root     [kintegrityd/1]
+ 0.0     0      0 - -      -    14 root     [kintegrityd/0]
+ 0.0     0      0 - -      -    13 root     [kstop/1]
+ 0.0     0      0 - -      -    12 root     [kstop/0]
+ 0.0     0      0 - -      -    11 root     [khelper]
+ 0.0     0      0 - -      -    10 root     [events/1]
+ 0.0     0      0 - -      -     9 root     [events/0]
+ 0.0     0      0 - -      -     8 root     [watchdog/1]
+ 0.0     0      0 - -      -     7 root     [ksoftirqd/1]
+ 0.0     0      0 - -      -     6 root     [migration/1]
+ 0.0     0      0 - -      -     5 root     [watchdog/0]
+ 0.0     0      0 - -      -     4 root     [ksoftirqd/0]
+ 0.0     0      0 - -      -     3 root     [migration/0]
+ 0.0     0      0 - -      -     2 root     [kthreadd]
+
+=========Sun Apr 17 04:20:01 UTC 2011========
+%CPU    SZ    VSZ - -  UTIME   PID USER     COMMAND
+ 0.1  3828  26908 - -      -  5157 condor   /usr/bin/SCREEN.real -c /home/condor/.screen-profiles/profile
+ 0.1     0      0 - -      -  1921 root     [rpciod/1]
+ 0.1     0      0 - -      -  1920 root     [rpciod/0]
+ 0.0 31484  39440 - -      -  8112 condor   sort -k 1 -r
+ 0.0  4016  38096 - -      -  2439 condor   condor_startd -f
+ 0.0  2824   6504 - -      -  1880 klog     /sbin/klogd -P /var/run/klogd/kmsg
+ 0.0  2140  35612 - -      -  2438 condor   condor_master
+ 0.0  2100  22100 - -      -  1524 condor   condor_procd -A /tmp/condor-lock.host_60.191183934294717/procd_pipe.STARTD -S 60 -C 1000
+ 0.0  1084  18324 - -      -  5161 condor   /bin/bash
+ 0.0  1044  18284 - -      -  4488 condor   -bash
+ 0.0  1036  18276 - -      -  6587 condor   -bash
+ 0.0  1036  18276 - -      -  6089 condor   -bash
+ 0.0   756  70288 - -      -  4487 condor   sshd: condor@pts/0
+ 0.0   700   9520 - -      -  8104 condor   /bin/bash /home/condor/cps210/monitor.sh
+ 0.0   608  70140 - -      -  6586 condor   sshd: condor@pts/3
+ 0.0   608  70140 - -      -  6584 root     sshd: condor [priv]
+ 0.0   608  70140 - -      -  6088 condor   sshd: condor@pts/2
+ 0.0   608  70140 - -      -  6086 root     sshd: condor [priv]
+ 0.0   608  70140 - -      -  4485 root     sshd: condor [priv]
+ 0.0   608  14892 - -      -  8111 condor   ps -eo pcpu,size,vsize,cutime,cstime,utime,pid,user,args
+ 0.0   560  48940 - -      -  2053 root     /usr/sbin/sshd
+ 0.0   520  31380 - -      -  8100 root     /USR/SBIN/CRON
+ 0.0   520  31380 - -      -  8099 root     /USR/SBIN/CRON
+ 0.0   344  16732 - -      -   832 root     /sbin/udevd --daemon
+ 0.0   336   4104 - -      -     1 root     /sbin/init
+ 0.0   304   6488 - -      -  2011 root     dhclient3 -e IF_METRIC=100 -pf /var/run/dhclient.eth0.pid -lf /var/lib/dhcp3/dhclient.eth0.leases eth0
+ 0.0   292  14520 - -      -  1965 root     /usr/sbin/rpc.mountd --manage-gids
+ 0.0   288  18712 - -      -  4842 root     /usr/sbin/cron
+ 0.0   276   8204 - -      -  1878 root     /bin/dd bs 1 if /proc/kmsg of /var/run/klogd/kmsg
+ 0.0   276   8180 - -      -  1616 daemon   /sbin/portmap
+ 0.0   272  12376 - -      -  1860 syslog   /sbin/syslogd -u syslog
+ 0.0   272  10300 - -      -  1633 statd    /sbin/rpc.statd
+ 0.0   272   4024 - -      -  8117 root     /bin/sh -e /etc/update-motd.d//90-updates-available
+ 0.0   272   4024 - -      -  8103 condor   /bin/sh -c /home/condor/cps210/monitor.sh
+ 0.0   272   4024 - -      -  8102 root     /bin/sh -e /usr/sbin/update-motd
+ 0.0   272   4024 - -      -  8101 root     /bin/sh -c [ -x /usr/sbin/update-motd ] && /usr/sbin/update-motd 2>/dev/null
+ 0.0   272   4024 - -      -  5158 condor   /bin/sh /usr/bin/motd+shell
+ 0.0   272   3944 - -      -  2346 root     /sbin/getty 38400 tty1
+ 0.0   272   3944 - -      -  1822 root     /sbin/getty 38400 tty6
+ 0.0   272   3944 - -      -  1820 root     /sbin/getty 38400 tty3
+ 0.0   272   3944 - -      -  1818 root     /sbin/getty 38400 tty2
+ 0.0   272   3944 - -      -  1809 root     /sbin/getty 38400 tty5
+ 0.0   272   3944 - -      -  1808 root     /sbin/getty 38400 tty4
+ 0.0   268   3940 - -      -  8088 root     /sbin/getty 38400 xvc0
+ 0.0   260   3976 - -      -  6613 condor   sar -o /home/condor/cps210/cpu 300 72
+ 0.0   260   3972 - -      -  6614 condor   sadc 300 73 -z -S ALL /home/condor/cps210/cpu
+ 0.0   212  16520 - -      -  8119 root     apt-config shell StateDir Dir::State
+ 0.0     0      0 - -      - 21525 root     [pdflush]
+ 0.0     0      0 - -      -  2821 root     [nfsiod]
+ 0.0     0      0 - -      -  1961 root     [nfsd]
+ 0.0     0      0 - -      -  1960 root     [nfsd]
+ 0.0     0      0 - -      -  1959 root     [nfsd]
+ 0.0     0      0 - -      -  1958 root     [nfsd]
+ 0.0     0      0 - -      -  1957 root     [nfsd]
+ 0.0     0      0 - -      -  1956 root     [nfsd]
+ 0.0     0      0 - -      -  1955 root     [nfsd]
+ 0.0     0      0 - -      -  1954 root     [nfsd]
+ 0.0     0      0 - -      -  1953 root     [nfsd4]
+ 0.0     0      0 - -      -  1952 root     [lockd]
+ 0.0     0      0 - -      -  1021 root     [vballoon]
+ 0.0     0      0 - -      -  1002 root     [kpsmoused]
+ 0.0     0      0 - -      -   739 root     [kjournald]
+ 0.0     0      0 - -      -   595 root     [scsi_eh_2]
+ 0.0     0      0 - -      -    47 root     [krfcommd]
+ 0.0     0      0 - -      -    46 root     [kondemand/1]
+ 0.0     0      0 - -      -    45 root     [kondemand/0]
+ 0.0     0      0 - -      -    44 root     [ksnapd]
+ 0.0     0      0 - -      -    43 root     [kmpath_handlerd]
+ 0.0     0      0 - -      -    42 root     [kmpathd/1]
+ 0.0     0      0 - -      -    41 root     [kmpathd/0]
+ 0.0     0      0 - -      -    40 root     [kstriped]
+ 0.0     0      0 - -      -    39 root     [scsi_eh_1]
+ 0.0     0      0 - -      -    38 root     [scsi_eh_0]
+ 0.0     0      0 - -      -    35 root     [ecryptfs-kthrea]
+ 0.0     0      0 - -      -    34 root     [aio/1]
+ 0.0     0      0 - -      -    33 root     [aio/0]
+ 0.0     0      0 - -      -    32 root     [kswapd0]
+ 0.0     0      0 - -      -    30 root     [pdflush]
+ 0.0     0      0 - -      -    29 root     [btdelconn]
+ 0.0     0      0 - -      -    28 root     [btaddconn]
+ 0.0     0      0 - -      -    27 root     [kmmcd]
+ 0.0     0      0 - -      -    26 root     [kseriod]
+ 0.0     0      0 - -      -    25 root     [khubd]
+ 0.0     0      0 - -      -    24 root     [ksuspend_usbd]
+ 0.0     0      0 - -      -    23 root     [ata_aux]
+ 0.0     0      0 - -      -    22 root     [ata/1]
+ 0.0     0      0 - -      -    21 root     [ata/0]
+ 0.0     0      0 - -      -    20 root     [cqueue]
+ 0.0     0      0 - -      -    19 root     [kacpi_notify]
+ 0.0     0      0 - -      -    18 root     [kacpid]
+ 0.0     0      0 - -      -    17 root     [kblockd/1]
+ 0.0     0      0 - -      -    16 root     [kblockd/0]
+ 0.0     0      0 - -      -    15 root     [kintegrityd/1]
+ 0.0     0      0 - -      -    14 root     [kintegrityd/0]
+ 0.0     0      0 - -      -    13 root     [kstop/1]
+ 0.0     0      0 - -      -    12 root     [kstop/0]
+ 0.0     0      0 - -      -    11 root     [khelper]
+ 0.0     0      0 - -      -    10 root     [events/1]
+ 0.0     0      0 - -      -     9 root     [events/0]
+ 0.0     0      0 - -      -     8 root     [watchdog/1]
+ 0.0     0      0 - -      -     7 root     [ksoftirqd/1]
+ 0.0     0      0 - -      -     6 root     [migration/1]
+ 0.0     0      0 - -      -     5 root     [watchdog/0]
+ 0.0     0      0 - -      -     4 root     [ksoftirqd/0]
+ 0.0     0      0 - -      -     3 root     [migration/0]
+ 0.0     0      0 - -      -     2 root     [kthreadd]
+
+=========Sun Apr 17 04:25:01 UTC 2011========
+11.0 14344  24068 - -      -  8446 condor   /opt/Montage_v3.3/bin/mBackground -t p2mass-atlas-990502s-j1320198.fits c2mass-atlas-990502s-j1320198.fits pimages_20110327_233551_6695.tbl corrections.tbl
+%CPU    SZ    VSZ - -  UTIME   PID USER     COMMAND
+ 5.0  1028  35180 - -      -  8443 condor   condor_starter -f -a slot2 master.localdomain
+ 1.0   268   6560 - -      -  8445 condor   condor_exec.exe -n mBackground -N mBackground75:1.0 -R waif -w /mnt/montage_waif_2011-04-17T04:12:17/condor/pegasus/montage/20110417T041218+0000 -L montage -T 2011-04-15T19:17:46+00:00 /opt/Montage_v3.3/bin/mBackground -t p2mass-atlas-990502s-j1320198.fits c2mass-atlas-990502s-j1320198.fits pimages_20110327_233551_6695.tbl corrections.tbl
+ 0.1  3828  26908 - -      -  5157 condor   /usr/bin/SCREEN.real -c /home/condor/.screen-profiles/profile
+ 0.1     0      0 - -      -  1921 root     [rpciod/1]
+ 0.1     0      0 - -      -  1920 root     [rpciod/0]
+ 0.0 31484  39440 - -      -  8456 condor   sort -k 1 -r
+ 0.0  4420  38500 - -      -  2439 condor   condor_startd -f
+ 0.0  2824   6504 - -      -  1880 klog     /sbin/klogd -P /var/run/klogd/kmsg
+ 0.0  2232  22232 - -      -  1524 condor   condor_procd -A /tmp/condor-lock.host_60.191183934294717/procd_pipe.STARTD -S 60 -C 1000
+ 0.0  2140  35612 - -      -  2438 condor   condor_master
+ 0.0  1084  18324 - -      -  5161 condor   /bin/bash
+ 0.0  1044  18284 - -      -  4488 condor   -bash
+ 0.0  1036  18276 - -      -  6587 condor   -bash
+ 0.0  1036  18276 - -      -  6089 condor   -bash
+ 0.0   756  70288 - -      -  4487 condor   sshd: condor@pts/0
+ 0.0   700   9520 - -      -  8451 condor   /bin/bash /home/condor/cps210/monitor.sh
+ 0.0   608  70140 - -      -  6586 condor   sshd: condor@pts/3
+ 0.0   608  70140 - -      -  6584 root     sshd: condor [priv]
+ 0.0   608  70140 - -      -  6088 condor   sshd: condor@pts/2
+ 0.0   608  70140 - -      -  6086 root     sshd: condor [priv]
+ 0.0   608  70140 - -      -  4485 root     sshd: condor [priv]
+ 0.0   608  14892 - -      -  8455 condor   ps -eo pcpu,size,vsize,cutime,cstime,utime,pid,user,args
+ 0.0   560  48940 - -      -  2053 root     /usr/sbin/sshd
+ 0.0   520  31380 - -      -  8448 root     /USR/SBIN/CRON
+ 0.0   344  16732 - -      -   832 root     /sbin/udevd --daemon
+ 0.0   336   4104 - -      -     1 root     /sbin/init
+ 0.0   304   6488 - -      -  2011 root     dhclient3 -e IF_METRIC=100 -pf /var/run/dhclient.eth0.pid -lf /var/lib/dhcp3/dhclient.eth0.leases eth0
+ 0.0   292  14520 - -      -  1965 root     /usr/sbin/rpc.mountd --manage-gids
+ 0.0   288  18712 - -      -  4842 root     /usr/sbin/cron
+ 0.0   276   8204 - -      -  1878 root     /bin/dd bs 1 if /proc/kmsg of /var/run/klogd/kmsg
+ 0.0   276   8180 - -      -  1616 daemon   /sbin/portmap
+ 0.0   272  12376 - -      -  1860 syslog   /sbin/syslogd -u syslog
+ 0.0   272  10300 - -      -  1633 statd    /sbin/rpc.statd
+ 0.0   272   4024 - -      -  8449 condor   /bin/sh -c /home/condor/cps210/monitor.sh
+ 0.0   272   4024 - -      -  5158 condor   /bin/sh /usr/bin/motd+shell
+ 0.0   272   3944 - -      -  2346 root     /sbin/getty 38400 tty1
+ 0.0   272   3944 - -      -  1822 root     /sbin/getty 38400 tty6
+ 0.0   272   3944 - -      -  1820 root     /sbin/getty 38400 tty3
+ 0.0   272   3944 - -      -  1818 root     /sbin/getty 38400 tty2
+ 0.0   272   3944 - -      -  1809 root     /sbin/getty 38400 tty5
+ 0.0   272   3944 - -      -  1808 root     /sbin/getty 38400 tty4
+ 0.0   268   3940 - -      -  8435 root     /sbin/getty 38400 xvc0
+ 0.0   260   3976 - -      -  6613 condor   sar -o /home/condor/cps210/cpu 300 72
+ 0.0   260   3972 - -      -  6614 condor   sadc 300 73 -z -S ALL /home/condor/cps210/cpu
+ 0.0     0      0 - -      - 21525 root     [pdflush]
+ 0.0     0      0 - -      -  2821 root     [nfsiod]
+ 0.0     0      0 - -      -  1961 root     [nfsd]
+ 0.0     0      0 - -      -  1960 root     [nfsd]
+ 0.0     0      0 - -      -  1959 root     [nfsd]
+ 0.0     0      0 - -      -  1958 root     [nfsd]
+ 0.0     0      0 - -      -  1957 root     [nfsd]
+ 0.0     0      0 - -      -  1956 root     [nfsd]
+ 0.0     0      0 - -      -  1955 root     [nfsd]
+ 0.0     0      0 - -      -  1954 root     [nfsd]
+ 0.0     0      0 - -      -  1953 root     [nfsd4]
+ 0.0     0      0 - -      -  1952 root     [lockd]
+ 0.0     0      0 - -      -  1021 root     [vballoon]
+ 0.0     0      0 - -      -  1002 root     [kpsmoused]
+ 0.0     0      0 - -      -   739 root     [kjournald]
+ 0.0     0      0 - -      -   595 root     [scsi_eh_2]
+ 0.0     0      0 - -      -    47 root     [krfcommd]
+ 0.0     0      0 - -      -    46 root     [kondemand/1]
+ 0.0     0      0 - -      -    45 root     [kondemand/0]
+ 0.0     0      0 - -      -    44 root     [ksnapd]
+ 0.0     0      0 - -      -    43 root     [kmpath_handlerd]
+ 0.0     0      0 - -      -    42 root     [kmpathd/1]
+ 0.0     0      0 - -      -    41 root     [kmpathd/0]
+ 0.0     0      0 - -      -    40 root     [kstriped]
+ 0.0     0      0 - -      -    39 root     [scsi_eh_1]
+ 0.0     0      0 - -      -    38 root     [scsi_eh_0]
+ 0.0     0      0 - -      -    35 root     [ecryptfs-kthrea]
+ 0.0     0      0 - -      -    34 root     [aio/1]
+ 0.0     0      0 - -      -    33 root     [aio/0]
+ 0.0     0      0 - -      -    32 root     [kswapd0]
+ 0.0     0      0 - -      -    30 root     [pdflush]
+ 0.0     0      0 - -      -    29 root     [btdelconn]
+ 0.0     0      0 - -      -    28 root     [btaddconn]
+ 0.0     0      0 - -      -    27 root     [kmmcd]
+ 0.0     0      0 - -      -    26 root     [kseriod]
+ 0.0     0      0 - -      -    25 root     [khubd]
+ 0.0     0      0 - -      -    24 root     [ksuspend_usbd]
+ 0.0     0      0 - -      -    23 root     [ata_aux]
+ 0.0     0      0 - -      -    22 root     [ata/1]
+ 0.0     0      0 - -      -    21 root     [ata/0]
+ 0.0     0      0 - -      -    20 root     [cqueue]
+ 0.0     0      0 - -      -    19 root     [kacpi_notify]
+ 0.0     0      0 - -      -    18 root     [kacpid]
+ 0.0     0      0 - -      -    17 root     [kblockd/1]
+ 0.0     0      0 - -      -    16 root     [kblockd/0]
+ 0.0     0      0 - -      -    15 root     [kintegrityd/1]
+ 0.0     0      0 - -      -    14 root     [kintegrityd/0]
+ 0.0     0      0 - -      -    13 root     [kstop/1]
+ 0.0     0      0 - -      -    12 root     [kstop/0]
+ 0.0     0      0 - -      -    11 root     [khelper]
+ 0.0     0      0 - -      -    10 root     [events/1]
+ 0.0     0      0 - -      -     9 root     [events/0]
+ 0.0     0      0 - -      -     8 root     [watchdog/1]
+ 0.0     0      0 - -      -     7 root     [ksoftirqd/1]
+ 0.0     0      0 - -      -     6 root     [migration/1]
+ 0.0     0      0 - -      -     5 root     [watchdog/0]
+ 0.0     0      0 - -      -     4 root     [ksoftirqd/0]
+ 0.0     0      0 - -      -     3 root     [migration/0]
+ 0.0     0      0 - -      -     2 root     [kthreadd]
+
+=========Sun Apr 17 04:30:01 UTC 2011========
+%CPU    SZ    VSZ - -  UTIME   PID USER     COMMAND
+ 0.1  3828  26908 - -      -  5157 condor   /usr/bin/SCREEN.real -c /home/condor/.screen-profiles/profile
+ 0.1     0      0 - -      -  1921 root     [rpciod/1]
+ 0.1     0      0 - -      -  1920 root     [rpciod/0]
+ 0.0  4420  38500 - -      -  2439 condor   condor_startd -f
+ 0.0  2824   6504 - -      -  1880 klog     /sbin/klogd -P /var/run/klogd/kmsg
+ 0.0  2232  22232 - -      -  1524 condor   condor_procd -A /tmp/condor-lock.host_60.191183934294717/procd_pipe.STARTD -S 60 -C 1000
+ 0.0  2140  35612 - -      -  2438 condor   condor_master
+ 0.0  1084  18324 - -      -  5161 condor   /bin/bash
+ 0.0  1044  18284 - -      -  4488 condor   -bash
+ 0.0  1036  18276 - -      -  6587 condor   -bash
+ 0.0  1036  18276 - -      -  6089 condor   -bash
+ 0.0   756  70288 - -      -  4487 condor   sshd: condor@pts/0
+ 0.0   700   9520 - -      -  8504 condor   /bin/bash /home/condor/cps210/monitor.sh
+ 0.0   608  70140 - -      -  6586 condor   sshd: condor@pts/3
+ 0.0   608  70140 - -      -  6584 root     sshd: condor [priv]
+ 0.0   608  70140 - -      -  6088 condor   sshd: condor@pts/2
+ 0.0   608  70140 - -      -  6086 root     sshd: condor [priv]
+ 0.0   608  70140 - -      -  4485 root     sshd: condor [priv]
+ 0.0   608  14892 - -      -  8515 condor   ps -eo pcpu,size,vsize,cutime,cstime,utime,pid,user,args
+ 0.0   560  48940 - -      -  2053 root     /usr/sbin/sshd
+ 0.0   520  31380 - -      -  8501 root     /USR/SBIN/CRON
+ 0.0   520  31380 - -      -  8500 root     /USR/SBIN/CRON
+ 0.0   344  16732 - -      -   832 root     /sbin/udevd --daemon
+ 0.0   344  16652 - -      -  8519 root     apt-config shell StateDir Dir::State
+ 0.0   336   4104 - -      -     1 root     /sbin/init
+ 0.0   304   6488 - -      -  2011 root     dhclient3 -e IF_METRIC=100 -pf /var/run/dhclient.eth0.pid -lf /var/lib/dhcp3/dhclient.eth0.leases eth0
+ 0.0   292  14520 - -      -  1965 root     /usr/sbin/rpc.mountd --manage-gids
+ 0.0   288  18712 - -      -  4842 root     /usr/sbin/cron
+ 0.0   276   8204 - -      -  1878 root     /bin/dd bs 1 if /proc/kmsg of /var/run/klogd/kmsg
+ 0.0   276   8180 - -      -  1616 daemon   /sbin/portmap
+ 0.0   272  12376 - -      -  1860 syslog   /sbin/syslogd -u syslog
+ 0.0   272  10300 - -      -  1633 statd    /sbin/rpc.statd
+ 0.0   272   4024 - -      -  8517 root     /bin/sh -e /etc/update-motd.d//90-updates-available
+ 0.0   272   4024 - -      -  8505 root     /bin/sh -e /usr/sbin/update-motd
+ 0.0   272   4024 - -      -  8503 root     /bin/sh -c [ -x /usr/sbin/update-motd ] && /usr/sbin/update-motd 2>/dev/null
+ 0.0   272   4024 - -      -  8502 condor   /bin/sh -c /home/condor/cps210/monitor.sh
+ 0.0   272   4024 - -      -  5158 condor   /bin/sh /usr/bin/motd+shell
+ 0.0   272   3944 - -      -  2346 root     /sbin/getty 38400 tty1
+ 0.0   272   3944 - -      -  1822 root     /sbin/getty 38400 tty6
+ 0.0   272   3944 - -      -  1820 root     /sbin/getty 38400 tty3
+ 0.0   272   3944 - -      -  1818 root     /sbin/getty 38400 tty2
+ 0.0   272   3944 - -      -  1809 root     /sbin/getty 38400 tty5
+ 0.0   272   3944 - -      -  1808 root     /sbin/getty 38400 tty4
+ 0.0   268   3940 - -      -  8499 root     /sbin/getty 38400 xvc0
+ 0.0   260   3976 - -      -  6613 condor   sar -o /home/condor/cps210/cpu 300 72
+ 0.0   260   3972 - -      -  6614 condor   sadc 300 73 -z -S ALL /home/condor/cps210/cpu
+ 0.0     0      0 - -      - 21525 root     [pdflush]
+ 0.0     0      0 - -      -  2821 root     [nfsiod]
+ 0.0     0      0 - -      -  1961 root     [nfsd]
+ 0.0     0      0 - -      -  1960 root     [nfsd]
+ 0.0     0      0 - -      -  1959 root     [nfsd]
+ 0.0     0      0 - -      -  1958 root     [nfsd]
+ 0.0     0      0 - -      -  1957 root     [nfsd]
+ 0.0     0      0 - -      -  1956 root     [nfsd]
+ 0.0     0      0 - -      -  1955 root     [nfsd]
+ 0.0     0      0 - -      -  1954 root     [nfsd]
+ 0.0     0      0 - -      -  1953 root     [nfsd4]
+ 0.0     0      0 - -      -  1952 root     [lockd]
+ 0.0     0      0 - -      -  1021 root     [vballoon]
+ 0.0     0      0 - -      -  1002 root     [kpsmoused]
+ 0.0     0      0 - -      -   739 root     [kjournald]
+ 0.0     0      0 - -      -   595 root     [scsi_eh_2]
+ 0.0     0      0 - -      -    47 root     [krfcommd]
+ 0.0     0      0 - -      -    46 root     [kondemand/1]
+ 0.0     0      0 - -      -    45 root     [kondemand/0]
+ 0.0     0      0 - -      -    44 root     [ksnapd]
+ 0.0     0      0 - -      -    43 root     [kmpath_handlerd]
+ 0.0     0      0 - -      -    42 root     [kmpathd/1]
+ 0.0     0      0 - -      -    41 root     [kmpathd/0]
+ 0.0     0      0 - -      -    40 root     [kstriped]
+ 0.0     0      0 - -      -    39 root     [scsi_eh_1]
+ 0.0     0      0 - -      -    38 root     [scsi_eh_0]
+ 0.0     0      0 - -      -    35 root     [ecryptfs-kthrea]
+ 0.0     0      0 - -      -    34 root     [aio/1]
+ 0.0     0      0 - -      -    33 root     [aio/0]
+ 0.0     0      0 - -      -    32 root     [kswapd0]
+ 0.0     0      0 - -      -    30 root     [pdflush]
+ 0.0     0      0 - -      -    29 root     [btdelconn]
+ 0.0     0      0 - -      -    28 root     [btaddconn]
+ 0.0     0      0 - -      -    27 root     [kmmcd]
+ 0.0     0      0 - -      -    26 root     [kseriod]
+ 0.0     0      0 - -      -    25 root     [khubd]
+ 0.0     0      0 - -      -    24 root     [ksuspend_usbd]
+ 0.0     0      0 - -      -    23 root     [ata_aux]
+ 0.0     0      0 - -      -    22 root     [ata/1]
+ 0.0     0      0 - -      -    21 root     [ata/0]
+ 0.0     0      0 - -      -    20 root     [cqueue]
+ 0.0     0      0 - -      -    19 root     [kacpi_notify]
+ 0.0     0      0 - -      -    18 root     [kacpid]
+ 0.0     0      0 - -      -    17 root     [kblockd/1]
+ 0.0     0      0 - -      -    16 root     [kblockd/0]
+ 0.0     0      0 - -      -    15 root     [kintegrityd/1]
+ 0.0     0      0 - -      -    14 root     [kintegrityd/0]
+ 0.0     0      0 - -      -    13 root     [kstop/1]
+ 0.0     0      0 - -      -    12 root     [kstop/0]
+ 0.0     0      0 - -      -    11 root     [khelper]
+ 0.0     0      0 - -      -    10 root     [events/1]
+ 0.0     0      0 - -      -     9 root     [events/0]
+ 0.0     0      0 - -      -     8 root     [watchdog/1]
+ 0.0     0      0 - -      -     7 root     [ksoftirqd/1]
+ 0.0     0      0 - -      -     6 root     [migration/1]
+ 0.0     0      0 - -      -     5 root     [watchdog/0]
+ 0.0     0      0 - -      -     4 root     [ksoftirqd/0]
+ 0.0     0      0 - -      -     3 root     [migration/0]
+ 0.0     0      0 - -      -     2 root     [kthreadd]
+
+=========Sun Apr 17 04:35:01 UTC 2011========
+%CPU    SZ    VSZ - -  UTIME   PID USER     COMMAND
+ 0.1  3828  26908 - -      -  5157 condor   /usr/bin/SCREEN.real -c /home/condor/.screen-profiles/profile
+ 0.1     0      0 - -      -  1921 root     [rpciod/1]
+ 0.1     0      0 - -      -  1920 root     [rpciod/0]
+ 0.0  4420  38500 - -      -  2439 condor   condor_startd -f
+ 0.0  2824   6504 - -      -  1880 klog     /sbin/klogd -P /var/run/klogd/kmsg
+ 0.0  2232  22232 - -      -  1524 condor   condor_procd -A /tmp/condor-lock.host_60.191183934294717/procd_pipe.STARTD -S 60 -C 1000
+ 0.0  2140  35612 - -      -  2438 condor   condor_master
+ 0.0  1084  18324 - -      -  5161 condor   /bin/bash
+ 0.0  1044  18284 - -      -  4488 condor   -bash
+ 0.0  1036  18276 - -      -  6587 condor   -bash
+ 0.0  1036  18276 - -      -  6089 condor   -bash
+ 0.0   756  70288 - -      -  4487 condor   sshd: condor@pts/0
+ 0.0   700   9520 - -      -  8594 condor   /bin/bash /home/condor/cps210/monitor.sh
+ 0.0   608  70140 - -      -  6586 condor   sshd: condor@pts/3
+ 0.0   608  70140 - -      -  6584 root     sshd: condor [priv]
+ 0.0   608  70140 - -      -  6088 condor   sshd: condor@pts/2
+ 0.0   608  70140 - -      -  6086 root     sshd: condor [priv]
+ 0.0   608  70140 - -      -  4485 root     sshd: condor [priv]
+ 0.0   608  14892 - -      -  8598 condor   ps -eo pcpu,size,vsize,cutime,cstime,utime,pid,user,args
+ 0.0   560  48940 - -      -  2053 root     /usr/sbin/sshd
+ 0.0   520  31380 - -      -  8591 root     /USR/SBIN/CRON
+ 0.0   344  16732 - -      -   832 root     /sbin/udevd --daemon
+ 0.0   336   4104 - -      -     1 root     /sbin/init
+ 0.0   304   6488 - -      -  2011 root     dhclient3 -e IF_METRIC=100 -pf /var/run/dhclient.eth0.pid -lf /var/lib/dhcp3/dhclient.eth0.leases eth0
+ 0.0   292  14520 - -      -  1965 root     /usr/sbin/rpc.mountd --manage-gids
+ 0.0   288  18712 - -      -  4842 root     /usr/sbin/cron
+ 0.0   276   8204 - -      -  1878 root     /bin/dd bs 1 if /proc/kmsg of /var/run/klogd/kmsg
+ 0.0   276   8180 - -      -  1616 daemon   /sbin/portmap
+ 0.0   272  12376 - -      -  1860 syslog   /sbin/syslogd -u syslog
+ 0.0   272  10300 - -      -  1633 statd    /sbin/rpc.statd
+ 0.0   272   4024 - -      -  8592 condor   /bin/sh -c /home/condor/cps210/monitor.sh
+ 0.0   272   4024 - -      -  5158 condor   /bin/sh /usr/bin/motd+shell
+ 0.0   272   3944 - -      -  2346 root     /sbin/getty 38400 tty1
+ 0.0   272   3944 - -      -  1822 root     /sbin/getty 38400 tty6
+ 0.0   272   3944 - -      -  1820 root     /sbin/getty 38400 tty3
+ 0.0   272   3944 - -      -  1818 root     /sbin/getty 38400 tty2
+ 0.0   272   3944 - -      -  1809 root     /sbin/getty 38400 tty5
+ 0.0   272   3944 - -      -  1808 root     /sbin/getty 38400 tty4
+ 0.0   268   3940 - -      -  8589 root     /sbin/getty 38400 xvc0
+ 0.0   260   3976 - -      -  6613 condor   sar -o /home/condor/cps210/cpu 300 72
+ 0.0   260   3972 - -      -  6614 condor   sadc 300 73 -z -S ALL /home/condor/cps210/cpu
+ 0.0     0      0 - -      - 21525 root     [pdflush]
+ 0.0     0      0 - -      -  2821 root     [nfsiod]
+ 0.0     0      0 - -      -  1961 root     [nfsd]
+ 0.0     0      0 - -      -  1960 root     [nfsd]
+ 0.0     0      0 - -      -  1959 root     [nfsd]
+ 0.0     0      0 - -      -  1958 root     [nfsd]
+ 0.0     0      0 - -      -  1957 root     [nfsd]
+ 0.0     0      0 - -      -  1956 root     [nfsd]
+ 0.0     0      0 - -      -  1955 root     [nfsd]
+ 0.0     0      0 - -      -  1954 root     [nfsd]
+ 0.0     0      0 - -      -  1953 root     [nfsd4]
+ 0.0     0      0 - -      -  1952 root     [lockd]
+ 0.0     0      0 - -      -  1021 root     [vballoon]
+ 0.0     0      0 - -      -  1002 root     [kpsmoused]
+ 0.0     0      0 - -      -   739 root     [kjournald]
+ 0.0     0      0 - -      -   595 root     [scsi_eh_2]
+ 0.0     0      0 - -      -    47 root     [krfcommd]
+ 0.0     0      0 - -      -    46 root     [kondemand/1]
+ 0.0     0      0 - -      -    45 root     [kondemand/0]
+ 0.0     0      0 - -      -    44 root     [ksnapd]
+ 0.0     0      0 - -      -    43 root     [kmpath_handlerd]
+ 0.0     0      0 - -      -    42 root     [kmpathd/1]
+ 0.0     0      0 - -      -    41 root     [kmpathd/0]
+ 0.0     0      0 - -      -    40 root     [kstriped]
+ 0.0     0      0 - -      -    39 root     [scsi_eh_1]
+ 0.0     0      0 - -      -    38 root     [scsi_eh_0]
+ 0.0     0      0 - -      -    35 root     [ecryptfs-kthrea]
+ 0.0     0      0 - -      -    34 root     [aio/1]
+ 0.0     0      0 - -      -    33 root     [aio/0]
+ 0.0     0      0 - -      -    32 root     [kswapd0]
+ 0.0     0      0 - -      -    30 root     [pdflush]
+ 0.0     0      0 - -      -    29 root     [btdelconn]
+ 0.0     0      0 - -      -    28 root     [btaddconn]
+ 0.0     0      0 - -      -    27 root     [kmmcd]
+ 0.0     0      0 - -      -    26 root     [kseriod]
+ 0.0     0      0 - -      -    25 root     [khubd]
+ 0.0     0      0 - -      -    24 root     [ksuspend_usbd]
+ 0.0     0      0 - -      -    23 root     [ata_aux]
+ 0.0     0      0 - -      -    22 root     [ata/1]
+ 0.0     0      0 - -      -    21 root     [ata/0]
+ 0.0     0      0 - -      -    20 root     [cqueue]
+ 0.0     0      0 - -      -    19 root     [kacpi_notify]
+ 0.0     0      0 - -      -    18 root     [kacpid]
+ 0.0     0      0 - -      -    17 root     [kblockd/1]
+ 0.0     0      0 - -      -    16 root     [kblockd/0]
+ 0.0     0      0 - -      -    15 root     [kintegrityd/1]
+ 0.0     0      0 - -      -    14 root     [kintegrityd/0]
+ 0.0     0      0 - -      -    13 root     [kstop/1]
+ 0.0     0      0 - -      -    12 root     [kstop/0]
+ 0.0     0      0 - -      -    11 root     [khelper]
+ 0.0     0      0 - -      -    10 root     [events/1]
+ 0.0     0      0 - -      -     9 root     [events/0]
+ 0.0     0      0 - -      -     8 root     [watchdog/1]
+ 0.0     0      0 - -      -     7 root     [ksoftirqd/1]
+ 0.0     0      0 - -      -     6 root     [migration/1]
+ 0.0     0      0 - -      -     5 root     [watchdog/0]
+ 0.0     0      0 - -      -     4 root     [ksoftirqd/0]
+ 0.0     0      0 - -      -     3 root     [migration/0]
+ 0.0     0      0 - -      -     2 root     [kthreadd]
