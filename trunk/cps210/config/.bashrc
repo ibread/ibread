@@ -31,10 +31,6 @@ xterm*)
     ;;
 esac
 
-# for ls colors
-export CLICOLOR=1
-export LSCOLORS=GxFxCxDxBxegedabagacad
-
 # Comment in the above and uncomment this below for a color prompt
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
@@ -59,7 +55,7 @@ fi
 # enable color support of ls and also add handy aliases
 if [ "$TERM" != "dumb" ]; then
     #eval "`dircolors -b $HOME/.lscolor`"
-    alias ls='ls -F'
+    alias ls='ls -F --color'
     #alias dir='ls --color=auto --format=vertical'
     #alias vdir='ls --color=auto --format=long'
 fi
@@ -122,10 +118,8 @@ if [ -f ~/.bash_funcs ]; then
     . ~/.bash_funcs
 fi
 
-# for fink
-source /sw/bin/init.sh
-
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 export SVN_EDITOR="vim"
+
 
