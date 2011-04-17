@@ -1,0 +1,56 @@
+
+=========Sun Apr 17 04:00:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        474         12          0         23        379
+-/+ buffers/cache:         71        415
+Swap:          841          2        839
+Total:        1328        477        851
+
+=========Sun Apr 17 04:05:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          6          0          1        408
+-/+ buffers/cache:         70        417
+Swap:          841          2        839
+Total:        1328        483        845
+
+=========Sun Apr 17 04:10:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        477          9          0          1        389
+-/+ buffers/cache:         86        401
+Swap:          841          2        839
+Total:        1328        479        849
+
+=========Sun Apr 17 04:15:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        473         13          0          1        403
+-/+ buffers/cache:         68        418
+Swap:          841          2        839
+Total:        1328        475        852
+
+=========Sun Apr 17 04:20:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          6          0          1        410
+-/+ buffers/cache:         68        418
+Swap:          841          2        839
+Total:        1328        483        845
+
+=========Sun Apr 17 04:25:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        469         17          0          1        399
+-/+ buffers/cache:         69        418
+Swap:          841          2        839
+Total:        1328        471        857
+
+=========Sun Apr 17 04:30:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        455         32          0          1        385
+-/+ buffers/cache:         68        419
+Swap:          841          2        839
+Total:        1328        457        871
+
+=========Sun Apr 17 04:35:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        456         31          0          2        386
+-/+ buffers/cache:         68        419
+Swap:          841          2        839
+Total:        1328        458        870
