@@ -93,7 +93,7 @@
 0.1: 09/06/20 First edition. 
 '''
 
-import urllib, os, sys, time
+import urllib, os, sys, time, urllib2
 from twitter.oauth_dance import oauth_dance
 from twitter.api import Twitter, TwitterHTTPError
 from twitter.oauth import OAuth, read_token_file
@@ -289,7 +289,7 @@ def update_subscribe(move, id, city):
             c.execute('select * from weather where id=? and city=?', (id, city))
             results = c.fetchall()
             if len(results) > 0:
-                print "[Error] Already in the database (%s, %s)" % (id, city)
+                print (u"[Error] Already in the database (%s, %s)" % (id, city)).encode('utf8')
                 c.close()
                 return
             c.execute('insert into weather values (?, ?)', (id, city))
@@ -318,11 +318,11 @@ def get_weather(citycode="101010100", city_name=u'北京', debug=True):
     rt_url = "http://www.weather.com.cn/data/sk/%s.html" % (citycode) # today's realtime
 
     try:
-        forecast = urllib.urlopen(fore_url).read()
-        realtime = urllib.urlopen(rt_url).read()
+        forecast = urllib2.urlopen(fore_url, timeout=20).read()
+        realtime = urllib2.urlopen(rt_url, timeout=20).read()
     except:
         print "Error retrieving weather information"
-        return None, None
+        return None, None, None
 
     #data = json.loads(urllib.urlopen(urlname).read())["weatherinfo"]
 
@@ -412,7 +412,7 @@ def get_weather(citycode="101010100", city_name=u'北京', debug=True):
     
     except KeyError as e:
         f.write(u"%s\n" % e)
-        return None, None
+        return None, None, None
 
     f.close()
 
@@ -454,14 +454,14 @@ def post_msg(tw, msg, reply_id=0):
     if reply_id != 0:
         try:
             tw.statuses.update(status=msg, in_reply_to_status_id=u'%d' % reply_id)
-        except TwitterHTTPError as e:
+        except Exception as e:
             print ("[Error] %s" % msg).encode('utf8')
             print "Details: ", e
             return 1
     else:
         try:
             tw.statuses.update(status=msg)
-        except TwitterHTTPError as e:
+        except Exception as e:
             print "[Error] %s" % msg.encode('utf8')
             print "Details: ", e
             return 1
@@ -542,7 +542,7 @@ def post_realtime(text, tw, target, mid, cd):
 
     report_today, report_future, report_zhishu = get_weather(citycode=code, city_name = hanzi)
     if report_today is None:
-        msg = u"很抱歉。获取%s天气信息失败，请稍后重试。"
+        msg = u"很抱歉。获取%s天气信息失败，请稍后重试。" % text
         return post_msg(tw, msg, mid)
 
     curtime = datetime.now(tz=GMT8())
@@ -552,14 +552,14 @@ def post_realtime(text, tw, target, mid, cd):
     post_msg(tw, u'@%s %s #tq #%s' % (target, report_future, pinyin), mid)
     post_msg(tw, u'@%s %s #tq #%s' % (target, report_today + " " + report_zhishu, pinyin), mid)
 
-def update(tweets="", debug=True):
+def update(tweets="", debug=False, force_push=False):
     
     tw = get_twitter()
     
     points = [800, 1800]
     report_today, report_future, report_zhishu = get_weather()
     if report_today is None:
-        return
+        pass
 
     cd = CityDict()
 
@@ -575,6 +575,7 @@ def update(tweets="", debug=True):
         
     count = 10 # check latest 10 mentions every time
     period = 0.5*60 # check mention every 0.5 minute
+    inter_user = 3 # the period between weather report tweet for the same city
     
     while True:
         curtime = datetime.now(tz=GMT8())
@@ -637,40 +638,12 @@ def update(tweets="", debug=True):
                     continue
                 
                 text = text.replace('@itianqi ', '').strip()
-                print (u"[Debug] %d %s says: %s" % (m['id'], target, text)).encode('utf8')
+                print (u"[Debug] %d %s says: *%s*" % (m['id'], target, text)).encode('utf8')
+
+                msg = ''
                 
-                # check if the text is only the city
-                # if there is no ValueError, which means it is a city
-                # then return the weather report information for that city
-                # else to continue to check other rules
-                city = text.strip()
-                try:
-                    cd.get_city(city)
-                    print (u"reply with city %s " % city).encode('utf8')
-                    post_realtime(city, tw, target, m['id'], cd)
-                    continue
-                except ValueError as e:
-                    if u"对应多个城市" in e[0]:
-                        post_msg(tw, u'@%s %s' % (target, e[0]), m['id'])
-                        continue
-                    pass
-
-                # check to see if it is a world city
-                # we do this by checking return value from worldweather
-                try:
-                    ww = worldweather(city)# , True)
-                    #print ww
-                except Exception as e:
-                    print e
-                if ww is not None:
-                    ww_today = u'@%s %s' % (target, ww[0])
-                    ww_future = u'@%s %s' % (target, ww[1])
-                    post_msg(tw, ww_future, m['id'])
-                    post_msg(tw, ww_today, m['id'])
-                    continue
-
                 if text.startswith(u'help') or text.startswith(u'帮助'):
-                    msg = u"@itianqi 直接输入城市获得实况天气信息。set 城市订阅天气预报，unset取消订阅。支持订阅多个城市以及城市拼音。nl 公历日期查询万年历。详情请查看http://goo.gl/Ffg47" 
+                    msg = u"@itianqi 直接输入城市获得天气实况, 支持世界所有城市。set 城市订阅天气预报，unset 城市取消订阅。支持订阅多个城市及城市拼音。nl 公历日期查询万年历。详情请查看http://goo.gl/Ffg47" 
                 # check if user want to get status of subscription
                 elif text.startswith('get'):
                     conn = sqlite3.connect(sub_file)
@@ -706,7 +679,7 @@ def update(tweets="", debug=True):
                         post_msg(tw, u'@%s %s' % (target, msg), m['id'])
                         continue
 
-                    print "city=", city.encode('utf8')
+                    print "set/unset city=", city.encode('utf8')
 
                     try:
                         city_pinyin, city_hanzi, city_code = cd.get_city(city)
@@ -788,9 +761,47 @@ def update(tweets="", debug=True):
                             else:
                                 post_msg(tw, error_msg, e.args[0])
                     continue
+
+                if len(msg) > 0:
+                    print ("@%s %s" % (target, msg)).encode('utf8')
+                    post_msg(tw, u'@%s %s' % (target, msg), m['id'])
+                    f.write("Reply to %s @%s" % (target, datetime.now()))
+                    continue
+
+                # check if the text is only the city
+                # if there is no ValueError, which means it is a city
+                # then return the weather report information for that city
+                # else to continue to check other rules
+                city = text.strip()
+                try:
+                    cd.get_city(city)
+                    print (u"reply with city %s " % city).encode('utf8')
+                    post_realtime(city, tw, target, m['id'], cd)
+                    continue
+                except ValueError as e:
+                    if u"对应多个城市" in e[0]:
+                        post_msg(tw, u'@%s %s' % (target, e[0]), m['id'])
+                        continue
+                    pass
+
+                # check to see if it is a world city
+                # we do this by checking return value from worldweather
+                try:
+                    ww = worldweather(city)# , True)
+                    print "worldweather", city
+                    print ww
+                except Exception as e:
+                    print e
+                if ww is not None:
+                    ww_today = u'@%s %s' % (target, ww[0])
+                    ww_future = u'@%s %s' % (target, ww[1])
+                    post_msg(tw, ww_future, m['id'])
+                    post_msg(tw, ww_today, m['id'])
+                    continue
+
                 
                 # Intelligent answers
-                elif text in answers.keys():
+                if text in answers.keys():
                     msg = answers[text]
                 elif text[:-1] in answers.keys():
                     msg = answers[text[:-1]]
@@ -816,11 +827,12 @@ def update(tweets="", debug=True):
             except IOError:
                 print "[Debug] Error updating last_id"
             
-        if hourmin in points:
+        if hourmin in points or force_push:
+            force_push = False
             # tweet weather report for beijing
             # post_msg(tw, report_future + "#tq #beijing")
             # post_msg(tw, report_today + "#tq #beijing")
-            print "Twitter %s" % "weather report"
+            print "Pushing weather report @ %s" % hourmin
             
             # Get all ids in subscription and mention them weather report 
             # 1. Get all cities which are in subscription
@@ -835,10 +847,13 @@ def update(tweets="", debug=True):
             # will be invoked when insert multiple record with the same primary key
             cities = c.fetchall()
             for city in cities:
+                print (u"city %s" % city).encode('utf8')
+                time.sleep(inter_user)
 
                 try:
                     city_pinyin, city_hanzi, city_code = cd.get_city(city[0])
-                except Exception:
+                except Exception as ex:
+                    print ex
                     print u"[Error] city %s in db is invalid" % city[0]
                     continue
 
@@ -853,12 +868,15 @@ def update(tweets="", debug=True):
                 
                 c.execute('''select id from weather where city=?''', (city_hanzi, ))
                 ids = c.fetchall()
+                print ids
+                continue
                 for id in ids:
                     print ("pushing report: @%s %s" % (id[0], city_hanzi)).encode('utf8')
                     if hourmin == points[0]: # morning
                         post_msg(tw, u'@%s %s #tq #%s' % (id[0], report_today + " " + report_zhishu, city_pinyin))
                     else: # afternoon
                         post_msg(tw, u'@%s %s #tq #%s' % (id[0], report_today + " " + report_future, city_pinyin))
+                    time.sleep(inter_user)
 
             c.close()
         
@@ -875,5 +893,4 @@ if __name__ == "__main__":
     if len(sys.argv)==1:
         update()
     else:
-        tw = get_twitter()
-        post_msg(tw, u'8°C | 6°C')
+        update(force_push=True)
