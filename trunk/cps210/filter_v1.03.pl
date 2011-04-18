@@ -61,6 +61,20 @@ while (my $line = <$fh_input>){
 		}elsif($line =~ /^(.+?) \s+ IP .+ \) \s+ (\S+) \s+ > \s+ (\S+) \: \s+ reply \s+ ok .+? (write) .+? \s+ ids \s+ (\d+) \/ (\d+) \s+ sz \s+ (\d+) .+ $/x){
 			@output_line =  ($1, $3, $2, $4, "na", $5, $6, $7, "na", 1, $1);
 		}
+	}elsif($line =~ /\s+create\s+/){
+		if( $line =~ /^(.+?) \s+ IP .+ \) \s+ (\S+) \s+ > \s+ (\S+) \: .+? (create) \s+ fh\[(.+)\] .* \" (.+) \" .* $/x){
+			@output_line =  ($1, $2, $3, $4, $5."\:"."$6", "na", "na", "na", "na", 1, $1);
+		}elsif($line =~ /^(.+?) \s+ IP .+ \) \s+ (\S+) \s+ > \s+ (\S+) \: \s+ reply \s+ ok .+?
+(create) .+? \s+ ids \s+ (\d+) \/ (\d+) \s+ sz \s+ (\d+) .+ $/x){
+			@output_line =  ($1, $3, $2, $4, "na", $5, $6, $7, "na", 1, $1);
+		}
+	}elsif($line =~ /\s+remove\s+/){
+		if( $line =~ /^(.+?) \s+ IP .+ \) \s+ (\S+) \s+ > \s+ (\S+) \: .+? (remove) \s+ fh\[(.+)\] .* \" (.+) \" .* $/x){
+			@output_line =  ($1, $2, $3, $4, $5."\:"."$6", "na", "na", "na", "na", 1, $1);
+		}elsif($line =~ /^(.+?) \s+ IP .+ \) \s+ (\S+) \s+ > \s+ (\S+) \: \s+ reply \s+ ok .+?
+(remove) .+? \s+ ids \s+ (\d+) \/ (\d+) \s+ sz \s+ (\d+) .+ $/x){
+			@output_line =  ($1, $3, $2, $4, "na", $5, $6, $7, "na", 1, $1);
+		}
 	}
 	if ($output_line[1] ne "na" && ($line =~ /\s+access\s+/ || $line =~ /\s+read\s+/ || $line =~ /\s+write\s+/)){
 		if (!exists( $comm_record{$output_line[1]."*".$output_line[2]."*".$output_line[3]}) ){#using client*serer*operation_type as hash key
