@@ -1,0 +1,1267 @@
+
+=========Sun Apr 17 05:25:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        482          5          0          0        101
+-/+ buffers/cache:        379        107
+Swap:         1321          2       1318
+Total:        1808        485       1323
+
+=========Sun Apr 17 05:30:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        479          7          0          1        396
+-/+ buffers/cache:         81        405
+Swap:         1321          2       1318
+Total:        1808        482       1326
+
+=========Sun Apr 17 05:35:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0          1        388
+-/+ buffers/cache:         91        396
+Swap:         1321          2       1318
+Total:        1808        483       1325
+
+=========Sun Apr 17 05:40:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        285        201          0          1        194
+-/+ buffers/cache:         90        397
+Swap:         1321          2       1318
+Total:        1808        288       1520
+
+=========Sun Apr 17 05:45:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        475         12          0          1        384
+-/+ buffers/cache:         89        397
+Swap:         1321          2       1318
+Total:        1808        478       1330
+
+=========Sun Apr 17 05:50:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        259        228          0          1        153
+-/+ buffers/cache:        104        383
+Swap:         1321          2       1318
+Total:        1808        262       1546
+
+=========Sun Apr 17 05:55:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        283        204          0          1        179
+-/+ buffers/cache:        102        385
+Swap:         1321          2       1318
+Total:        1808        286       1522
+
+=========Sun Apr 17 06:00:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        482          5          0          1        368
+-/+ buffers/cache:        112        375
+Swap:         1321          3       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 06:05:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0          1        391
+-/+ buffers/cache:         88        399
+Swap:         1321          3       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 06:10:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          5          0          1        379
+-/+ buffers/cache:        101        386
+Swap:         1321          3       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 06:15:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        482          5          0          1        372
+-/+ buffers/cache:        108        378
+Swap:         1321          3       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 06:20:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        482          5          0          1        392
+-/+ buffers/cache:         88        399
+Swap:         1321          3       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 06:25:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        482          5          0          1        381
+-/+ buffers/cache:         99        388
+Swap:         1321          3       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 06:30:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0          1        378
+-/+ buffers/cache:        101        385
+Swap:         1321          3       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 06:35:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          5          0          1        380
+-/+ buffers/cache:         99        387
+Swap:         1321          3       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 06:40:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        482          5          0          1        380
+-/+ buffers/cache:        100        386
+Swap:         1321          3       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 06:45:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          5          0          1        380
+-/+ buffers/cache:        100        387
+Swap:         1321          3       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 06:50:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        346        141          0          2        254
+-/+ buffers/cache:         89        398
+Swap:         1321          3       1317
+Total:        1808        349       1459
+
+=========Sun Apr 17 06:55:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          5          0          1        403
+-/+ buffers/cache:         76        411
+Swap:         1321          3       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 07:00:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          5          0          1        402
+-/+ buffers/cache:         78        409
+Swap:         1321          3       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 07:05:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0          1        404
+-/+ buffers/cache:         75        411
+Swap:         1321          3       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 07:10:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          5          0          1        403
+-/+ buffers/cache:         76        410
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 07:15:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        393         93          0          1        317
+-/+ buffers/cache:         75        412
+Swap:         1321          4       1317
+Total:        1808        398       1410
+
+=========Sun Apr 17 07:20:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          5          0          1        404
+-/+ buffers/cache:         76        411
+Swap:         1321          4       1317
+Total:        1808        485       1322
+
+=========Sun Apr 17 07:25:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        422         65          0          1        345
+-/+ buffers/cache:         75        411
+Swap:         1321          4       1317
+Total:        1808        426       1382
+
+=========Sun Apr 17 07:30:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        424         63          0          1        346
+-/+ buffers/cache:         76        410
+Swap:         1321          4       1317
+Total:        1808        428       1380
+
+=========Sun Apr 17 07:35:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0          1        403
+-/+ buffers/cache:         76        411
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 07:40:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0          1        402
+-/+ buffers/cache:         77        410
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 07:45:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0          1        404
+-/+ buffers/cache:         76        411
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 07:50:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          5          0          1        402
+-/+ buffers/cache:         78        409
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 07:55:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0          1        405
+-/+ buffers/cache:         75        412
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 08:00:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          5          0          1        403
+-/+ buffers/cache:         77        410
+Swap:         1321          4       1317
+Total:        1808        486       1322
+
+=========Sun Apr 17 08:05:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0          1        405
+-/+ buffers/cache:         75        412
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 08:10:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        482          5          0          0        404
+-/+ buffers/cache:         76        411
+Swap:         1321          4       1317
+Total:        1808        486       1322
+
+=========Sun Apr 17 08:15:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0          1        404
+-/+ buffers/cache:         75        412
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 08:20:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        482          5          0          1        405
+-/+ buffers/cache:         76        411
+Swap:         1321          4       1317
+Total:        1808        486       1322
+
+=========Sun Apr 17 08:25:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          5          0          1        405
+-/+ buffers/cache:         75        412
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 08:30:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0          1        409
+-/+ buffers/cache:         70        416
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 08:35:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0          2        408
+-/+ buffers/cache:         70        417
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 08:40:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0          2        407
+-/+ buffers/cache:         71        416
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 08:45:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        478          9          0          3        406
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        482       1326
+
+=========Sun Apr 17 08:50:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        479          8          0          3        406
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        483       1325
+
+=========Sun Apr 17 08:55:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        479          8          0          4        406
+-/+ buffers/cache:         67        419
+Swap:         1321          4       1317
+Total:        1808        483       1325
+
+=========Sun Apr 17 09:00:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          6          0          4        406
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 09:05:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0          5        406
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 09:10:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0          5        406
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 09:15:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0          6        405
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 09:20:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0          6        405
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 09:25:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0          7        405
+-/+ buffers/cache:         67        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 09:30:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          5          0          7        405
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        486       1322
+
+=========Sun Apr 17 09:35:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0          8        404
+-/+ buffers/cache:         67        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 09:40:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        482          5          0          8        404
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        486       1322
+
+=========Sun Apr 17 09:45:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0          9        403
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 09:50:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0          9        402
+-/+ buffers/cache:         69        418
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 09:55:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          6          0         10        402
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 10:00:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          5          0         10        401
+-/+ buffers/cache:         69        417
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 10:05:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         11        400
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 10:10:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0         11        400
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 10:15:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          6          0         12        400
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 10:20:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0         12        399
+-/+ buffers/cache:         69        418
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 10:25:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         13        399
+-/+ buffers/cache:         67        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 10:30:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        482          5          0         14        399
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        486       1322
+
+=========Sun Apr 17 10:35:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        479          7          0         14        397
+-/+ buffers/cache:         67        420
+Swap:         1321          4       1317
+Total:        1808        483       1324
+
+=========Sun Apr 17 10:40:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          6          0         14        397
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 10:45:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          6          0         15        397
+-/+ buffers/cache:         67        420
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 10:50:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        482          5          0         15        398
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        486       1322
+
+=========Sun Apr 17 10:55:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        479          7          0         16        396
+-/+ buffers/cache:         67        420
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 11:00:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          5          0         16        396
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 11:05:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          6          0         17        396
+-/+ buffers/cache:         67        420
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 11:10:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          5          0         17        395
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 11:15:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         18        394
+-/+ buffers/cache:         67        420
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 11:20:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          5          0         18        394
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 11:25:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         19        393
+-/+ buffers/cache:         67        420
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 11:30:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          5          0         19        393
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        486       1322
+
+=========Sun Apr 17 11:35:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         20        392
+-/+ buffers/cache:         67        420
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 11:40:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          5          0         20        392
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        485       1322
+
+=========Sun Apr 17 11:45:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         21        391
+-/+ buffers/cache:         67        420
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 11:50:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          5          0         22        391
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 11:55:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         22        390
+-/+ buffers/cache:         67        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 12:00:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        482          5          0         23        390
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        486       1322
+
+=========Sun Apr 17 12:05:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        479          7          0         23        388
+-/+ buffers/cache:         67        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 12:10:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          6          0         24        388
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 12:15:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          6          0         24        388
+-/+ buffers/cache:         67        420
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 12:20:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0         25        387
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 12:25:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0         25        387
+-/+ buffers/cache:         67        419
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 12:30:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0         26        386
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 12:35:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         26        385
+-/+ buffers/cache:         67        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 12:40:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0         26        385
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 12:45:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         27        385
+-/+ buffers/cache:         67        420
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 12:50:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          5          0         27        385
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        486       1322
+
+=========Sun Apr 17 12:55:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         28        384
+-/+ buffers/cache:         67        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 13:00:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          5          0         28        384
+-/+ buffers/cache:         69        418
+Swap:         1321          4       1317
+Total:        1808        486       1322
+
+=========Sun Apr 17 13:05:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         29        382
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 13:10:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0         29        382
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 13:15:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          6          0         30        382
+-/+ buffers/cache:         67        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 13:20:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          5          0         30        382
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        486       1322
+
+=========Sun Apr 17 13:25:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         30        381
+-/+ buffers/cache:         67        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 13:30:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0         31        381
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 13:35:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         31        380
+-/+ buffers/cache:         67        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 13:40:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          5          0         32        380
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 13:45:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         32        379
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 13:50:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          6          0         32        379
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 13:55:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          6          0         33        379
+-/+ buffers/cache:         67        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 14:00:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0         33        378
+-/+ buffers/cache:         69        417
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 14:05:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        479          7          0         34        378
+-/+ buffers/cache:         67        419
+Swap:         1321          4       1317
+Total:        1808        483       1325
+
+=========Sun Apr 17 14:10:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0         34        378
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 14:15:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0         34        378
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 14:20:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          5          0         35        378
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 14:25:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        479          8          0         35        375
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        483       1325
+
+=========Sun Apr 17 14:30:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         35        375
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 14:35:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         36        375
+-/+ buffers/cache:         67        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 14:40:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0         36        375
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 14:45:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0         36        375
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 14:50:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        482          5          0         37        376
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        486       1322
+
+=========Sun Apr 17 14:55:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         37        374
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 15:00:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          5          0         38        374
+-/+ buffers/cache:         69        418
+Swap:         1321          4       1317
+Total:        1808        485       1322
+
+=========Sun Apr 17 15:05:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        479          7          0         38        373
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        483       1324
+
+=========Sun Apr 17 15:10:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          6          0         38        373
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 15:15:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         39        373
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 15:20:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          5          0         39        373
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 15:25:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        479          7          0         39        371
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 15:30:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0         40        371
+-/+ buffers/cache:         69        418
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 15:35:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          6          0         40        371
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        484       1323
+
+=========Sun Apr 17 15:40:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        482          5          0         41        371
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        486       1322
+
+=========Sun Apr 17 15:45:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         41        370
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 15:50:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0         41        370
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 15:55:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          6          0         42        370
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        484       1323
+
+=========Sun Apr 17 16:00:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0         42        369
+-/+ buffers/cache:         69        418
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 16:05:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        479          7          0         42        368
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        483       1325
+
+=========Sun Apr 17 16:10:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          6          0         43        368
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 16:15:02 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         43        368
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 16:20:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          5          0         44        368
+-/+ buffers/cache:         69        418
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 16:25:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          6          0         44        367
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 16:30:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0         44        367
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 16:35:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         45        366
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 16:40:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0         45        366
+-/+ buffers/cache:         69        418
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 16:45:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         46        365
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 16:50:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0         46        365
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 16:55:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        479          7          0         46        364
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        483       1324
+
+=========Sun Apr 17 17:00:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          5          0         47        364
+-/+ buffers/cache:         69        417
+Swap:         1321          4       1317
+Total:        1808        486       1322
+
+=========Sun Apr 17 17:05:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        479          7          0         47        363
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        483       1325
+
+=========Sun Apr 17 17:10:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          6          0         48        363
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        484       1323
+
+=========Sun Apr 17 17:15:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         48        363
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 17:20:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          5          0         48        363
+-/+ buffers/cache:         69        418
+Swap:         1321          4       1317
+Total:        1808        485       1322
+
+=========Sun Apr 17 17:25:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         49        362
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 17:30:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0         49        362
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 17:35:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        479          7          0         49        361
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 17:40:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          6          0         50        361
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 17:45:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          6          0         50        361
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 17:50:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          6          0         50        360
+-/+ buffers/cache:         69        417
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 17:55:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         50        360
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 18:00:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0         51        360
+-/+ buffers/cache:         69        418
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 18:05:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        479          7          0         51        359
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        483       1325
+
+=========Sun Apr 17 18:10:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         51        359
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 18:15:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         52        359
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 18:20:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0         52        359
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 18:25:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         52        358
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 18:30:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0         53        358
+-/+ buffers/cache:         69        418
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 18:35:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        479          8          0         53        357
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        483       1325
+
+=========Sun Apr 17 18:40:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         53        357
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 18:45:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         53        357
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 18:50:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          6          0         54        357
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 18:55:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        479          7          0         54        357
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 19:00:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0         54        356
+-/+ buffers/cache:         70        417
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 19:05:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         54        356
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 19:10:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          6          0         55        356
+-/+ buffers/cache:         69        418
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 19:15:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          6          0         55        356
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 19:20:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          5          0         55        356
+-/+ buffers/cache:         69        418
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 19:25:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         56        355
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 19:30:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          6          0         56        355
+-/+ buffers/cache:         69        418
+Swap:         1321          4       1317
+Total:        1808        484       1323
+
+=========Sun Apr 17 19:35:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0         56        355
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 19:40:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          5          0         57        355
+-/+ buffers/cache:         69        418
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 19:45:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         57        354
+-/+ buffers/cache:         68        419
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 19:50:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0         57        354
+-/+ buffers/cache:         69        418
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 19:55:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         58        353
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 20:00:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0         58        353
+-/+ buffers/cache:         69        417
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 20:05:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          7          0         58        352
+-/+ buffers/cache:         68        418
+Swap:         1321          4       1317
+Total:        1808        484       1324
+
+=========Sun Apr 17 20:10:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        480          6          0         59        352
+-/+ buffers/cache:         69        418
+Swap:         1321          4       1317
+Total:        1808        484       1323
+
+=========Sun Apr 17 20:15:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0         59        352
+-/+ buffers/cache:         69        418
+Swap:         1321          4       1317
+Total:        1808        485       1323
+
+=========Sun Apr 17 20:20:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        482          5          0         59        352
+-/+ buffers/cache:         69        417
+Swap:         1321          4       1317
+Total:        1808        486       1322
+
+=========Sun Apr 17 20:25:01 UTC 2011========
+             total       used       free     shared    buffers     cached
+Mem:           487        481          6          0         60        350
+-/+ buffers/cache:         70        416
+Swap:         1321          4       1317
+Total:        1808        485       1323
