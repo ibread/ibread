@@ -76,7 +76,7 @@ while (my $line = <$fh_input>){
 			@output_line =  ($1, $3, $2, $4, "na", $5, $6, $7, "na", 1, $1);
 		}
 	}
-	if ($output_line[1] ne "na" && ($line =~ /\s+access\s+/ || $line =~ /\s+read\s+/ || $line =~ /\s+write\s+/)){
+	if ($output_line[1] ne "na" && ($line =~ /\s+access\s+/ || $line =~ /\s+read\s+/ || $line =~ /\s+write\s+/ || $line =~ /\s+create\s+/ || $line =~ /\s+remove\s+/ )){
 		if (!exists( $comm_record{$output_line[1]."*".$output_line[2]."*".$output_line[3]}) ){#using client*serer*operation_type as hash key
 			push @time_record, $output_line[10]."*".$output_line[1]."*".$output_line[2]."*".$output_line[3];		#time_end for determining print, client*server*operation_type for visiting hash
 			$comm_record{$output_line[1]."*".$output_line[2]."*".$output_line[3]} = [@time_record - 1, @output_line];
