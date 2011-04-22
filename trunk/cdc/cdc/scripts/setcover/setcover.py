@@ -14,13 +14,14 @@
 
 import os, sys
 import sets
+import fnmatch
 
 if len(sys.argv) < 2:
     print "Usage: %s DIR" % sys.argv[0]
     sys.exit(1)
 
 DIR = sys.argv[1]
-file_list = os.listdir(DIR)
+file_list = fnmatch.filter(os.listdir(DIR), "*.txt")
 
 vector_set = {}
 
